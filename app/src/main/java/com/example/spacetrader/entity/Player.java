@@ -15,6 +15,8 @@ public class Player implements Serializable {
 
     private int engineer;
 
+    private int totalPoints;
+
     private Ship ship;
 
     public Player(String name, int trader, int fighter, int pilot, int engineer) {
@@ -25,7 +27,18 @@ public class Player implements Serializable {
         this.engineer = engineer;
         credits = 1000;
         ship = Ship.GNAT;
+        totalPoints = 16;
     }
+
+
+    public int calculatePointsLeft() {
+        totalPoints -= trader;
+        totalPoints -= fighter;
+        totalPoints -= pilot;
+        totalPoints -= engineer;
+        return totalPoints;
+    }
+
 
     public String getName() {
         return name;
