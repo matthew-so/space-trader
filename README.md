@@ -1,2 +1,2 @@
 # space-trader
-CS 2340 Group 6 Spring 2019
+CS 2340 dis[] Spring 2019
