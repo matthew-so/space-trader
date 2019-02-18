@@ -15,10 +15,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-    public void sendMessage(View view) {
+    public void goToConfigurationScreen(View view) {
         Intent intent = new Intent(this, ConfigurationActivity.class);
         startActivity(intent);
     }
+
 
 
 }
