@@ -16,6 +16,6 @@ public class Game {
     }
 
     public Difficulty getDifficulty() {
-        return difficulty;
+        return this.difficulty;
     }
 }

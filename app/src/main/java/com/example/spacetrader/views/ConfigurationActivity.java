@@ -14,11 +14,11 @@ import com.example.spacetrader.model.Game;
 import org.w3c.dom.Text;
 
 public class ConfigurationActivity extends AppCompatActivity {
-    private static Button create_player;
-    private static SeekBar pilot_bar;
-    private static SeekBar engineer_bar;
-    private static SeekBar trader_bar;
-    private static SeekBar fighter_bar;
+    private  Button create_player;
+    private  SeekBar pilot_bar;
+    private  SeekBar engineer_bar;
+    private  SeekBar trader_bar;
+    private  SeekBar fighter_bar;
 
     private TextView pilotTextView;
     private TextView engineerTextView;
@@ -30,7 +30,7 @@ public class ConfigurationActivity extends AppCompatActivity {
 
     private Spinner level_spinner;
 
-    public Difficulty difficulty;
+
     public static Game newGame;
 
     @Override
@@ -45,7 +45,7 @@ public class ConfigurationActivity extends AppCompatActivity {
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         level_spinner.setAdapter(adapter);
-        difficulty = (Difficulty) level_spinner.getSelectedItem();
+
 
 
 
@@ -60,7 +60,7 @@ public class ConfigurationActivity extends AppCompatActivity {
 
 
 
-        /**
+         /**
          * Allocating skill points
          */
         pilotTextView = (TextView) findViewById(R.id.pilotTextView);
@@ -200,6 +200,7 @@ public class ConfigurationActivity extends AppCompatActivity {
             name_edit.setError("You must enter a name");
             return;
         }
+        Difficulty difficulty = (Difficulty) level_spinner.getSelectedItem();
         Intent intent = new Intent(this, PlayerIntroActivity.class);
         newGame = new Game(name.toString(),trader_bar.getProgress(), fighter_bar.getProgress(),
                 pilot_bar.getProgress(), engineer_bar.getProgress(), difficulty);

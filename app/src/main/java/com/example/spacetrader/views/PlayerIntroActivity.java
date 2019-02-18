@@ -40,7 +40,7 @@ public class PlayerIntroActivity extends AppCompatActivity {
         credits_TextView.setText("Credits: " + player.getCredits());
 
         difficulty_TextView = (TextView) findViewById(R.id.difficulty_TextView);
-        difficulty_TextView.setText("Difficulty: " + newGame.getDifficulty().toString());
+        difficulty_TextView.setText("Difficulty: " + newGame.getDifficulty());
 
         ship_TextView = (TextView) findViewById(R.id.ship_TextView);
         ship_TextView.setText("Ship Type: " + player.getShip());
