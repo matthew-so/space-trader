@@ -1,13 +1,17 @@
 package com.example.spacetrader.views;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 import com.example.spacetrader.R;
+import com.example.spacetrader.entity.Difficulty;
 import com.example.spacetrader.entity.Player;
 import com.example.spacetrader.model.Game;
 import com.example.spacetrader.views.ConfigurationActivity;
@@ -60,6 +64,15 @@ public class PlayerIntroActivity extends AppCompatActivity {
         fighter_TextView = (TextView) findViewById(R.id.fighter_TextView);
         fighter_TextView.setText("Fighter: " + player.getFighter());
 
+    }
+    /**
+     * Going to the next page -> Player Intro Activity
+     * This is where we will verify everything about the player has been saved and calculated correctly
+     * @param view
+     */
+    public void goToUniverseActivity(View view) {
+        Intent intent = new Intent(this, UniverseActivity.class);
+        startActivity(intent);
     }
 
 }
