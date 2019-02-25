@@ -14,7 +14,7 @@ public enum TechLevel implements Comparable<TechLevel> {
 
     TechLevel(String tech) { this.tech = tech; }
 
-    public String getTechLevel(){
+    public String getTech(){
         return this.tech;
     }
 }
