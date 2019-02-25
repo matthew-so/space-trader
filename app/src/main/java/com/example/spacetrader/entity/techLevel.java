@@ -16,7 +16,7 @@ public enum techLevel {
 
     }
 
-    public String getTechLevel(){
+    public String getTech(){
         return this.tech;
     }
 }
