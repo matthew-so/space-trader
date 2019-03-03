@@ -16,7 +16,17 @@ public class SolarSystem {
     private Map<Good, Integer> buyGood;
     private Map<Good, Integer> sellGood;
 
-    SolarSystem(String name, TechLevel techLev, Resource resourceType, int x, int y, List<String> planet){
+    public SolarSystem(String name, TechLevel techLev, Resource resourceType, int x, int y, Planet planet){
+        this.name = name;
+        this.techLev = techLev;
+        this.resourceType = resourceType;
+        this.xCoor = x;
+        this.yCoor = y;
+        this.planet = new ArrayList<Planet>();
+        this.planet.add(planet);
+    }
+
+    public SolarSystem(String name, List<String> planet, TechLevel techLev, Resource resourceType, int x, int y){
         this.name = name;
         this.techLev = techLev;
         this.resourceType = resourceType;
@@ -26,6 +36,16 @@ public class SolarSystem {
         for (String str: planet) {
             this.planet.add(new Planet(str));
         }
+    }
+
+    public SolarSystem(String name, TechLevel techLev, Resource resourceType, int x, int y, List<Planet> planet){
+        this.name = name;
+        this.techLev = techLev;
+        this.resourceType = resourceType;
+        this.xCoor = x;
+        this.yCoor = y;
+        this.planet = new ArrayList<Planet>();
+        this.planet.addAll(planet);
     }
 
     public int getxCoor() {
