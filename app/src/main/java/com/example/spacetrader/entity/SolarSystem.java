@@ -24,7 +24,7 @@ public class SolarSystem {
         this.yCoor = y;
         this.planet = new ArrayList<Planet>();
         for (String str: planet) {
-            this.planet.add(new Planet(str, techLev, resourceType));
+            this.planet.add(new Planet(str));
         }
     }
 
