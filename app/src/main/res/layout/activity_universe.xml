@@ -7,63 +7,70 @@
         android:layout_height="match_parent"
         tools:context=".views.UniverseActivity">
 
-    <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="386dp"
-            android:layout_height="586dp" android:layout_marginBottom="24dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:id="@+id/linearLayout"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="24dp">
-        <TextView
-                android:text="TextView"
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="76dp" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="1.0"
+            android:id="@+id/scrollView">
+        <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="65dp" android:id="@+id/SolarSystemView0" android:textSize="18sp"
-        />
-        <TextView
-                android:text="TextView"
-                android:layout_width="match_parent"
-                android:layout_height="65dp" android:id="@+id/SolarSystemView1" android:textSize="18sp"
-        />
-        <TextView
-                android:text="TextView"
-                android:layout_width="match_parent"
-                android:layout_height="65dp" android:id="@+id/SolarSystemView2" android:textSize="18sp"
-        />
-        <TextView
-                android:text="TextView"
-                android:layout_width="match_parent"
-                android:layout_height="65dp" android:id="@+id/SolarSystemView3" android:textSize="18sp"
-        />
-        <TextView
-                android:text="TextView"
-                android:layout_width="match_parent"
-                android:layout_height="65dp" android:id="@+id/SolarSystemView4" android:textSize="18sp"
-        />
-        <TextView
-                android:text="TextView"
-                android:layout_width="match_parent"
-                android:layout_height="65dp" android:id="@+id/SolarSystemView5" android:textSize="18sp"
-        />
-        <TextView
-                android:text="TextView"
-                android:layout_width="match_parent"
-                android:layout_height="65dp" android:id="@+id/SolarSystemView6" android:textSize="18sp"
-        />
-        <TextView
-                android:text="TextView"
-                android:layout_width="match_parent"
-                android:layout_height="65dp" android:id="@+id/SolarSystemView7" android:textSize="18sp"
-        />
-        <TextView
-                android:text="TextView"
-                android:layout_width="match_parent"
-                android:layout_height="65dp" android:id="@+id/SolarSystemView8" android:textSize="18sp"/>
-        <TextView
-                android:text="TextView"
-                android:layout_width="match_parent"
-                android:layout_height="65dp" android:id="@+id/SolarSystemView9" android:textSize="18sp"/>
-    </LinearLayout>
+                android:layout_height="wrap_content" android:layout_marginBottom="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/linearLayout"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="24dp">
+            <TextView
+                    android:text="TextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp" android:id="@+id/SolarSystemView0" android:textSize="18sp"
+            />
+            <TextView
+                    android:text="TextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp" android:id="@+id/SolarSystemView1" android:textSize="18sp"
+            />
+            <TextView
+                    android:text="TextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp" android:id="@+id/SolarSystemView2" android:textSize="18sp"
+            />
+            <TextView
+                    android:text="TextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp" android:id="@+id/SolarSystemView3" android:textSize="18sp"
+            />
+            <TextView
+                    android:text="TextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp" android:id="@+id/SolarSystemView4" android:textSize="18sp"
+            />
+            <TextView
+                    android:text="TextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp" android:id="@+id/SolarSystemView5" android:textSize="18sp"
+            />
+            <TextView
+                    android:text="TextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp" android:id="@+id/SolarSystemView6" android:textSize="18sp"
+            />
+            <TextView
+                    android:text="TextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp" android:id="@+id/SolarSystemView7" android:textSize="18sp"
+            />
+            <TextView
+                    android:text="TextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp" android:id="@+id/SolarSystemView8" android:textSize="18sp"/>
+            <TextView
+                    android:text="TextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp" android:id="@+id/SolarSystemView9" android:textSize="18sp"/>
+        </LinearLayout>
+    </ScrollView>
     <TextView
             android:text="Universe Generated"
             android:layout_width="wrap_content"
@@ -72,5 +79,5 @@
             android:layout_marginTop="24dp" app:layout_constraintTop_toTopOf="parent" android:layout_marginStart="24dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="24dp"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.676"
-            android:layout_marginBottom="24dp" app:layout_constraintBottom_toTopOf="@+id/linearLayout"/>
+            android:layout_marginBottom="24dp" app:layout_constraintBottom_toTopOf="@+id/scrollView"/>
 </android.support.constraint.ConstraintLayout>
