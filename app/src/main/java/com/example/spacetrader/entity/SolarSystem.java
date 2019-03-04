@@ -15,6 +15,7 @@ public class SolarSystem {
     private RandomSolarEvent solar;
     private Map<Good, Integer> buyGood;
     private Map<Good, Integer> sellGood;
+    private Map<Good, Integer> quantityBuy;
 
     public SolarSystem(String name, TechLevel techLev, Resource resourceType, int x, int y, Planet planet){
         this.name = name;
