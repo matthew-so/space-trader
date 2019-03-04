@@ -26,7 +26,7 @@ public class Player implements Serializable {
         this.pilot = pilot;
         this.engineer = engineer;
         credits = 1000;
-        ship = Ship.GNAT;
+        ship = new Ship(Ship.ShipType.GNAT);
         totalPoints = 16;
     }
 
@@ -64,7 +64,7 @@ public class Player implements Serializable {
         return engineer;
     }
 
-    public Ship getShip() {
+    public Ship getShipType() {
         return ship;
     }
 }
