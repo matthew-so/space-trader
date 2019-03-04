@@ -8,7 +8,6 @@ public class Universe {
     private ArrayList<SolarSystem> solarSystems;
 
 
-
     public Universe(String name, ArrayList<SolarSystem> solars) {
         this.name = name;
 
