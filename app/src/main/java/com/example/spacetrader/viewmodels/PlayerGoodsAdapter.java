@@ -1,0 +1,74 @@
+package com.example.spacetrader.viewmodels;
+
+import android.content.Context;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import com.example.spacetrader.entity.Good;
+import com.example.spacetrader.R;
+import java.util.List;
+
+public class PlayerGoodsAdapter extends
+        RecyclerView.Adapter<PlayerGoodsAdapter.ViewHolder> {
+
+    // Provide a direct reference to each of the views within a data item
+    // Used to cache the views within the item layout for fast access
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        // Your holder should contain a member variable
+        // for any view that will be set as you render a row
+        public TextView playerGoodTextview;
+        public Button sell_Button;
+
+        // We also create a constructor that accepts the entire item row
+        // and does the view lookups to find each subview
+        public ViewHolder(View itemView) {
+            // Stores the itemView in a public final member variable that can be used
+            // to access the context from any ViewHolder instance.
+            super(itemView);
+
+            playerGoodTextview = (TextView) itemView.findViewById(R.id.playerGoodTextview);
+            sell_Button = (Button) itemView.findViewById(R.id.sell_Button);
+        }
+    }
+    private List<Good> playerGoods;
+
+
+    // Pass in the contact array into the constructor
+    public PlayerGoodsAdapter(List<Good> goods) {
+        playerGoods = goods;
+    }
+
+    @Override
+    public PlayerGoodsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        Context context = parent.getContext();
+        LayoutInflater inflater = LayoutInflater.from(context);
+
+        // Inflate the custom layout
+        View contactView1 = inflater.inflate(R.layout.player_goods_layout, parent, false);
+
+        // Return a new holder instance
+        ViewHolder viewHolder = new PlayerGoodsAdapter.ViewHolder(contactView1);
+        return viewHolder;
+    }
+
+    @Override
+    public void onBindViewHolder(PlayerGoodsAdapter.ViewHolder viewHolder, int position) {
+        // Get the data model based on position
+        Good playerGood = playerGoods.get(position);
+
+        // Set item views based on your views and data model
+        TextView textView = viewHolder.playerGoodTextview;
+        textView.setText(playerGood.getName()+ " ["+ playerGood.getBase()+"]");
+        Button button = viewHolder.sell_Button;
+        button.setText("Sell");
+    }
+
+    // Returns the total count of items in the list
+    @Override
+    public int getItemCount() {
+        return playerGoods.size();
+    }
+}
