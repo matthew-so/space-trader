@@ -6,7 +6,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        tools:context=".views.PlayerIntroActivity">
+        tools:context=".views.PlayerIntroActivity"
+        android:background="@drawable/player_intro">
 
     <android.support.design.widget.AppBarLayout
             android:id="@+id/app_bar"
@@ -39,25 +40,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="44dp" android:id="@+id/credits_TextView" android:textSize="30sp"
-            android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/app_bar"/>
+            android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/app_bar"
+            android:fontFamily="sans-serif" android:textStyle="bold" android:textColor="@color/colorAccent"/>
     <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="44dp" android:id="@+id/difficulty_TextView" android:textSize="30sp"
-            android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/credits_TextView"/>
+            android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/credits_TextView"
+            android:fontFamily="sans-serif" android:textStyle="bold" android:textColor="@color/colorAccent"/>
     <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="44dp" android:id="@+id/ship_TextView" android:textSize="30sp"
-            android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/difficulty_TextView"/>
+            android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/difficulty_TextView"
+            android:fontFamily="sans-serif" android:textStyle="bold" android:textColor="@color/colorAccent"/>
     <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="43dp" android:id="@+id/points_TextView" android:textSize="30sp"
-            android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/ship_TextView"/>
+            android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/ship_TextView"
+            android:fontFamily="sans-serif" android:textStyle="bold" android:textColor="@color/colorAccent"/>
     <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
@@ -81,23 +86,24 @@
             android:id="@+id/fighter_TextView"
             android:textSize="30sp" tools:layout_editor_absoluteY="41dp"
             app:layout_constraintEnd_toStartOf="@+id/engineer_TextView" android:layout_marginEnd="24dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="24dp"/>
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="24dp"
+            app:layout_constraintHorizontal_bias="0.076"/>
     <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/engineer_TextView"
             android:textSize="30sp" tools:layout_editor_absoluteY="41dp" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="24dp"/>
+            android:layout_marginEnd="68dp"/>
     <Button
             android:text="Universe"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:id="@+id/toUniverseButton" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="24dp"
-            android:layout_marginTop="528dp" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="604dp" app:layout_constraintTop_toTopOf="parent"
             android:onClick="goToUniverseActivity" app:layout_constraintStart_toEndOf="@+id/marketButton"
-            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="0.188"/>
+            android:layout_marginStart="8dp" app:layout_constraintHorizontal_bias="1.0"/>
     <Button
             android:text="Market"
             android:layout_width="84dp"
@@ -105,8 +111,8 @@
             android:id="@+id/marketButton"
             android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/points_TextView"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.245"
-            android:layout_marginStart="216dp" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.57"
+            android:layout_marginStart="200dp" app:layout_constraintStart_toStartOf="parent"
             android:onClick="goToMarketActivity"/>
 
 
