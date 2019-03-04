@@ -141,4 +141,30 @@ public enum Good {
     public boolean canSell(TechLevel soltech) {
         return soltech.compareTo(mtlp) >= 0;
     }
+
+    public int getQuantity(TechLevel soltech, int size, Resource resource, RandomSolarEvent solar) {
+        int quantity = 9 + ((int) (5 * Math.random())) - Math.abs(ttp.compareTo(soltech)) * (1 + size);
+        if (name.equals("Robots") || name.equals("Narcotics")) {
+            quantity *= 5;
+            quantity /= 6;
+            quantity += 1;
+        }
+        if (resource.equals(cr)) {
+            quantity *= 4;
+            quantity /= 3;
+        }
+        if (resource.equals(er)) {
+            quantity *= 3;
+            quantity /= 4;
+        }
+        if (solar.equals(ie)) {
+            quantity /= 5;
+        }
+        quantity += (int) (10 * Math.random());
+        quantity -= (int) (10 * Math.random());
+        if (quantity < 0) {
+            quantity = 0;
+        }
+        return quantity;
+    }
 }

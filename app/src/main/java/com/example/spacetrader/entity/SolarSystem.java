@@ -16,6 +16,7 @@ public class SolarSystem {
     private Map<Good, Integer> buyGood;
     private Map<Good, Integer> sellGood;
     private Map<Good, Integer> quantityBuy;
+    private int startcountdown;
 
     public SolarSystem(String name, TechLevel techLev, Resource resourceType, int x, int y, Planet planet){
         this.name = name;
@@ -76,7 +77,9 @@ public class SolarSystem {
     public void onEnter(int traderskill) {
         buyGood = new HashMap<Good, Integer>();
         sellGood = new HashMap<Good, Integer>();
+        quantityBuy = new HashMap<Good, Integer>();
         int price;
+        int quantity;
         for (Good i: Good.values()) {
             price = i.getBasePrice(techLev);
             price *= (100 - planet.size()) / 100;
@@ -90,18 +93,29 @@ public class SolarSystem {
                 }
             }
         }
-
+        if (startcountdown == 0) {
+            for (Good i: Good.values()) {
+                quantityBuy.put(i, i.getQuantity(techLev, planet.size(), resourceType, solar));
+            }
+            startcountdown = Constants.COUNTDOWN;
+        } else {
+            startcountdown--;
+        }
     }
 
     public RandomSolarEvent getSolar() {
         return solar;
     }
 
-    public Map<Good, Integer> getBuyGood() {
-        return buyGood;
+    public Integer getBuyGoodPrice(Good good) {
+        return buyGood.getOrDefault(good, -1);
     }
 
-    public Map<Good, Integer> getSellGood() {
-        return sellGood;
+    public Integer getSellGoodPrice(Good good) {
+        return sellGood.getOrDefault(good, -1);
+    }
+
+    public Integer getSellGoodQuantity(Good good) {
+        return quantityBuy.getOrDefault(good, -1);
     }
 }
