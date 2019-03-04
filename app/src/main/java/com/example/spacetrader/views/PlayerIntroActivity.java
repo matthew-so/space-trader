@@ -75,4 +75,9 @@ public class PlayerIntroActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void goToMarketActivity(View view) {
+        Intent intent = new Intent(this, MarketplaceActivity.class);
+        startActivity(intent);
+    }
+
 }

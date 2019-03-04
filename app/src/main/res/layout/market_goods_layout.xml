@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:id="@+id/relativeLayout">
+
+    <TextView
+            android:id="@+id/contact_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"/>
+
+    <Button
+            android:id="@+id/buy_button"
+            android:layout_width="63dp"
+            android:layout_height="42dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:textSize="14sp"
+            android:text="Buy"
+            tools:layout_editor_absoluteY="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+    />
+    <TextView
+            android:text="TextView"
+            android:layout_width="77dp"
+            android:layout_height="38dp"
+            android:id="@+id/planetGoodTextView"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/buy_button" android:layout_marginEnd="8dp"
+            app:layout_constraintHorizontal_bias="1.0"/>
+</android.support.constraint.ConstraintLayout>
