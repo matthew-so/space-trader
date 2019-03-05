@@ -10,7 +10,7 @@ import android.widget.*;
 import com.example.spacetrader.R;
 import com.example.spacetrader.entity.Difficulty;
 import com.example.spacetrader.entity.Player;
-import com.example.spacetrader.model.Game;
+import com.example.spacetrader.model.GameSingleton;
 import org.w3c.dom.Text;
 
 public class ConfigurationActivity extends AppCompatActivity {
@@ -29,9 +29,6 @@ public class ConfigurationActivity extends AppCompatActivity {
     private EditText name_edit;
 
     private Spinner level_spinner;
-
-
-    public static Game newGame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -202,7 +199,7 @@ public class ConfigurationActivity extends AppCompatActivity {
         }
         Difficulty difficulty = (Difficulty) level_spinner.getSelectedItem();
         Intent intent = new Intent(this, PlayerIntroActivity.class);
-        newGame = new Game(name.toString(),trader_bar.getProgress(), fighter_bar.getProgress(),
+        GameSingleton.set(name.toString(),trader_bar.getProgress(), fighter_bar.getProgress(),
                 pilot_bar.getProgress(), engineer_bar.getProgress(), difficulty);
 
         startActivity(intent);

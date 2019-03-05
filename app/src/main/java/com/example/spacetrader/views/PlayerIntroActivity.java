@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.example.spacetrader.R;
 import com.example.spacetrader.entity.Difficulty;
 import com.example.spacetrader.entity.Player;
-import com.example.spacetrader.model.Game;
+import com.example.spacetrader.model.GameSingleton;
 
 public class PlayerIntroActivity extends AppCompatActivity {
 
@@ -22,11 +22,10 @@ public class PlayerIntroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_intro);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Hi " + ConfigurationActivity.newGame.player.getName() + "!");
+        toolbar.setTitle("Hi " + GameSingleton.getInstance().getPlayer().getName() + "!");
         setSupportActionBar(toolbar);
 
-        Game newGame = ConfigurationActivity.newGame;
-        Player player = newGame.player;
+        Player player = GameSingleton.getPlayer();
 
         TextView credits_TextView;
         TextView difficulty_TextView;
@@ -41,7 +40,7 @@ public class PlayerIntroActivity extends AppCompatActivity {
         credits_TextView.setText("Credits: " + player.getCredits());
 
         difficulty_TextView = (TextView) findViewById(R.id.difficulty_TextView);
-        difficulty_TextView.setText("Difficulty: " + newGame.getDifficulty());
+        difficulty_TextView.setText("Difficulty: " + GameSingleton.getDifficulty());
 
         ship_TextView = (TextView) findViewById(R.id.ship_TextView);
         ship_TextView.setText("Ship Type: " + player.getShipType());
@@ -62,7 +61,7 @@ public class PlayerIntroActivity extends AppCompatActivity {
         fighter_TextView.setText("Fighter: " + player.getFighter());
 
     }
-    /**
+    /**×
      * Going to the next page -> Player Intro Activity
      * This is where we will verify everything about the player has been saved and calculated correctly
      * @param view
