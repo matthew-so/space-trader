@@ -25,6 +25,7 @@ public enum Good {
     private Resource er; //high-price condition
     private int mtl; //min price offered in space trade
     private int mth; //max price offered in space trade
+    private int quantity;
 
     Good(String name, TechLevel mtlp, TechLevel mtlu, TechLevel ttp, int base, int ipl, int var, RandomSolarEvent ie, Resource cr, Resource er, int mtl, int mth) {
         this.name = name;
@@ -39,6 +40,7 @@ public enum Good {
         this.er = er;
         this.mtl = mtl;
         this.mth = mth;
+        quantity = 0;
     }
 
     public String toString() {
@@ -134,30 +136,40 @@ public enum Good {
     }
 
 
+    /**
+     * Used for onEnter method in SolarSystem.java
+     * @param soltech
+     * @return
+     */
     public boolean canBuy(TechLevel soltech) {
         return soltech.compareTo(mtlu) >= 0;
     }
 
+    /**
+     * Used for onEnter method in SolarSystem.java
+     * @param soltech
+     * @return
+     */
     public boolean canSell(TechLevel soltech) {
         return soltech.compareTo(mtlp) >= 0;
     }
 
-    public int getQuantity(TechLevel soltech, int size, Resource resource, RandomSolarEvent solar) {
+    public int calculateQuantity(TechLevel soltech, int size, Resource resource, RandomSolarEvent solar) {
         int quantity = 9 + ((int) (5 * Math.random())) - Math.abs(ttp.compareTo(soltech)) * (1 + size);
         if (name.equals("Robots") || name.equals("Narcotics")) {
             quantity *= 5;
             quantity /= 6;
             quantity += 1;
         }
-        if (resource.equals(cr)) {
+        if (resource != null && resource.equals(cr)) {
             quantity *= 4;
             quantity /= 3;
         }
-        if (resource.equals(er)) {
+        if (er != null &&resource.equals(er)) {
             quantity *= 3;
             quantity /= 4;
         }
-        if (solar.equals(ie)) {
+        if (ie != null && solar != null && solar.equals(ie)) {
             quantity /= 5;
         }
         quantity += (int) (10 * Math.random());
@@ -165,6 +177,14 @@ public enum Good {
         if (quantity < 0) {
             quantity = 0;
         }
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public int getQuantity() {
         return quantity;
     }
 }

@@ -18,6 +18,7 @@ public class SolarSystem {
     private Map<Good, Integer> buyGood;
     private Map<Good, Integer> sellGood;
     private Map<Good, Integer> quantityBuy;
+    private ArrayList<Good> goodsForSale;
     private int startcountdown;
 
     public SolarSystem(String name, TechLevel techLev, Resource resourceType, int x, int y, Planet planet){
@@ -76,12 +77,19 @@ public class SolarSystem {
         return name;
     }
 
+    /**
+     * when you enter a planet this method calculates the goods that the solarsystem
+     * can buy or sell
+     * @param traderskill the amount of skill points the player has for "trader"
+     */
     public void onEnter(int traderskill) {
-        buyGood = new HashMap<Good, Integer>();
-        sellGood = new HashMap<Good, Integer>();
-        quantityBuy = new HashMap<Good, Integer>();
+        /*maps that have goods as keys and prices as values*/
+        buyGood = new HashMap<>();
+        sellGood = new HashMap<>();
+        quantityBuy = new HashMap<>();
         int price;
         int quantity;
+        goodsForSale = new ArrayList<>();
         for (Good i: Good.values()) {
             price = i.getBasePrice(techLev);
             price *= (100 - planet.size()) / 100;
@@ -92,12 +100,16 @@ public class SolarSystem {
                 buyGood.put(i, price);
                 if (i.canSell(techLev)) {
                     sellGood.put(i, i.sellPrice(price, traderskill));
+                    goodsForSale.add(i);
                 }
             }
         }
+        /**
+         * Sets up the quantity that can be bought for each good from a planet/SS
+         */
         if (startcountdown == 0) {
             for (Good i: Good.values()) {
-                quantityBuy.put(i, i.getQuantity(techLev, planet.size(), resourceType, solar));
+                quantityBuy.put(i, i.calculateQuantity(techLev,planet.size(),resourceType,solar));
             }
             startcountdown = Constants.COUNTDOWN;
         } else {
@@ -109,6 +121,8 @@ public class SolarSystem {
         return solar;
     }
 
+
+    /** use these to set market price*/
     public Integer getBuyGoodPrice(Good good) {
         return buyGood.getOrDefault(good, -1);
     }
@@ -118,6 +132,30 @@ public class SolarSystem {
     }
 
     public Integer getSellGoodQuantity(Good good) {
-        return quantityBuy.getOrDefault(good, -1);
+        return quantityBuy.getOrDefault(good, good.getQuantity());
+    }
+
+    public Map<Good, Integer> getBuyGood() {
+        return buyGood;
+    }
+
+    public Map<Good, Integer> getQuantityBuy() {
+        return quantityBuy;
+    }
+
+    public Map<Good, Integer> getSellGood() {
+        return sellGood;
+    }
+
+    public int getStartcountdown() {
+        return startcountdown;
+    }
+
+    public ArrayList<Good> getGoodsForSale() {
+        return goodsForSale;
+    }
+
+    public void setQuantityBuy(Map<Good, Integer> quantityBuy) {
+        this.quantityBuy = quantityBuy;
     }
 }

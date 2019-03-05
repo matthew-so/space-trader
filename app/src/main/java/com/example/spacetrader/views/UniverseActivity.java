@@ -1,7 +1,9 @@
 package com.example.spacetrader.views;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import com.example.spacetrader.entity.*;
 import com.example.spacetrader.R;
@@ -40,8 +42,7 @@ public class UniverseActivity extends AppCompatActivity {
     private TextView SolarSystemView7;
     private TextView SolarSystemView8;
     private TextView SolarSystemView9;
-    private TextView SolarSystemView10;
-    private Universe universe;
+    public static Universe universe;
 
 
 
@@ -103,7 +104,7 @@ public class UniverseActivity extends AppCompatActivity {
         SolarSystem creamyWay = new SolarSystem("Creamy Way", TechLevel.SEVEN, Resource.NINE, 120, 100, Pluto);
         SolarSystem sourWay = new SolarSystem("Sour Way", TechLevel.ZERO, Resource.TWO, 100, 85, Ares);
         SolarSystem saltyWay = new SolarSystem("Salty Way", TechLevel.FIVE, Resource.TWELVE, 140, 65, twoPlanets);
-        SolarSystem theWay = new SolarSystem("The Way", TechLevel.FOUR, Resource.TEN, 150, 44, Vulcan);
+        SolarSystem datWay = new SolarSystem("The Way", TechLevel.FOUR, Resource.TEN, 150, 44, Vulcan);
 
 
 
@@ -124,7 +125,7 @@ public class UniverseActivity extends AppCompatActivity {
         solarSystemsList.add(saucyWay);
         solarSystemsList.add(creamyWay);
         solarSystemsList.add(sourWay);
-        solarSystemsList.add(theWay);
+        solarSystemsList.add(datWay);
 
         universe = new Universe("Georgia", solarSystemsList);
 
@@ -197,5 +198,9 @@ public class UniverseActivity extends AppCompatActivity {
                 solarSystemsList.get(9).getyCoor()+")");
 
 
+    }
+    public void goToPlayActivity(View view) {
+        Intent intent = new Intent(this, StartPlayActivity.class);
+        startActivity(intent);
     }
 }

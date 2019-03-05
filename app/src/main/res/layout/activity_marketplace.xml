@@ -40,6 +40,13 @@
             android:id="@+id/textView4" android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/playerGoodsRV" app:layout_constraintStart_toEndOf="@+id/textView3"
-            android:layout_marginStart="120dp" app:layout_constraintVertical_bias="0.0" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.083"/>
+            android:layout_marginStart="120dp" app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintEnd_toStartOf="@+id/credits_TextView" android:layout_marginEnd="8dp"/>
+    <TextView
+            android:layout_width="107dp"
+            android:layout_height="63dp"
+            android:id="@+id/credits_TextView" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/playerGoodsRV"
+            app:layout_constraintVertical_bias="0.222"/>
 </android.support.constraint.ConstraintLayout>

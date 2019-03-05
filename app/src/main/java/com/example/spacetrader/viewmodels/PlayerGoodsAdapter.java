@@ -9,6 +9,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.example.spacetrader.entity.Good;
 import com.example.spacetrader.R;
+import com.example.spacetrader.entity.SolarSystem;
+import com.example.spacetrader.model.Game;
+import com.example.spacetrader.views.ConfigurationActivity;
+import com.example.spacetrader.views.MarketplaceActivity;
+import com.example.spacetrader.views.StartPlayActivity;
+
 import java.util.List;
 
 public class PlayerGoodsAdapter extends
@@ -55,15 +61,31 @@ public class PlayerGoodsAdapter extends
     }
 
     @Override
-    public void onBindViewHolder(PlayerGoodsAdapter.ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(PlayerGoodsAdapter.ViewHolder viewHolder, final int position) {
         // Get the data model based on position
-        Good playerGood = playerGoods.get(position);
+        final Good playerGood = playerGoods.get(position);
 
         // Set item views based on your views and data model
         TextView textView = viewHolder.playerGoodTextview;
-        textView.setText(playerGood.getName()+ " ["+ playerGood.getBase()+"]");
+        SolarSystem curr = StartPlayActivity.game.getPlayer().getCurrentSolarSystem();
+        textView.setText(playerGood.getName()+ " [$"+ curr.getSellGoodPrice(playerGood)+"]");
         Button button = viewHolder.sell_Button;
         button.setText("Sell");
+        if (StartPlayActivity.player.canSell(playerGood)) {
+            button.setEnabled(true);
+        } else {
+            button.setEnabled(false);
+        }
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                ConfigurationActivity.newGame.getPlayer().sell(playerGoods.get(position));
+                MarketplaceActivity.credits_TextView.setText("$"+StartPlayActivity.player.getCredits() +"\n " +
+                        "Capacity: " + StartPlayActivity.player.getInventorySpace());
+            }
+        });
+
+
+
     }
 
     // Returns the total count of items in the list

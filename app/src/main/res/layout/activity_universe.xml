@@ -69,6 +69,11 @@
                     android:text="TextView"
                     android:layout_width="match_parent"
                     android:layout_height="65dp" android:id="@+id/SolarSystemView9" android:textSize="18sp"/>
+            <Button
+                    android:text="PLAY!"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/play_button"
+                    android:onClick="goToPlayActivity"/>
         </LinearLayout>
     </ScrollView>
     <TextView

@@ -21,4 +21,7 @@ public class Universe {
         return solarSystems.get(i);
     }
 
+    public String getName() {
+        return name;
+    }
 }

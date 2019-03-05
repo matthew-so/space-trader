@@ -12,6 +12,7 @@ import com.example.spacetrader.model.Game;
 
 public class PlayerIntroActivity extends AppCompatActivity {
 
+    public static Player player;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -19,11 +20,13 @@ public class PlayerIntroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_intro);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Hi " + ConfigurationActivity.newGame.player.getName() + "!");
+        player = ConfigurationActivity.newGame.getPlayer();
+        toolbar.setTitle("Hi " + player.getName() + "!");
         setSupportActionBar(toolbar);
 
         Game newGame = ConfigurationActivity.newGame;
         Player player = newGame.player;
+        player.setGame(newGame);
 
         TextView credits_TextView;
         TextView difficulty_TextView;
@@ -69,9 +72,7 @@ public class PlayerIntroActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void goToMarketActivity(View view) {
-        Intent intent = new Intent(this, MarketplaceActivity.class);
-        startActivity(intent);
-    }
+
+
 
 }
