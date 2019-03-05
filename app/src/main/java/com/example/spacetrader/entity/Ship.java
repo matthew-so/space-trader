@@ -84,4 +84,7 @@ public class Ship {
     public void travel(int travel) { //travel guaranteed to be possible
         fuel -= travel;
     }
+    public int getFuel() {
+        return fuel;
+    }
 }
