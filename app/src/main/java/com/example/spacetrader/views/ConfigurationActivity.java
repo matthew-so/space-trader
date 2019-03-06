@@ -10,6 +10,7 @@ import android.widget.*;
 import com.example.spacetrader.R;
 import com.example.spacetrader.entity.Difficulty;
 import com.example.spacetrader.entity.Player;
+import com.example.spacetrader.entity.SolarSystem;
 import com.example.spacetrader.model.Game;
 import org.w3c.dom.Text;
 
@@ -32,6 +33,8 @@ public class ConfigurationActivity extends AppCompatActivity {
 
 
     public static Game newGame;
+
+    public static Player player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -204,7 +207,8 @@ public class ConfigurationActivity extends AppCompatActivity {
         Intent intent = new Intent(this, PlayerIntroActivity.class);
         newGame = new Game(name.toString(),trader_bar.getProgress(), fighter_bar.getProgress(),
                 pilot_bar.getProgress(), engineer_bar.getProgress(), difficulty);
-
+        player = newGame.getPlayer();
         startActivity(intent);
     }
+    
 }

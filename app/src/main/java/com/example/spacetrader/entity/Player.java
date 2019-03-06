@@ -1,8 +1,20 @@
 package com.example.spacetrader.entity;
 
+import com.example.spacetrader.model.Game;
+import com.example.spacetrader.viewmodels.GoodsAdapter;
+import com.example.spacetrader.viewmodels.PlayerGoodsAdapter;
+import com.example.spacetrader.views.ConfigurationActivity;
+
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Player implements Serializable {
+
+    private Game game;
+
     private String name;
 
     private int credits;
@@ -19,6 +31,16 @@ public class Player implements Serializable {
 
     private Ship ship;
 
+    private SolarSystem currentSolarSystem;
+
+    private ArrayList<Good> playerGoods;
+
+    private int inventorySpace;
+
+    private Map<Good,Integer> howMuchPlayerCanBuy;
+
+    private Map<Good,Integer> whatPlayerCanSell;
+
     public Player(String name, int trader, int fighter, int pilot, int engineer) {
         this.name = name;
         this.trader = trader;
@@ -26,8 +48,12 @@ public class Player implements Serializable {
         this.pilot = pilot;
         this.engineer = engineer;
         credits = 1000;
-        ship = Ship.GNAT;
+        ship = new Ship(Ship.ShipType.GNAT);
+        inventorySpace = ship.getCargoCapacity();
         totalPoints = 16;
+        game = ConfigurationActivity.newGame;
+        playerGoods = new ArrayList<>();
+
     }
 
 
@@ -38,6 +64,75 @@ public class Player implements Serializable {
         totalPoints -= engineer;
         return totalPoints;
     }
+
+    /**
+     * The buttons on the marketplace are activated or deactivated based on this value
+     * determines whether or not the player can buy the good
+     * @param good the good the player wishes to buy
+     * @return true if the player can buy the good, false if not
+     */
+    public boolean canBuy(Good good) {
+        if (this.getCredits() <= 0
+                || inventorySpace == 0
+                || this.getCurrentSolarSystem().getBuyGoodPrice(good) > credits) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    /**
+     * The buttons on the marketplace are activated or deactivated based on this value
+     * checks if the player can sell a good
+     * @param good the good the player wants to sell
+     * @return true if the player can false if he or she cannot
+     */
+    public boolean canSell(Good good) {
+        if (!playerGoods.contains(good)){
+           return false;
+        } else {
+            return true;
+        }
+    }
+
+    /**
+     * the player buys a good
+     * @param good the good the player wishes to buy
+     */
+    public boolean buy(Good good) {
+        if (canBuy(good) == false) {
+            return false;
+        } else {
+            this.setCredits(this.credits -= good.getPrice());
+            if (!playerGoods.contains(good)) {
+                playerGoods.add(good);
+            }
+            this.inventorySpace--;
+            good.setQuantity(good.getQuantity() + 1);
+            return true;
+        }
+
+    }
+
+    /**
+     * player sells a good
+     * @param good
+     */
+    public boolean sell(Good good) {
+        if (!canSell(good) || good.getQuantity() == 0) {
+
+            return false;
+        } else {
+            this.setCredits(credits += good.getPrice());
+            this.inventorySpace++;
+            good.setQuantity(good.getQuantity() - 1);
+            return true;
+        }
+
+
+
+    }
+
 
 
     public String getName() {
@@ -64,7 +159,58 @@ public class Player implements Serializable {
         return engineer;
     }
 
-    public Ship getShip() {
+    public Ship getShipType() {
         return ship;
     }
+
+    public void setCredits(int credits) {
+        this.credits = credits;
+    }
+
+    public Game getGame() {return ConfigurationActivity.newGame; }
+
+    public SolarSystem getCurrentSolarSystem() {
+        return currentSolarSystem;
+    }
+
+    /**sets the current solar system of player*/
+    public void setCurrentSolarSystem(SolarSystem s) {
+        currentSolarSystem = s;
+        howMuchPlayerCanBuy = currentSolarSystem.getQuantityBuy();
+    }
+
+    /**
+     * Returns a filtered list of player goods.
+     * Goods must have valid prices.
+     * @return an ArrayList of Goods
+     */
+    public ArrayList<Good> getPlayerGoods() {
+        return playerGoods;
+
+    }
+
+
+
+    public void addToPlayerGoods(Good good) {
+        playerGoods.add(good);
+    }
+
+    /**This method is only called when the solar system is assigned to the Player**/
+    private void setHowMuchPlayerCanBuy() {
+        howMuchPlayerCanBuy = currentSolarSystem.getQuantityBuy();
+    }
+
+    private void setWhatPlayerCanSell() {
+        whatPlayerCanSell = currentSolarSystem.getBuyGood();
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    public int getInventorySpace() {
+        return inventorySpace;
+    }
+
 }
+

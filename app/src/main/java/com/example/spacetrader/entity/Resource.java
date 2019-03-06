@@ -1,6 +1,6 @@
 package com.example.spacetrader.entity;
 
-public enum Resources {
+public enum Resource {
     ZERO("No special resources"),
     ONE("Mineral rich"),
     TWO("Mineral poor"),
@@ -17,7 +17,7 @@ public enum Resources {
 
     private String resource;
 
-    Resources(String resourceType) { resource = resourceType; }
+    Resource(String resourceType) { resource = resourceType; }
 
     public String getResource(){
         return this.resource;

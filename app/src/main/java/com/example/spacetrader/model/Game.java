@@ -18,4 +18,5 @@ public class Game {
     public Difficulty getDifficulty() {
         return this.difficulty;
     }
+    public Player getPlayer() {return this.player;}
 }
