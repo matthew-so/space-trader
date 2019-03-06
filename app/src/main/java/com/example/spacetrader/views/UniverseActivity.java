@@ -203,6 +203,11 @@ public class UniverseActivity extends AppCompatActivity {
 
 
     }
+
+    /**
+     * The player will start playing the game
+     * @param view will be the new view to go to -- @code StartPlayActivity
+     */
     public void goToPlayActivity(View view) {
         Intent intent = new Intent(this, StartPlayActivity.class);
         startActivity(intent);
