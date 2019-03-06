@@ -26,6 +26,8 @@ public enum Good {
     private int mtl; //min price offered in space trade
     private int mth; //max price offered in space trade
     private int quantity;
+    private int price; //this is the price that was calculated on onEnter in Solarsystem
+
 
     Good(String name, TechLevel mtlp, TechLevel mtlu, TechLevel ttp, int base, int ipl, int var, RandomSolarEvent ie, Resource cr, Resource er, int mtl, int mth) {
         this.name = name;
@@ -97,6 +99,10 @@ public enum Good {
 
     public int getBasePrice(TechLevel planetech) {
         return base + ipl*planetech.compareTo(TechLevel.ZERO);
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public int specialResources(Resource resource, int baseprice) {
@@ -186,5 +192,9 @@ public enum Good {
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public int getPrice() {
+        return price;
     }
 }

@@ -34,6 +34,7 @@ public class ConfigurationActivity extends AppCompatActivity {
 
     public static Game newGame;
 
+    public static Player player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -206,7 +207,7 @@ public class ConfigurationActivity extends AppCompatActivity {
         Intent intent = new Intent(this, PlayerIntroActivity.class);
         newGame = new Game(name.toString(),trader_bar.getProgress(), fighter_bar.getProgress(),
                 pilot_bar.getProgress(), engineer_bar.getProgress(), difficulty);
-
+        player = newGame.getPlayer();
         startActivity(intent);
     }
     

@@ -11,6 +11,8 @@ import com.example.spacetrader.R;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+import static com.example.spacetrader.views.StartPlayActivity.player;
+
 
 public class UniverseActivity extends AppCompatActivity {
 
@@ -196,6 +198,8 @@ public class UniverseActivity extends AppCompatActivity {
                 + " Resource Level: " + solarSystemsList.get(9).getResourceType().getResource() + " Coordinates: " +
                 "("+solarSystemsList.get(9).getxCoor() + "," +
                 solarSystemsList.get(9).getyCoor()+")");
+
+
 
 
     }

@@ -21,10 +21,10 @@ import java.util.Set;
 
 public class MarketplaceActivity extends AppCompatActivity {
 
-    Map<Good,Integer> mapOfPlanetGoods;
-    ArrayList<Good> planetGoods;
-    Map<Good,Integer> mapOfPlayerGoods;
-    ArrayList<Good> playerGoods;
+    public static Map<Good,Integer> mapOfPlanetGoods;
+    public static ArrayList<Good> planetGoods;
+    public static Map<Good,Integer> mapOfSellableGoods;
+    public static ArrayList<Good> playerGoods;
 
 
     public Player player;
@@ -59,22 +59,20 @@ public class MarketplaceActivity extends AppCompatActivity {
         // Initialize goods for player and planet
 
         mapOfPlanetGoods = solarSystem.getBuyGood();
-        mapOfPlayerGoods = solarSystem.getSellGood();
+        mapOfSellableGoods = solarSystem.getSellGood();
         Set<Good> planetGoodsSet = mapOfPlanetGoods.keySet();
-        Set<Good> playerGoodsSet = mapOfPlayerGoods.keySet();
         planetGoods = new ArrayList<>();
-        playerGoods = new ArrayList<>();
+        playerGoods = player.getPlayerGoods();
 
-        for(Good g:playerGoodsSet) {
-            if (solarSystem.getBuyGoodPrice(g) > 0) {
-                playerGoods.add(g);
-                g.setQuantity(mapOfPlayerGoods.get(g));
+        for(Good g:playerGoods) {
+            if (solarSystem.getBuyGoodPrice(g) > 0 && g != null) {
+                g.setPrice(mapOfSellableGoods.get(g));
             }
         }
         for(Good g:planetGoodsSet) {
             if (solarSystem.getBuyGoodPrice(g) > 0) {
                 planetGoods.add(g);
-                g.setQuantity(mapOfPlanetGoods.get(g));
+                g.setPrice(mapOfPlanetGoods.get(g));
             }
         }
 

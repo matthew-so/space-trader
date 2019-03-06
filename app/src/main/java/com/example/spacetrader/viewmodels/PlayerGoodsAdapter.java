@@ -17,6 +17,8 @@ import com.example.spacetrader.views.StartPlayActivity;
 
 import java.util.List;
 
+import static com.example.spacetrader.views.StartPlayActivity.player;
+
 public class PlayerGoodsAdapter extends
         RecyclerView.Adapter<PlayerGoodsAdapter.ViewHolder> {
 
@@ -67,8 +69,8 @@ public class PlayerGoodsAdapter extends
         // Set item views based on your views and data model
         TextView textView = viewHolder.playerGoodTextview;
         SolarSystem curr = StartPlayActivity.game.getPlayer().getCurrentSolarSystem();
-        textView.setText(playerGood.getName()+ " [$"+ curr.getSellGoodPrice(playerGood)+"]");
-        Button button = viewHolder.sell_Button;
+        textView.setText(playerGood.getName()+ " [$"+ playerGood.getPrice()+"]");
+        final Button button = viewHolder.sell_Button;
         button.setText("Sell");
         if (StartPlayActivity.player.canSell(playerGood)) {
             button.setEnabled(true);
@@ -77,10 +79,18 @@ public class PlayerGoodsAdapter extends
         }
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                ConfigurationActivity.newGame.getPlayer().sell(playerGoods.get(position));
-                MarketplaceActivity.credits_TextView.setText("$"+StartPlayActivity.player.getCredits() +"\n " +
-                        "Capacity: " + StartPlayActivity.player.getInventorySpace());
-            }
+
+
+                if (player.sell(playerGoods.get(position))) {
+                    button.setEnabled(true);
+
+
+                } else {
+                    button.setEnabled(false);
+                }
+                MarketplaceActivity.credits_TextView.setText("$" + player.getCredits() + "\n" +
+                        "Capacity: " + player.getInventorySpace());
+        }
         });
     }
 

@@ -2,6 +2,7 @@ package com.example.spacetrader.viewmodels;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,8 @@ import com.example.spacetrader.views.StartPlayActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.spacetrader.views.StartPlayActivity.player;
 
 public class GoodsAdapter extends
         RecyclerView.Adapter<GoodsAdapter.ViewHolder> {
@@ -82,20 +85,28 @@ public class GoodsAdapter extends
         // Set item views based on your views and data model
         TextView textView = viewHolder.planetGoodTextView;
         SolarSystem curr = StartPlayActivity.game.getPlayer().getCurrentSolarSystem();
-        textView.setText(good.getName() + " [$" + curr.getBuyGoodPrice(good) + "]");
+        textView.setText(good.getName() + " [$" + good.getPrice() + "]");
         Button button = viewHolder.buy_button;
         button.setText("Buy");
 
+
+
+
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                StartPlayActivity.player.buy(planetGoods.get(position));
-                MarketplaceActivity.credits_TextView.setText("$" + StartPlayActivity.player.getCredits() + "\n" +
-                        "Capacity: " + StartPlayActivity.player.getInventorySpace());
-                if (StartPlayActivity.player.canBuy(good)) {
+
+
+
+                if (player.buy(planetGoods.get(position))) {
                     viewHolder.buy_button.setEnabled(true);
+
+
                 } else {
                     viewHolder.buy_button.setEnabled(false);
                 }
+
+                MarketplaceActivity.credits_TextView.setText("$" + player.getCredits() + "\n" +
+                        "Capacity: " + player.getInventorySpace());
 
             }
         });

@@ -25,8 +25,10 @@ public class StartPlayActivity extends AppCompatActivity {
 
         player = PlayerIntroActivity.player;
 
+
         Universe universe = UniverseActivity.universe;
         SolarSystem currentSolarSystem = universe.getSolarSystem(0);
+
         String solarSystemName = currentSolarSystem.getName();
         String planetName = currentSolarSystem.getPlanet().get(0).getName();
         player.setCurrentSolarSystem(currentSolarSystem);
