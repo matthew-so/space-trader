@@ -1,6 +1,7 @@
 package com.example.spacetrader.entity;
 
 import com.example.spacetrader.model.Game;
+import com.example.spacetrader.viewmodels.GoodsAdapter;
 import com.example.spacetrader.viewmodels.PlayerGoodsAdapter;
 import com.example.spacetrader.views.ConfigurationActivity;
 
@@ -119,6 +120,7 @@ public class Player implements Serializable {
      */
     public boolean sell(Good good) {
         if (!canSell(good) || good.getQuantity() == 0) {
+
             return false;
         } else {
             this.setCredits(credits += good.getPrice());

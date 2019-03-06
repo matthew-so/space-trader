@@ -6,6 +6,7 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,6 +16,7 @@ import com.example.spacetrader.entity.SolarSystem;
 import com.example.spacetrader.views.ConfigurationActivity;
 import com.example.spacetrader.views.MarketplaceActivity;
 import com.example.spacetrader.views.StartPlayActivity;
+import com.example.spacetrader.viewmodels.PlayerGoodsAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -97,16 +99,20 @@ public class GoodsAdapter extends
 
 
 
-                if (!planetGoods.isEmpty() && player.buy(planetGoods.get(position))) {
+                if (player.buy(planetGoods.get(position))) {
                     viewHolder.buy_button.setEnabled(true);
+                    /**
+                     *
+                     */
+                    MarketplaceActivity.playerAdapter
+                            .notifyItemRangeInserted(player.getPlayerGoods().size(), 1);
+                    MarketplaceActivity.playerAdapter.notifyItemChanged(player.getPlayerGoods().size());
+                    MarketplaceActivity.playerAdapter.notifyDataSetChanged();
 
 
                 } else {
                     viewHolder.buy_button.setEnabled(false);
-                    /*planetGoods.remove(position);
-                    notifyItemRemoved(position);
-                    notifyItemChanged(position);
-                    notifyDataSetChanged();*/
+
                 }
 
                 MarketplaceActivity.credits_TextView.setText("$" + player.getCredits() + "\n" +
@@ -122,4 +128,5 @@ public class GoodsAdapter extends
     public int getItemCount() {
         return planetGoods.size();
     }
+
 }

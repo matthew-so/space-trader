@@ -26,6 +26,8 @@ public class MarketplaceActivity extends AppCompatActivity {
     public static Map<Good,Integer> mapOfSellableGoods;
     public static ArrayList<Good> playerGoods;
 
+    public static GoodsAdapter adapter;
+    public static PlayerGoodsAdapter playerAdapter;
 
     public Player player;
     public SolarSystem solarSystem;
@@ -65,7 +67,8 @@ public class MarketplaceActivity extends AppCompatActivity {
         playerGoods = player.getPlayerGoods();
 
         for(Good g:playerGoods) {
-            if (solarSystem.getBuyGoodPrice(g) > 0 && !playerGoods.isEmpty()) {
+            if (!mapOfSellableGoods.isEmpty()
+                    &&solarSystem.getBuyGoodPrice(g) > 0 && !playerGoods.isEmpty()) {
                 g.setPrice(mapOfSellableGoods.get(g));
             }
         }
@@ -86,8 +89,8 @@ public class MarketplaceActivity extends AppCompatActivity {
 
 
         // Create adapter passing in the sample user data
-        GoodsAdapter adapter = new GoodsAdapter(planetGoods);
-        PlayerGoodsAdapter playerAdapter = new PlayerGoodsAdapter(playerGoods);
+        adapter = new GoodsAdapter(planetGoods);
+        playerAdapter = new PlayerGoodsAdapter(playerGoods);
 
 
 

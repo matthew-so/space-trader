@@ -101,4 +101,6 @@ public class PlayerGoodsAdapter extends
     public int getItemCount() {
         return playerGoods.size();
     }
+
+
 }
