@@ -124,14 +124,6 @@ public class Player implements Serializable {
             this.setCredits(credits += good.getPrice());
             this.inventorySpace++;
             good.setQuantity(good.getQuantity() - 1);
-            if (howMuchPlayerCanBuy == null) {
-                howMuchPlayerCanBuy = currentSolarSystem.getQuantityBuy();
-            }
-            howMuchPlayerCanBuy.put(good, howMuchPlayerCanBuy.getOrDefault(good, 0) + 1);
-            whatPlayerCanSell.put(good,whatPlayerCanSell.getOrDefault(good,0) - 1);
-            if (whatPlayerCanSell.get(good) == 0) {
-                this.playerGoods.remove(good);
-            }
             return true;
         }
 

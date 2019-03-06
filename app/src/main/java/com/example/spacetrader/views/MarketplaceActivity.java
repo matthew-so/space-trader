@@ -65,7 +65,7 @@ public class MarketplaceActivity extends AppCompatActivity {
         playerGoods = player.getPlayerGoods();
 
         for(Good g:playerGoods) {
-            if (solarSystem.getBuyGoodPrice(g) > 0 && g != null) {
+            if (solarSystem.getBuyGoodPrice(g) > 0 && !playerGoods.isEmpty()) {
                 g.setPrice(mapOfSellableGoods.get(g));
             }
         }

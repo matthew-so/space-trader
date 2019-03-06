@@ -62,7 +62,7 @@ public class PlayerGoodsAdapter extends
     }
 
     @Override
-    public void onBindViewHolder(PlayerGoodsAdapter.ViewHolder viewHolder, final int position) {
+    public void onBindViewHolder(final PlayerGoodsAdapter.ViewHolder viewHolder, final int position) {
         // Get the data model based on position
         final Good playerGood = playerGoods.get(position);
 
@@ -79,18 +79,20 @@ public class PlayerGoodsAdapter extends
         }
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-
-                if (player.sell(playerGoods.get(position))) {
+                if (!playerGoods.isEmpty() && player.sell(playerGoods.get(position))) {
                     button.setEnabled(true);
-
-
                 } else {
                     button.setEnabled(false);
+                    playerGoods.remove(position);
+                    notifyItemRemoved(position);
+                    notifyItemChanged(position);
+                    notifyDataSetChanged();
                 }
                 MarketplaceActivity.credits_TextView.setText("$" + player.getCredits() + "\n" +
                         "Capacity: " + player.getInventorySpace());
+
         }
+
         });
     }
 

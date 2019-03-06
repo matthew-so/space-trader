@@ -97,12 +97,16 @@ public class GoodsAdapter extends
 
 
 
-                if (player.buy(planetGoods.get(position))) {
+                if (!planetGoods.isEmpty() && player.buy(planetGoods.get(position))) {
                     viewHolder.buy_button.setEnabled(true);
 
 
                 } else {
                     viewHolder.buy_button.setEnabled(false);
+                    /*planetGoods.remove(position);
+                    notifyItemRemoved(position);
+                    notifyItemChanged(position);
+                    notifyDataSetChanged();*/
                 }
 
                 MarketplaceActivity.credits_TextView.setText("$" + player.getCredits() + "\n" +
