@@ -27,7 +27,7 @@ public class SolarSystem {
         this.resourceType = resourceType;
         this.xCoor = x;
         this.yCoor = y;
-        this.planet = new ArrayList<Planet>();
+        this.planet = new ArrayList<>();
         this.planet.add(planet);
     }
 
@@ -37,7 +37,7 @@ public class SolarSystem {
         this.resourceType = resourceType;
         this.xCoor = x;
         this.yCoor = y;
-        this.planet = new ArrayList<Planet>();
+        this.planet = new ArrayList<>();
         for (String str: planet) {
             this.planet.add(new Planet(str));
         }
@@ -49,7 +49,7 @@ public class SolarSystem {
         this.resourceType = resourceType;
         this.xCoor = x;
         this.yCoor = y;
-        this.planet = new ArrayList<Planet>();
+        this.planet = new ArrayList<>();
         this.planet.addAll(planet);
     }
 
@@ -100,7 +100,10 @@ public class SolarSystem {
                 buyGood.put(i, price);
                 if (i.canSell(techLev)) {
                     sellGood.put(i, i.sellPrice(price, traderskill));
-                    goodsForSale.add(i);
+                    if (this.getBuyGoodPrice(i) > 0) {
+                        goodsForSale.add(i);
+                    }
+
                 }
             }
         }

@@ -13,7 +13,7 @@ public class StartPlayActivity extends AppCompatActivity {
 
     public static final Game game = ConfigurationActivity.newGame;
     public static Player player;
-    public static Difficulty difficulty;
+
 
     private TextView planet_textView;
     private TextView universe_textView;

@@ -46,7 +46,6 @@ public class PlayerGoodsAdapter extends
     public PlayerGoodsAdapter(List<Good> goods) {
         playerGoods = goods;
     }
-
     @Override
     public PlayerGoodsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
@@ -83,9 +82,6 @@ public class PlayerGoodsAdapter extends
                         "Capacity: " + StartPlayActivity.player.getInventorySpace());
             }
         });
-
-
-
     }
 
     // Returns the total count of items in the list

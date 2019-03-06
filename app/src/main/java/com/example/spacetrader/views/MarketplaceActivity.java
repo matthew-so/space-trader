@@ -21,9 +21,11 @@ import java.util.Set;
 
 public class MarketplaceActivity extends AppCompatActivity {
 
+    Map<Good,Integer> mapOfPlanetGoods;
     ArrayList<Good> planetGoods;
-
+    Map<Good,Integer> mapOfPlayerGoods;
     ArrayList<Good> playerGoods;
+
 
     public Player player;
     public SolarSystem solarSystem;
@@ -56,8 +58,30 @@ public class MarketplaceActivity extends AppCompatActivity {
 
         // Initialize goods for player and planet
 
-        planetGoods = solarSystem.getGoodsForSale();
-        playerGoods = player.getPlayerGoods();
+        mapOfPlanetGoods = solarSystem.getBuyGood();
+        mapOfPlayerGoods = solarSystem.getSellGood();
+        Set<Good> planetGoodsSet = mapOfPlanetGoods.keySet();
+        Set<Good> playerGoodsSet = mapOfPlayerGoods.keySet();
+        planetGoods = new ArrayList<>();
+        playerGoods = new ArrayList<>();
+
+        for(Good g:playerGoodsSet) {
+            if (solarSystem.getBuyGoodPrice(g) > 0) {
+                playerGoods.add(g);
+                g.setQuantity(mapOfPlayerGoods.get(g));
+            }
+        }
+        for(Good g:planetGoodsSet) {
+            if (solarSystem.getBuyGoodPrice(g) > 0) {
+                planetGoods.add(g);
+                g.setQuantity(mapOfPlanetGoods.get(g));
+            }
+        }
+
+
+
+
+
 
         //sample goods
 
@@ -65,15 +89,13 @@ public class MarketplaceActivity extends AppCompatActivity {
 
         // Create adapter passing in the sample user data
         GoodsAdapter adapter = new GoodsAdapter(planetGoods);
-
         PlayerGoodsAdapter playerAdapter = new PlayerGoodsAdapter(playerGoods);
-        playerAdapter.notifyItemRangeChanged(0, playerAdapter.getItemCount());
+
 
 
 
         // Attach the adapter to the recycler view to populate items
         rvContacts.setAdapter(adapter);
-
         playerGoodsRV.setAdapter(playerAdapter);
 
 
@@ -86,4 +108,6 @@ public class MarketplaceActivity extends AppCompatActivity {
 
 
     }
+
+
 }

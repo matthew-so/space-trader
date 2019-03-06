@@ -68,11 +68,12 @@ public class Player implements Serializable {
      * The buttons on the marketplace are activated or deactivated based on this value
      * determines whether or not the player can buy the good
      * @param good the good the player wishes to buy
-     * @return true if the player can buy the good, fasle if not
+     * @return true if the player can buy the good, false if not
      */
     public boolean canBuy(Good good) {
-        if (this.getCredits() <= 0 || this.getCredits() < this.getCredits() - currentSolarSystem.getBuyGoodPrice(good)
-                || inventorySpace == 0) {
+        if (this.getCredits() <= 0
+                || inventorySpace == 0
+                || this.getCurrentSolarSystem().getBuyGoodPrice(good) > credits) {
             return false;
         } else {
             return true;
@@ -102,7 +103,6 @@ public class Player implements Serializable {
         if (!playerGoods.contains(good)) {
             playerGoods.add(good);
         }
-
         this.inventorySpace--;
         good.setQuantity(good.getQuantity() - 1);
         if (howMuchPlayerCanBuy == null) {
@@ -113,8 +113,7 @@ public class Player implements Serializable {
             this.setWhatPlayerCanSell();
         }
         whatPlayerCanSell.put(good,whatPlayerCanSell.getOrDefault(good,0) + 1);
-
-
+        this.addToPlayerGoods(good);
     }
 
     /**
@@ -123,7 +122,7 @@ public class Player implements Serializable {
      */
     public void sell(Good good) {
         this.setCredits(credits += currentSolarSystem.getSellGoodPrice(good));
-        inventorySpace++;
+        this.inventorySpace++;
         good.setQuantity(good.getQuantity() - 1);
         if (howMuchPlayerCanBuy == null) {
             howMuchPlayerCanBuy = currentSolarSystem.getQuantityBuy();
@@ -131,7 +130,7 @@ public class Player implements Serializable {
         howMuchPlayerCanBuy.put(good, howMuchPlayerCanBuy.getOrDefault(good, 0) + 1);
         whatPlayerCanSell.put(good,whatPlayerCanSell.getOrDefault(good,0) - 1);
         if (whatPlayerCanSell.get(good) == 0) {
-            playerGoods.remove(good);
+            this.playerGoods.remove(good);
         }
 
 
@@ -184,8 +183,29 @@ public class Player implements Serializable {
         howMuchPlayerCanBuy = currentSolarSystem.getQuantityBuy();
     }
 
+    /**
+     * Returns a filtered list of player goods.
+     * Goods must have valid prices.
+     * @return an ArrayList of Goods
+     */
     public ArrayList<Good> getPlayerGoods() {
+        getPlayerGoodsHelper(playerGoods);
         return playerGoods;
+
+    }
+
+    /**
+     * Used to by the method above to only add goods that the player can sell
+     * i.e., valid prices
+     * @param playerGoods
+     */
+    private void getPlayerGoodsHelper(ArrayList<Good> playerGoods) {
+        for (Good g:playerGoods
+             ) {
+            if (this.getCurrentSolarSystem().getBuyGoodPrice(g) <= 0) {
+                playerGoods.remove(g);
+            }
+        }
     }
 
     public void addToPlayerGoods(Good good) {

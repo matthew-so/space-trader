@@ -15,6 +15,7 @@ import com.example.spacetrader.views.ConfigurationActivity;
 import com.example.spacetrader.views.MarketplaceActivity;
 import com.example.spacetrader.views.StartPlayActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GoodsAdapter extends
@@ -27,7 +28,7 @@ public class GoodsAdapter extends
         // Your holder should contain a member variable
         // for any view that will be set as you render a row
         public TextView planetGoodTextView;
-        public Button buy_button;
+        public final Button buy_button;
 
 
         // We also create a constructor that accepts the entire item row
@@ -45,16 +46,17 @@ public class GoodsAdapter extends
 
 
 
+
         }
 
     }
-    private List<Good> planetGoods;
+    private ArrayList<Good> planetGoods;
     // Used to cache the views within the item layout for fast access
 
 
 
     // Pass in the contact array into the constructor
-    public GoodsAdapter(List<Good> goods) {
+    public GoodsAdapter(ArrayList<Good> goods) {
         planetGoods = goods;
     }
 
@@ -94,6 +96,7 @@ public class GoodsAdapter extends
                 } else {
                     viewHolder.buy_button.setEnabled(false);
                 }
+
             }
         });
     }
