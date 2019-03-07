@@ -43,4 +43,9 @@ public class StartPlayActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MarketplaceActivity.class);
         startActivity(intent);
     }
+    public void goToTravelActivity(View view) {
+        Intent intent = new Intent(this, TravelActivity.class);
+        startActivity(intent);
+    }
+
 }
