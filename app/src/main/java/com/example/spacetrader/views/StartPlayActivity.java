@@ -14,29 +14,31 @@ public class StartPlayActivity extends AppCompatActivity {
     public static final Game game = ConfigurationActivity.newGame;
     public static Player player;
 
-    private int count;
+    public static int count;
     private TextView planet_textView;
     private TextView universe_textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        count = 0;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_play);
 
-        player = PlayerIntroActivity.player;
+        //player = PlayerIntroActivity.player;
 
 
         Universe universe = UniverseActivity.universe;
         SolarSystem currentSolarSystem;
 
         if(count == 0) {
-            currentSolarSystem = universe.getSolarSystem(1);
+            currentSolarSystem = universe.getSolarSystem(0);
+            player = PlayerIntroActivity.player;
             //player.setCurrentSolarSystem(currentSolarSystem);
             count++;
 
         } else {
+            player = TravelActivity.player;
             currentSolarSystem = player.getCurrentSolarSystem();
+
         }
 
         player.setCurrentSolarSystem(currentSolarSystem);
@@ -47,7 +49,7 @@ public class StartPlayActivity extends AppCompatActivity {
         universe_textView = findViewById(R.id.universe_textView);
 
         String solarSystemName = currentSolarSystem.getName();
-
+        //////////////
 
         planet_textView.setText("Planet: "+ planetName);
         universe_textView.setText("Solar System: " + solarSystemName);

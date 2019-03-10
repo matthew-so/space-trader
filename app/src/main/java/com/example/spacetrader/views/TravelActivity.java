@@ -20,7 +20,7 @@ public class TravelActivity extends AppCompatActivity {
 
     private Spinner solar_spinner;
 
-    public Player player;
+    public static Player player;
     public SolarSystem solarSystem;
     public static TextView fuel_textview;
     public static TextView solar_s_textview;

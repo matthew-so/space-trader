@@ -37,7 +37,8 @@ public class MarketplaceActivity extends AppCompatActivity {
     public static GoodsAdapter adapter;
     public static PlayerGoodsAdapter playerAdapter;
 
-    public Player player;
+    //public Player player;
+    public static Player player;
     public SolarSystem solarSystem;
     public static TextView credits_TextView;
 
