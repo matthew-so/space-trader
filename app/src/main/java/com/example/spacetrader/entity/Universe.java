@@ -15,7 +15,7 @@ public class Universe {
     }
 
 
-
+    public ArrayList<SolarSystem> getSolarList() {return this.solarSystems;}
 
     public SolarSystem getSolarSystem(int i) {
         return solarSystems.get(i);

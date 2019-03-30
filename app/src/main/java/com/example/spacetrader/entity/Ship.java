@@ -8,7 +8,7 @@ import java.util.Map;
 public class Ship {
 
     public enum ShipType {
-        GNAT("Gnat", 15, 14);
+        GNAT("Gnat", 15, 75);
         private String val;
         private int cargoCapacity;
         private int fuel;
@@ -86,6 +86,8 @@ public class Ship {
         this.fuel += fuel;
         return 0; //all fuel used
     }
+
+    public int getFuel() {return fuel;}
 
     public boolean canTravel(int distance) {
         return fuel >= distance;

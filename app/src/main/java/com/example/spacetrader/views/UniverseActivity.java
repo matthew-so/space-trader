@@ -106,7 +106,7 @@ public class UniverseActivity extends AppCompatActivity {
         SolarSystem creamyWay = new SolarSystem("Creamy Way", TechLevel.SEVEN, Resource.NINE, 120, 100, Pluto);
         SolarSystem sourWay = new SolarSystem("Sour Way", TechLevel.ZERO, Resource.TWO, 100, 85, Ares);
         SolarSystem saltyWay = new SolarSystem("Salty Way", TechLevel.FIVE, Resource.TWELVE, 140, 65, twoPlanets);
-        SolarSystem datWay = new SolarSystem("The Way", TechLevel.FOUR, Resource.TEN, 150, 44, Vulcan);
+        SolarSystem datWay = new SolarSystem("Dat Way", TechLevel.FOUR, Resource.TEN, 150, 44, Vulcan);
 
 
 

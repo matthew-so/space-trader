@@ -14,7 +14,7 @@ public class StartPlayActivity extends AppCompatActivity {
     public static final Game game = ConfigurationActivity.newGame;
     public static Player player;
 
-
+    public static int count;
     private TextView planet_textView;
     private TextView universe_textView;
 
@@ -23,17 +23,33 @@ public class StartPlayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_play);
 
-        player = PlayerIntroActivity.player;
+        //player = PlayerIntroActivity.player;
 
 
         Universe universe = UniverseActivity.universe;
-        SolarSystem currentSolarSystem = universe.getSolarSystem(0);
+        SolarSystem currentSolarSystem;
 
-        String solarSystemName = currentSolarSystem.getName();
-        String planetName = currentSolarSystem.getPlanet().get(0).getName();
+        if(count == 0) {
+            currentSolarSystem = universe.getSolarSystem(0);
+            player = PlayerIntroActivity.player;
+            //player.setCurrentSolarSystem(currentSolarSystem);
+            count++;
+
+        } else {
+            player = TravelActivity.player;
+            currentSolarSystem = player.getCurrentSolarSystem();
+
+        }
+
         player.setCurrentSolarSystem(currentSolarSystem);
+        //String solarSystemName = currentSolarSystem.getName();
+        String planetName = currentSolarSystem.getPlanet().get(0).getName();
+        //player.setCurrentSolarSystem(currentSolarSystem);
         planet_textView = findViewById(R.id.planet_textView);
         universe_textView = findViewById(R.id.universe_textView);
+
+        String solarSystemName = currentSolarSystem.getName();
+        //////////////
 
         planet_textView.setText("Planet: "+ planetName);
         universe_textView.setText("Solar System: " + solarSystemName);
@@ -43,4 +59,12 @@ public class StartPlayActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MarketplaceActivity.class);
         startActivity(intent);
     }
+    public void goToTravelActivity(View view) {
+        Intent intent = new Intent(this, TravelActivity.class);
+        startActivity(intent);
+    }
+
+
+
+
 }
