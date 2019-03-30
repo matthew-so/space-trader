@@ -17,7 +17,7 @@ public class StartPlayActivity extends AppCompatActivity {
     public static int count;
     private TextView planet_textView;
     private TextView universe_textView;
-
+    private TextView randomEventTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +28,7 @@ public class StartPlayActivity extends AppCompatActivity {
 
         Universe universe = UniverseActivity.universe;
         SolarSystem currentSolarSystem;
+
 
         if(count == 0) {
             currentSolarSystem = universe.getSolarSystem(0);
@@ -47,12 +48,20 @@ public class StartPlayActivity extends AppCompatActivity {
         //player.setCurrentSolarSystem(currentSolarSystem);
         planet_textView = findViewById(R.id.planet_textView);
         universe_textView = findViewById(R.id.universe_textView);
+        RandomSolarEvent solarEvent = currentSolarSystem.getSolar();
+        randomEventTextView = findViewById(R.id.randomEventTextView);
+
 
         String solarSystemName = currentSolarSystem.getName();
         //////////////
 
         planet_textView.setText("Planet: "+ planetName);
         universe_textView.setText("Solar System: " + solarSystemName);
+        solarEvent = RandomSolarEvent.getRandomSolarEvent();
+        currentSolarSystem.setRandomEvent(solarEvent);
+        if (solarEvent != null) {
+            randomEventTextView.setText("Random Event: " + solarEvent.toString());
+        }
 
     }
     public void goToMarketActivity(View view) {
