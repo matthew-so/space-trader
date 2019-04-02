@@ -4,8 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.example.spacetrader.R;
 import com.example.spacetrader.entity.Good;
@@ -15,7 +13,6 @@ import com.example.spacetrader.viewmodels.GoodsAdapter;
 import com.example.spacetrader.viewmodels.PlayerGoodsAdapter;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 

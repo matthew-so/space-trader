@@ -26,7 +26,6 @@ public class PlayerIntroActivity extends AppCompatActivity {
 
         Game newGame = ConfigurationActivity.newGame;
         Player player = newGame.player;
-        player.setGame(newGame);
 
         TextView credits_TextView;
         TextView difficulty_TextView;

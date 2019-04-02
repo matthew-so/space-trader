@@ -2,24 +2,18 @@ package com.example.spacetrader.viewmodels;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 import com.example.spacetrader.entity.Good;
 import com.example.spacetrader.R;
 import com.example.spacetrader.entity.SolarSystem;
-import com.example.spacetrader.views.ConfigurationActivity;
 import com.example.spacetrader.views.MarketplaceActivity;
 import com.example.spacetrader.views.StartPlayActivity;
-import com.example.spacetrader.viewmodels.PlayerGoodsAdapter;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static com.example.spacetrader.views.StartPlayActivity.player;
 

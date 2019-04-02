@@ -10,9 +10,7 @@ import android.widget.*;
 import com.example.spacetrader.R;
 import com.example.spacetrader.entity.Difficulty;
 import com.example.spacetrader.entity.Player;
-import com.example.spacetrader.entity.SolarSystem;
 import com.example.spacetrader.model.Game;
-import org.w3c.dom.Text;
 
 public class ConfigurationActivity extends AppCompatActivity {
     private  Button create_player;
