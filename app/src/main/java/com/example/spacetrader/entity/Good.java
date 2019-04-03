@@ -144,8 +144,8 @@ public enum Good {
 
     /**
      * Used for onEnter method in SolarSystem.java
-     * @param soltech
-     * @return
+     * @param soltech Tech level of the solar system
+     * @return boolean
      */
     public boolean canBuy(TechLevel soltech) {
         return soltech.compareTo(mtlu) >= 0;
@@ -153,7 +153,7 @@ public enum Good {
 
     /**
      * Used for onEnter method in SolarSystem.java
-     * @param soltech
+     * @param soltech Tech level of the solar system
      * @return
      */
     public boolean canSell(TechLevel soltech) {

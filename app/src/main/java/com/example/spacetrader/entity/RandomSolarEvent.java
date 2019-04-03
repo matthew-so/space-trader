@@ -3,7 +3,7 @@ package com.example.spacetrader.entity;
 import java.util.Random;
 
 public enum RandomSolarEvent {
-    UNEVENTFUL("Uneventful"), DROUGHT("Drought"), COLD("Cold"), CROPFAIL("Cropfail"), WAR("War"), BOREDOM("Boredom"),
+    UNEVENTFUL("Uneventful"), DROUGHT("Drought"), COLD("Cold"), CROPFAIL("Crop fail"), WAR("War"), BOREDOM("Boredom"),
     PLAGUE("Plague"), LACKOFWORKERS("Lack of Workers");
 
     private String val;

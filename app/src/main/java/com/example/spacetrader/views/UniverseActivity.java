@@ -84,7 +84,7 @@ public class UniverseActivity extends AppCompatActivity {
 
 
         /**
-         * Make arraylist with two planets
+         * Make ArrayList with two planets
          */
         ArrayList<Planet> twoPlanets = new ArrayList<>();
         twoPlanets.add(Gelo);

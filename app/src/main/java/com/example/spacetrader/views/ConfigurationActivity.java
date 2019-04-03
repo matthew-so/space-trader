@@ -54,7 +54,7 @@ public class ConfigurationActivity extends AppCompatActivity {
          * Getting name of Player
          */
 
-        name_edit = (EditText) findViewById(R.id.name_edit);
+        name_edit = findViewById(R.id.name_edit);
 
 
 
@@ -64,18 +64,18 @@ public class ConfigurationActivity extends AppCompatActivity {
          /**
          * Allocating skill points
          */
-        pilotTextView = (TextView) findViewById(R.id.pilotTextView);
-        engineerTextView = (TextView) findViewById(R.id.engineerTextView);
-        traderTextView = (TextView) findViewById(R.id.traderTextView);
-        fighterTextView = (TextView) findViewById(R.id.fighterTextView);
-        checkerTextView = (TextView) findViewById(R.id.checkerTextView);
+        pilotTextView = findViewById(R.id.pilotTextView);
+        engineerTextView = findViewById(R.id.engineerTextView);
+        traderTextView = findViewById(R.id.traderTextView);
+        fighterTextView = findViewById(R.id.fighterTextView);
+        checkerTextView = findViewById(R.id.checkerTextView);
 
-        pilot_bar = (SeekBar) findViewById(R.id.pilot_bar);
-        engineer_bar = (SeekBar) findViewById(R.id.engineer_bar);
-        trader_bar = (SeekBar) findViewById(R.id.trader_bar);
-        fighter_bar = (SeekBar) findViewById(R.id.fighter_bar);
+        pilot_bar = findViewById(R.id.pilot_bar);
+        engineer_bar = findViewById(R.id.engineer_bar);
+        trader_bar = findViewById(R.id.trader_bar);
+        fighter_bar = findViewById(R.id.fighter_bar);
 
-        create_player = (Button) findViewById(R.id.create_player);
+        create_player = findViewById(R.id.create_player);
 
 
 
