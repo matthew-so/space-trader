@@ -97,7 +97,7 @@ public enum Good {
         return mth;
     }
 
-    public int getBasePrice(TechLevel planetech) {
+    public int getBasePrice(Comparable planetech) {
         return base + ipl*planetech.compareTo(TechLevel.ZERO);
     }
 
@@ -138,7 +138,7 @@ public enum Good {
     }
 
     public int sellPrice(int buyprice, int traderskill) {
-        return buyprice * (103 + (Constants.MAX_SKILL - traderskill)) / 100;
+        return buyprice * (Constants.ONEOTHREE + (Constants.MAX_SKILL - traderskill)) / 100;
     }
 
 
@@ -147,7 +147,7 @@ public enum Good {
      * @param soltech Tech level of the solar system
      * @return boolean
      */
-    public boolean canBuy(TechLevel soltech) {
+    public boolean canBuy(Comparable soltech) {
         return soltech.compareTo(mtlu) >= 0;
     }
 
@@ -156,7 +156,7 @@ public enum Good {
      * @param soltech Tech level of the solar system
      * @return
      */
-    public boolean canSell(TechLevel soltech) {
+    public boolean canSell(Comparable soltech) {
         return soltech.compareTo(mtlp) >= 0;
     }
 

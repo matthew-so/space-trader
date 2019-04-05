@@ -14,6 +14,7 @@ import com.example.spacetrader.entity.SolarSystem;
 import com.example.spacetrader.entity.Universe;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TravelActivity extends AppCompatActivity {
 
@@ -25,7 +26,7 @@ public class TravelActivity extends AppCompatActivity {
     public static TextView solar_s_textview;
     public static Universe universe;
     public ArrayList<String> validSolarList;
-    public ArrayList<SolarSystem> allSolarList;
+    public List<SolarSystem> allSolarList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

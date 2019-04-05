@@ -44,7 +44,7 @@ public class Player implements Serializable {
         credits = 1000;
         ship = new Ship(Ship.ShipType.GNAT);
         inventorySpace = ship.getCargoCapacity();
-        totalPoints = 16;
+        totalPoints = Constants.START_SKILL;
         playerGoods = new ArrayList<>();
 
     }

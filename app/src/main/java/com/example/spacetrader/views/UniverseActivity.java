@@ -95,15 +95,15 @@ public class UniverseActivity extends AppCompatActivity {
          */
 
         SolarSystem milkyWay = new SolarSystem("Milky Way", TechLevel.FIVE, Resource.ONE, 0, 0, Earth);
-        SolarSystem rockyWay = new SolarSystem("Rocky Way", TechLevel.FOUR, Resource.THREE, 20, 10, Mars);
-        SolarSystem silkyWay = new SolarSystem("Silky Way", TechLevel.THREE, Resource.EIGHT, 40, 30, Saturn);
-        SolarSystem almondWay = new SolarSystem("Almond Way", TechLevel.TWO, Resource.SEVEN, 60, 50, Mercury);
-        SolarSystem crunchyWay = new SolarSystem("Crunchy Way", TechLevel.ONE, Resource.ELEVEN, 80, 70, Venus);
-        SolarSystem saucyWay = new SolarSystem("Saucy Way", TechLevel.SIX, Resource.FOUR, 100, 90, Uranus);
-        SolarSystem creamyWay = new SolarSystem("Creamy Way", TechLevel.SEVEN, Resource.NINE, 120, 100, Pluto);
-        SolarSystem sourWay = new SolarSystem("Sour Way", TechLevel.ZERO, Resource.TWO, 100, 85, Ares);
-        SolarSystem saltyWay = new SolarSystem("Salty Way", TechLevel.FIVE, Resource.TWELVE, 140, 65, twoPlanets);
-        SolarSystem datWay = new SolarSystem("Dat Way", TechLevel.FOUR, Resource.TEN, 150, 44, Vulcan);
+        SolarSystem rockyWay = new SolarSystem("Rocky Way", TechLevel.FOUR, Resource.THREE, Constants.TWENTY, 10, Mars);
+        SolarSystem silkyWay = new SolarSystem("Silky Way", TechLevel.THREE, Resource.EIGHT, Constants.FOURTY, Constants.THIRTY, Saturn);
+        SolarSystem almondWay = new SolarSystem("Almond Way", TechLevel.TWO, Resource.SEVEN, Constants.SIXTY, Constants.FIFTY, Mercury);
+        SolarSystem crunchyWay = new SolarSystem("Crunchy Way", TechLevel.ONE, Resource.ELEVEN, Constants.EIGHTY, Constants.SEVENTY, Venus);
+        SolarSystem saucyWay = new SolarSystem("Saucy Way", TechLevel.SIX, Resource.FOUR, 100, Constants.NINETY, Uranus);
+        SolarSystem creamyWay = new SolarSystem("Creamy Way", TechLevel.SEVEN, Resource.NINE, Constants.ONETWENTY, 100, Pluto);
+        SolarSystem sourWay = new SolarSystem("Sour Way", TechLevel.ZERO, Resource.TWO, 100, Constants.EIGHTYFIVE, Ares);
+        SolarSystem saltyWay = new SolarSystem("Salty Way", TechLevel.FIVE, Resource.TWELVE, Constants.ONEFOURTY, Constants.SIXTYFIVE, twoPlanets);
+        SolarSystem datWay = new SolarSystem("Dat Way", TechLevel.FOUR, Resource.TEN, Constants.ONEFIFTY, Constants.FOURTYFOUR, Vulcan);
 
 
 

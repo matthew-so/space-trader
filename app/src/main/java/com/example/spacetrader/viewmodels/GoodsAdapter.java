@@ -9,11 +9,13 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.example.spacetrader.entity.Good;
 import com.example.spacetrader.R;
+import com.example.spacetrader.entity.Player;
 import com.example.spacetrader.entity.SolarSystem;
 import com.example.spacetrader.views.MarketplaceActivity;
 import com.example.spacetrader.views.StartPlayActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.example.spacetrader.views.StartPlayActivity.player;
 
@@ -49,13 +51,13 @@ public class GoodsAdapter extends
         }
 
     }
-    private ArrayList<Good> planetGoods;
+    private List<Good> planetGoods;
     // Used to cache the views within the item layout for fast access
 
 
 
     // Pass in the contact array into the constructor
-    public GoodsAdapter(ArrayList<Good> goods) {
+    public GoodsAdapter(List<Good> goods) {
         planetGoods = goods;
     }
 
@@ -78,9 +80,10 @@ public class GoodsAdapter extends
         // Get the data model based on position
         final Good good = planetGoods.get(position);
 
+        final Player myPlayer = StartPlayActivity.game.getPlayer();
         // Set item views based on your views and data model
         TextView textView = viewHolder.planetGoodTextView;
-        SolarSystem curr = StartPlayActivity.game.getPlayer().getCurrentSolarSystem();
+        SolarSystem curr = myPlayer.getCurrentSolarSystem();
         textView.setText(good.getName() + " [$" + good.getPrice() + "]");
         Button button = viewHolder.buy_button;
         button.setText("Buy");
@@ -99,8 +102,8 @@ public class GoodsAdapter extends
                      *Updates the Player's inventory when buying a good
                      */
                     MarketplaceActivity.playerAdapter
-                            .notifyItemRangeInserted(player.getPlayerGoods().size(), 1);
-                    MarketplaceActivity.playerAdapter.notifyItemChanged(player.getPlayerGoods().size());
+                            .notifyItemRangeInserted(myPlayer.getPlayerGoods().size(), 1);
+                    MarketplaceActivity.playerAdapter.notifyItemChanged(myPlayer.getPlayerGoods().size());
                     MarketplaceActivity.playerAdapter.notifyDataSetChanged();
 
 
@@ -112,8 +115,8 @@ public class GoodsAdapter extends
 
                 }
 
-                MarketplaceActivity.credits_TextView.setText("$" + player.getCredits() + "\n" +
-                        "Capacity: " + player.getInventorySpace());
+                MarketplaceActivity.credits_TextView.setText("$" + myPlayer.getCredits() + "\n" +
+                        "Capacity: " + myPlayer.getInventorySpace());
 
             }
         });
