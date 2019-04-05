@@ -34,13 +34,12 @@
             android:onClick="goToConfigurationScreen"/>
 
     <Button
-            android:text="LOAD GAME"
+            android:text="Load Game"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/button_load" android:layout_marginTop="298dp"
-            app:layout_constraintTop_toBottomOf="@+id/title" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="161dp" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="162dp" app:layout_constraintHorizontal_bias="0.0"
-            android:onClick="loadGame"/>
-
+            android:id="@+id/button2" android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/button_start" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="239dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="160dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="163dp" android:onClick="loadGame"/>
 </android.support.constraint.ConstraintLayout>

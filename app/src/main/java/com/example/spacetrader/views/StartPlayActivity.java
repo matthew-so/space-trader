@@ -1,5 +1,6 @@
 package com.example.spacetrader.views;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,10 +12,9 @@ import com.example.spacetrader.entity.*;
 import com.example.spacetrader.model.Game;
 import com.example.spacetrader.R;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.*;
 
 public class StartPlayActivity extends AppCompatActivity {
 
@@ -80,33 +80,33 @@ public class StartPlayActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public boolean saveGame(View view) {
-        File ufile, gfile;
-        ufile = new File(getFilesDir(), "ufile.json");
-        gfile = new File(getFilesDir(), "gfile.json");
-        Log.d("fff", getFilesDir().toString());
-
         Universe universe = UniverseActivity.universe;
         try {
-            PrintWriter uw = new PrintWriter(ufile);
-            PrintWriter pw = new PrintWriter(gfile);
 
-            Gson ug = new Gson();
-            Gson gg = new Gson();
+            Gson ug = new GsonBuilder().serializeNulls().create();
+            Gson gg = new GsonBuilder().serializeNulls().create();
 
+            FileOutputStream outputStream = openFileOutput("ufile.json", Context.MODE_PRIVATE);
             String outString = ug.toJson(universe);
-            uw.println(outString);
+            outputStream.write(outString.getBytes());
+            Log.d("oijoij", outString);
+            outputStream.close();
+
+            outputStream = openFileOutput("gfile.json", Context.MODE_PRIVATE);
             String goutString = gg.toJson(ConfigurationActivity.newGame);
-            pw.println(goutString);
+            outputStream.write(goutString.getBytes());
+            Log.d("oijoij", goutString);
+            outputStream.close();
         } catch (FileNotFoundException e){
             Log.e("StartPlayActivity", "false");
+            return false;
+        } catch (IOException i) {
+            Log.e("StartPlayActivity", "notfalse");
             return false;
         }
         Toast.makeText(getApplicationContext(), "Game Saved!",
                 Toast.LENGTH_LONG).show();
         return true;
     }
-
-
-
 
 }

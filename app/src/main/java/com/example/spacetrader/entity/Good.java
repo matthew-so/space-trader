@@ -1,16 +1,18 @@
 package com.example.spacetrader.entity;
 import com.example.spacetrader.entity.TechLevel;
+import com.google.gson.annotations.SerializedName;
+
 public enum Good {
-    WATER("Water", TechLevel.ZERO, TechLevel.ZERO, TechLevel.TWO, 30, 3, 4, RandomSolarEvent.DROUGHT, Resource.FOUR, Resource.THREE, 30, 50),
-    FURS("Furs", TechLevel.ZERO, TechLevel.ZERO, TechLevel.ZERO, 250, 10, 10, RandomSolarEvent.COLD, Resource.SEVEN, Resource.EIGHT, 230, 280),
-    FOOD("Food", TechLevel.ONE, TechLevel.ZERO, TechLevel.ONE, 100, 5, 5, RandomSolarEvent.CROPFAIL, Resource.FIVE, Resource.SIX, 90, 160),
-    ORE("Ore", TechLevel.TWO, TechLevel.TWO, TechLevel.THREE, 350, 20, 10, RandomSolarEvent.WAR, Resource.ONE, Resource.TWO, 350, 420),
-    GAMES("Games", TechLevel.THREE, TechLevel.ONE, TechLevel.SIX, 250, -10, 5, RandomSolarEvent.BOREDOM, Resource.ELEVEN, null, 160, 270),
-    FIREARMS("Firearms", TechLevel.THREE, TechLevel.ONE, TechLevel.FIVE, 1250, -75, 100, RandomSolarEvent.WAR, Resource.TWELVE, null, 600, 1100),
-    MEDICINE("Medicine" ,TechLevel.FOUR, TechLevel.ONE, TechLevel.SIX, 650, -20, 10, RandomSolarEvent.PLAGUE, Resource.TEN, null, 400, 700),
-    MACHINES("Machines", TechLevel.FOUR, TechLevel.THREE, TechLevel.FIVE, 900, -30, 5, RandomSolarEvent.LACKOFWORKERS, null, null, 600, 800),
-    NARCOTICS("Narcotics", TechLevel.FIVE, TechLevel.ZERO, TechLevel.FIVE, 3500, -125, 150, RandomSolarEvent.BOREDOM, Resource.NINE, null, 2000, 3000),
-    ROBOTS("Robots", TechLevel.SIX, TechLevel.FOUR, TechLevel.SEVEN, 5000, -150, 100, RandomSolarEvent.LACKOFWORKERS, null, null, 3500, 5000);
+    @SerializedName("Water") WATER("Water", TechLevel.ZERO, TechLevel.ZERO, TechLevel.TWO, 30, 3, 4, RandomSolarEvent.DROUGHT, Resource.FOUR, Resource.THREE, 30, 50),
+    @SerializedName("Furs") FURS("Furs", TechLevel.ZERO, TechLevel.ZERO, TechLevel.ZERO, 250, 10, 10, RandomSolarEvent.COLD, Resource.SEVEN, Resource.EIGHT, 230, 280),
+    @SerializedName("Food") FOOD("Food", TechLevel.ONE, TechLevel.ZERO, TechLevel.ONE, 100, 5, 5, RandomSolarEvent.CROPFAIL, Resource.FIVE, Resource.SIX, 90, 160),
+    @SerializedName("Ore") ORE("Ore", TechLevel.TWO, TechLevel.TWO, TechLevel.THREE, 350, 20, 10, RandomSolarEvent.WAR, Resource.ONE, Resource.TWO, 350, 420),
+    @SerializedName("Games") GAMES("Games", TechLevel.THREE, TechLevel.ONE, TechLevel.SIX, 250, -10, 5, RandomSolarEvent.BOREDOM, Resource.ELEVEN, null, 160, 270),
+    @SerializedName("Firearms") FIREARMS("Firearms", TechLevel.THREE, TechLevel.ONE, TechLevel.FIVE, 1250, -75, 100, RandomSolarEvent.WAR, Resource.TWELVE, null, 600, 1100),
+    @SerializedName("Medicine") MEDICINE("Medicine" ,TechLevel.FOUR, TechLevel.ONE, TechLevel.SIX, 650, -20, 10, RandomSolarEvent.PLAGUE, Resource.TEN, null, 400, 700),
+    @SerializedName("Machines") MACHINES("Machines", TechLevel.FOUR, TechLevel.THREE, TechLevel.FIVE, 900, -30, 5, RandomSolarEvent.LACKOFWORKERS, null, null, 600, 800),
+    @SerializedName("Narcotics") NARCOTICS("Narcotics", TechLevel.FIVE, TechLevel.ZERO, TechLevel.FIVE, 3500, -125, 150, RandomSolarEvent.BOREDOM, Resource.NINE, null, 2000, 3000),
+    @SerializedName("Robots") ROBOTS("Robots", TechLevel.SIX, TechLevel.FOUR, TechLevel.SEVEN, 5000, -150, 100, RandomSolarEvent.LACKOFWORKERS, null, null, 3500, 5000);
 
 
     private String name;
@@ -42,6 +44,11 @@ public enum Good {
         this.er = er;
         this.mtl = mtl;
         this.mth = mth;
+        quantity = 0;
+    }
+
+    Good(String name) {
+        this.name = name;
         quantity = 0;
     }
 

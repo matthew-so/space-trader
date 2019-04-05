@@ -46,6 +46,10 @@ public class MainActivity extends AppCompatActivity {
 
             ConfigurationActivity.player = ConfigurationActivity.newGame.player;
 
+            PlayerIntroActivity.player = ConfigurationActivity.newGame.player;
+
+            TravelActivity.player = ConfigurationActivity.newGame.player;
+
             Intent intent = new Intent(this, StartPlayActivity.class);
             startActivity(intent);
         } catch (IOException e) {
