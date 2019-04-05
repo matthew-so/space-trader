@@ -99,9 +99,10 @@ public class GoodsAdapter extends
                     /**
                      *Updates the Player's inventory when buying a good
                      */
+                    ArrayList<Good> myGoods = myPlayer.getPlayerGoods();
                     MarketplaceActivity.playerAdapter
-                            .notifyItemRangeInserted(myPlayer.getPlayerGoods().size(), 1);
-                    MarketplaceActivity.playerAdapter.notifyItemChanged(myPlayer.getPlayerGoods().size());
+                            .notifyItemRangeInserted(myGoods.size(), 1);
+                    MarketplaceActivity.playerAdapter.notifyItemChanged(myGoods.size());
                     MarketplaceActivity.playerAdapter.notifyDataSetChanged();
 
 

@@ -10,6 +10,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import com.example.spacetrader.R;
 import com.example.spacetrader.entity.Player;
+import com.example.spacetrader.entity.Ship;
 import com.example.spacetrader.entity.SolarSystem;
 import com.example.spacetrader.entity.Universe;
 
@@ -40,9 +41,11 @@ public class TravelActivity extends AppCompatActivity {
         universe = UniverseActivity.universe;
         solarSystem = player.getCurrentSolarSystem();
         fuel_textview = findViewById(R.id.fuel_textview);
-        fuel_textview.setText("fuel "+ player.getShipType().getFuel());
+        Ship myShip = player.getShipType();
+        fuel_textview.setText("fuel "+ myShip.getFuel());
         solar_s_textview = findViewById(R.id.curr_solar_s_textview);
-        solar_s_textview.setText("the current ss is " + player.getCurrentSolarSystem().getName());
+
+        solar_s_textview.setText("the current ss is " + solarSystem.getName());
 
         int x2 = player.getCurrentSolarSystem().getxCoor();
         int y2 = player.getCurrentSolarSystem().getyCoor();

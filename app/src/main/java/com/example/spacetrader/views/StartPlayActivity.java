@@ -22,9 +22,9 @@ public class StartPlayActivity extends AppCompatActivity {
     public static Player player;
 
     public static int count;
-    private TextView planet_textView;
-    private TextView universe_textView;
-    private TextView randomEventTextView;
+    public TextView planet_textView;
+    public TextView universe_textView;
+    public TextView randomEventTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

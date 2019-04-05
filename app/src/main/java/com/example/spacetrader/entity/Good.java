@@ -172,11 +172,11 @@ public enum Good {
             quantity *= 4;
             quantity /= 3;
         }
-        if (er != null && resource != null && resource.equals(er)) {
+        if (resource != null && resource.equals(er)) {
             quantity *= 3;
             quantity /= 4;
         }
-        if (ie != null && solar != null && solar.equals(ie)) {
+        if (solar != null && solar.equals(ie)) {
             quantity /= 5;
         }
         quantity += (int) (10 * Math.random());
@@ -185,6 +185,17 @@ public enum Good {
             quantity = 0;
         }
         return quantity;
+    }
+    public int buyAndReturnMoney(int money) {
+        money -= this.price;
+        this.quantity++;
+        return money;
+    }
+
+    public int sellAndReturnMoney(int money) {
+        money += this.price;
+        this.quantity--;
+        return money;
     }
 
     public void setQuantity(int quantity) {
