@@ -22,21 +22,21 @@ public class MarketplaceActivity extends AppCompatActivity {
      * The maps contain the goods and they're respective prices
      * But since maps cannot go into a recycler view, the keys will be put in ArrayLists
      */
-    public static Map<Good,Integer> mapOfPlanetGoods;
-    public static ArrayList<Good> planetGoods;
-    public static Map<Good,Integer> mapOfSellableGoods;
-    public static ArrayList<Good> playerGoods;
+    Map<Good,Integer> mapOfPlanetGoods;
+    ArrayList<Good> planetGoods;
+    Map<Good,Integer> mapOfSellableGoods;
+    ArrayList<Good> playerGoods;
 
     /**
      * These adapters are made static so when a button is pressed in @code GoodsAdapter,
      * GoodsAdapter can notify playerAdapter to update via this class
      */
-    public static GoodsAdapter adapter;
+    GoodsAdapter adapter;
     public static PlayerGoodsAdapter playerAdapter;
 
     //public Player player;
-    public static Player player;
-    public SolarSystem solarSystem;
+    Player player;
+    SolarSystem solarSystem;
     public static TextView credits_TextView;
 
 
@@ -59,11 +59,11 @@ public class MarketplaceActivity extends AppCompatActivity {
         /**
          * These two recycler views are sideby side inside of MarketPlaceActivity
          */
-        RecyclerView rvContacts = (RecyclerView) findViewById(R.id.rvContacts);
-        RecyclerView playerGoodsRV = (RecyclerView) findViewById(R.id.playerGoodsRV);
+        RecyclerView rvContacts =  findViewById(R.id.rvContacts);
+        RecyclerView playerGoodsRV =  findViewById(R.id.playerGoodsRV);
 
 
-        credits_TextView= (TextView) findViewById(R.id.credits_TextView);
+        credits_TextView=  findViewById(R.id.credits_TextView);
 
         /**
          * We will be updating the cargo capacity and credits in real time,
@@ -87,13 +87,13 @@ public class MarketplaceActivity extends AppCompatActivity {
          * Note: price is an instance variable in the @code Good class
          */
         for(Good g:playerGoods) {
-            if (!mapOfSellableGoods.isEmpty()
+            if (mapOfSellableGoods!= null && !mapOfSellableGoods.isEmpty()
                     &&solarSystem.getBuyGoodPrice(g) > 0 && !playerGoods.isEmpty()) {
                 g.setPrice(mapOfSellableGoods.get(g));
             }
         }
         for(Good g:planetGoodsSet) {
-            if (solarSystem.getBuyGoodPrice(g) > 0) {
+            if (mapOfPlanetGoods!= null && solarSystem.getBuyGoodPrice(g) > 0) {
                 planetGoods.add(g);
                 g.setPrice(mapOfPlanetGoods.get(g));
             }

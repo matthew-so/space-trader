@@ -45,6 +45,7 @@ public enum Good {
         quantity = 0;
     }
 
+    @Override
     public String toString() {
         return name;
     }
@@ -171,7 +172,7 @@ public enum Good {
             quantity *= 4;
             quantity /= 3;
         }
-        if (er != null &&resource.equals(er)) {
+        if (er != null && resource != null && resource.equals(er)) {
             quantity *= 3;
             quantity /= 4;
         }

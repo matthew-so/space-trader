@@ -28,21 +28,21 @@ public class GoodsAdapter extends
 
         // Your holder should contain a member variable
         // for any view that will be set as you render a row
-        public TextView planetGoodTextView;
-        public final Button buy_button;
+        TextView planetGoodTextView;
+        Button buy_button;
 
 
         // We also create a constructor that accepts the entire item row
         // and does the view lookups to find each subview
 
-        public ViewHolder( View itemView) {
+        ViewHolder( View itemView) {
             // Stores the itemView in a public final member variable that can be used
             // to access the context from any ViewHolder instance.
             super(itemView);
 
 
-            planetGoodTextView = (TextView) itemView.findViewById(R.id.planetGoodTextView);
-            buy_button = (Button) itemView.findViewById(R.id.buy_button);
+            planetGoodTextView =  itemView.findViewById(R.id.planetGoodTextView);
+            buy_button = itemView.findViewById(R.id.buy_button);
 
 
 
@@ -70,9 +70,7 @@ public class GoodsAdapter extends
         View contactView = inflater.inflate(R.layout.market_goods_layout, parent, false);
 
         // Return a new holder instance
-        ViewHolder viewHolder = new ViewHolder(contactView);
-
-        return viewHolder;
+        return new ViewHolder(contactView);
     }
 
     @Override

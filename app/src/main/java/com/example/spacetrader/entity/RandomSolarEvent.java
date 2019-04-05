@@ -22,7 +22,7 @@ public enum RandomSolarEvent {
      */
     public static RandomSolarEvent getRandomSolarEvent() {
         Random random = new Random();
-        RandomSolarEvent  myRandomEvent = values()[random.nextInt(values().length)];
-        return myRandomEvent;
+        return  values()[random.nextInt(values().length)];
+
     }
 }

@@ -35,8 +35,8 @@ public class PlayerGoodsAdapter extends
             // to access the context from any ViewHolder instance.
             super(itemView);
 
-            playerGoodTextview = (TextView) itemView.findViewById(R.id.playerGoodTextview);
-            sell_Button = (Button) itemView.findViewById(R.id.sell_Button);
+            playerGoodTextview =  itemView.findViewById(R.id.playerGoodTextview);
+            sell_Button = itemView.findViewById(R.id.sell_Button);
         }
     }
     private List<Good> playerGoods;
@@ -55,8 +55,8 @@ public class PlayerGoodsAdapter extends
         View contactView1 = inflater.inflate(R.layout.player_goods_layout, parent, false);
 
         // Return a new holder instance
-        ViewHolder viewHolder = new PlayerGoodsAdapter.ViewHolder(contactView1);
-        return viewHolder;
+        return  new PlayerGoodsAdapter.ViewHolder(contactView1);
+
     }
 
     @Override

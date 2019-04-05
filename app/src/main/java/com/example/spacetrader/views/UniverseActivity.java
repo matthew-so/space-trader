@@ -71,16 +71,16 @@ public class UniverseActivity extends AppCompatActivity {
         /**
          * finding text views in the activity and binding them to the textviews in the code
          */
-        SolarSystemView0 = (TextView) findViewById(R.id.SolarSystemView0);
-        SolarSystemView1 = (TextView) findViewById(R.id.SolarSystemView1);
-        SolarSystemView2 = (TextView) findViewById(R.id.SolarSystemView2);
-        SolarSystemView3 = (TextView) findViewById(R.id.SolarSystemView3);
-        SolarSystemView4 = (TextView) findViewById(R.id.SolarSystemView4);
-        SolarSystemView5 = (TextView) findViewById(R.id.SolarSystemView5);
-        SolarSystemView6 = (TextView) findViewById(R.id.SolarSystemView6);
-        SolarSystemView7 = (TextView) findViewById(R.id.SolarSystemView7);
-        SolarSystemView8 = (TextView) findViewById(R.id.SolarSystemView8);
-        SolarSystemView9 = (TextView) findViewById(R.id.SolarSystemView9);
+        SolarSystemView0 =  findViewById(R.id.SolarSystemView0);
+        SolarSystemView1 =  findViewById(R.id.SolarSystemView1);
+        SolarSystemView2 =  findViewById(R.id.SolarSystemView2);
+        SolarSystemView3 =  findViewById(R.id.SolarSystemView3);
+        SolarSystemView4 =  findViewById(R.id.SolarSystemView4);
+        SolarSystemView5 =  findViewById(R.id.SolarSystemView5);
+        SolarSystemView6 =  findViewById(R.id.SolarSystemView6);
+        SolarSystemView7 =  findViewById(R.id.SolarSystemView7);
+        SolarSystemView8 =  findViewById(R.id.SolarSystemView8);
+        SolarSystemView9 =  findViewById(R.id.SolarSystemView9);
 
 
         /**
