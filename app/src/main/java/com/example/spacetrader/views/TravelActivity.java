@@ -14,7 +14,6 @@ import com.example.spacetrader.entity.SolarSystem;
 import com.example.spacetrader.entity.Universe;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class TravelActivity extends AppCompatActivity {
 

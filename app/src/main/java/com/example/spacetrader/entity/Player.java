@@ -1,19 +1,13 @@
 package com.example.spacetrader.entity;
 
 import com.example.spacetrader.model.Game;
-import com.example.spacetrader.viewmodels.GoodsAdapter;
-import com.example.spacetrader.viewmodels.PlayerGoodsAdapter;
 import com.example.spacetrader.views.ConfigurationActivity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Player implements Serializable {
-
-    private Game game;
 
     private String name;
 
@@ -51,7 +45,6 @@ public class Player implements Serializable {
         ship = new Ship(Ship.ShipType.GNAT);
         inventorySpace = ship.getCargoCapacity();
         totalPoints = 16;
-        game = ConfigurationActivity.newGame;
         playerGoods = new ArrayList<>();
 
     }
@@ -202,10 +195,6 @@ public class Player implements Serializable {
 
     private void setWhatPlayerCanSell() {
         whatPlayerCanSell = currentSolarSystem.getBuyGood();
-    }
-
-    public void setGame(Game game) {
-        this.game = game;
     }
 
     public int getInventorySpace() {

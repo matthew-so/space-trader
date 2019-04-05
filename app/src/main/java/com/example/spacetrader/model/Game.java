@@ -1,11 +1,9 @@
 package com.example.spacetrader.model;
 
-import android.widget.Toast;
 import com.example.spacetrader.entity.Difficulty;
 import com.example.spacetrader.entity.Player;
-import com.example.spacetrader.views.MainActivity;
 
-public class Game {
+public class Game{
     // De-facto Model
     private Difficulty difficulty;
     public Player player;

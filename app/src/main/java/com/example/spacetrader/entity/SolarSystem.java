@@ -1,7 +1,5 @@
 package com.example.spacetrader.entity;
 
-import android.content.res.Resources;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -103,7 +101,6 @@ public class SolarSystem {
                     if (this.getBuyGoodPrice(i) > 0) {
                         goodsForSale.add(i);
                     }
-
                 }
             }
         }
@@ -160,5 +157,9 @@ public class SolarSystem {
 
     public void setQuantityBuy(Map<Good, Integer> quantityBuy) {
         this.quantityBuy = quantityBuy;
+    }
+
+    public void setRandomEvent(RandomSolarEvent solar) {
+        this.solar = solar;
     }
 }

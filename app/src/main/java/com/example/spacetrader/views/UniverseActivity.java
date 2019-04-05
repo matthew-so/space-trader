@@ -8,10 +8,7 @@ import android.widget.TextView;
 import com.example.spacetrader.entity.*;
 import com.example.spacetrader.R;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-
-import static com.example.spacetrader.views.StartPlayActivity.player;
 
 
 public class UniverseActivity extends AppCompatActivity {

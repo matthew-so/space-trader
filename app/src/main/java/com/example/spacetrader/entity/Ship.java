@@ -1,10 +1,5 @@
 package com.example.spacetrader.entity;
 
-import com.example.spacetrader.views.ConfigurationActivity;
-
-import java.util.HashMap;
-import java.util.Map;
-
 public class Ship {
 
     public enum ShipType {
