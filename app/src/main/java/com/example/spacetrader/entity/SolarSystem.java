@@ -153,4 +153,12 @@ public class SolarSystem {
     public void setRandomEvent(RandomSolarEvent solar) {
         this.solar = solar;
     }
+
+    public String getTech() {
+        return techLev.getTech();
+    }
+
+    public String getResource() {
+        return resourceType.getResource();
+    }
 }

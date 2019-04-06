@@ -116,7 +116,23 @@ public class Player implements Serializable {
 
     }
 
+    public void travel(int distance) {
+        ship.travel(distance);
+    }
 
+    public int getShipFuel() { return ship.getFuel();}
+
+    public int getXCoordinate() {
+        return currentSolarSystem.getxCoor();
+    }
+
+    public int getYCoordinate() {
+        return currentSolarSystem.getyCoor();
+    }
+
+    public String getSolarSystemName() {
+        return currentSolarSystem.getName();
+    }
 
     public String getName() {
         return name;

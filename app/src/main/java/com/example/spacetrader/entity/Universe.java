@@ -15,7 +15,6 @@ public class Universe {
         this.solarSystems = solars;
     }
 
-
     public List<SolarSystem> getSolarList() {return this.solarSystems;}
 
     public SolarSystem getSolarSystem(int i) {
@@ -24,5 +23,9 @@ public class Universe {
 
     public String getName() {
         return name;
+    }
+
+    public String getSolarSystemName(int i) {
+        return solarSystems.get(i).getName();
     }
 }

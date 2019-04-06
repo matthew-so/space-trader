@@ -136,62 +136,62 @@ public class UniverseActivity extends AppCompatActivity {
          */
 
         SolarSystemView0.setText("Solar system: " + solarSystemsList.get(0).getName() + " Tech Level: " +
-                solarSystemsList.get(0).getTechLev().getTech()
-        + " Resource Level: " + solarSystemsList.get(0).getResourceType().getResource() + " Coordinates: " +
+                solarSystemsList.get(0).getTech()
+        + " Resource Level: " + solarSystemsList.get(0).getResource() + " Coordinates: " +
                 "("+solarSystemsList.get(0).getxCoor() + "," +
                 solarSystemsList.get(0).getyCoor()+")");
 
         SolarSystemView1.setText("Solar system: " + solarSystemsList.get(1).getName() + " Tech Level: "
-                + solarSystemsList.get(1).getTechLev().getTech()
-                + " Resource Level: " + solarSystemsList.get(1).getResourceType().getResource() + " Coordinates: " +
+                + solarSystemsList.get(1).getTech()
+                + " Resource Level: " + solarSystemsList.get(1).getResource() + " Coordinates: " +
                 "("+solarSystemsList.get(1).getxCoor() + "," +
                 solarSystemsList.get(1).getyCoor()+")");
 
         SolarSystemView2.setText("Solar system: " + solarSystemsList.get(2).getName() + " Tech Level: " +
-                solarSystemsList.get(2).getTechLev().getTech()
-                + " Resource Level: " + solarSystemsList.get(2).getResourceType().getResource() + " Coordinates: " +
+                solarSystemsList.get(2).getTech()
+                + " Resource Level: " + solarSystemsList.get(2).getResource() + " Coordinates: " +
                 "("+solarSystemsList.get(2).getxCoor() + "," +
                 solarSystemsList.get(2).getyCoor()+")");
 
         SolarSystemView3.setText("Solar system: " + solarSystemsList.get(3).getName() + " Tech Level: " +
-                solarSystemsList.get(3).getTechLev().getTech()
-                + " Resource Level: " + solarSystemsList.get(3).getResourceType().getResource() + " Coordinates: " +
+                solarSystemsList.get(3).getTech()
+                + " Resource Level: " + solarSystemsList.get(3).getResource() + " Coordinates: " +
                 "("+solarSystemsList.get(3).getxCoor() + "," +
                 solarSystemsList.get(3).getyCoor()+")");
 
         SolarSystemView4.setText("Solar system: " + solarSystemsList.get(4).getName() + " Tech Level: " +
-                solarSystemsList.get(4).getTechLev().getTech()
-                + " Resource Level: " + solarSystemsList.get(4).getResourceType().getResource() + " Coordinates: " +
+                solarSystemsList.get(4).getTech()
+                + " Resource Level: " + solarSystemsList.get(4).getResource() + " Coordinates: " +
                 "("+solarSystemsList.get(4).getxCoor() + "," +
                 solarSystemsList.get(4).getyCoor()+")");
 
         SolarSystemView5.setText("Solar system: " + solarSystemsList.get(5).getName() + " Tech Level: " +
-                solarSystemsList.get(5).getTechLev().getTech()
-                + " Resource Level: " + solarSystemsList.get(5).getResourceType().getResource() + " Coordinates: " +
+                solarSystemsList.get(5).getTech()
+                + " Resource Level: " + solarSystemsList.get(5).getResource() + " Coordinates: " +
                 "("+solarSystemsList.get(5).getxCoor() + "," +
                 solarSystemsList.get(5).getyCoor()+")");
 
         SolarSystemView6.setText("Solar system: " + solarSystemsList.get(6).getName() + " Tech Level: " +
-                solarSystemsList.get(6).getTechLev().getTech()
-                + " Resource Level: " + solarSystemsList.get(6).getResourceType().getResource() + " Coordinates: " +
+                solarSystemsList.get(6).getTech()
+                + " Resource Level: " + solarSystemsList.get(6).getResource() + " Coordinates: " +
                 "("+solarSystemsList.get(6).getxCoor() + "," +
                 solarSystemsList.get(6).getyCoor()+")");
 
         SolarSystemView7.setText("Solar system: " + solarSystemsList.get(7).getName() + " Tech Level: " +
-                solarSystemsList.get(7).getTechLev().getTech()
-                + " Resource Level: " + solarSystemsList.get(7).getResourceType().getResource() + " Coordinates: " +
+                solarSystemsList.get(7).getTech()
+                + " Resource Level: " + solarSystemsList.get(7).getResource() + " Coordinates: " +
                 "("+solarSystemsList.get(7).getxCoor() + "," +
                 solarSystemsList.get(7).getyCoor()+")");
 
         SolarSystemView8.setText("Solar system: " + solarSystemsList.get(8).getName() + " Tech Level: " +
-                solarSystemsList.get(8).getTechLev().getTech()
-                + " Resource Level: " + solarSystemsList.get(8).getResourceType().getResource() + " Coordinates: " +
+                solarSystemsList.get(8).getTech()
+                + " Resource Level: " + solarSystemsList.get(8).getResource() + " Coordinates: " +
                 "("+solarSystemsList.get(8).getxCoor() + "," +
                 solarSystemsList.get(8).getyCoor()+")");
 
         SolarSystemView9.setText("Solar system: " + solarSystemsList.get(9).getName() + " Tech Level: " +
-                solarSystemsList.get(9).getTechLev().getTech()
-                + " Resource Level: " + solarSystemsList.get(9).getResourceType().getResource() + " Coordinates: " +
+                solarSystemsList.get(9).getTech()
+                + " Resource Level: " + solarSystemsList.get(9).getResource() + " Coordinates: " +
                 "("+solarSystemsList.get(9).getxCoor() + "," +
                 solarSystemsList.get(9).getyCoor()+")");
 
@@ -204,5 +204,9 @@ public class UniverseActivity extends AppCompatActivity {
     public void goToPlayActivity(View view) {
         Intent intent = new Intent(this, StartPlayActivity.class);
         startActivity(intent);
+    }
+    
+    public void setSolarSystemText(View view, int sol) {
+        
     }
 }

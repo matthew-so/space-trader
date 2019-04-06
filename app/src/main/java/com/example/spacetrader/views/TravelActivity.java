@@ -43,14 +43,13 @@ public class TravelActivity extends AppCompatActivity {
         universe = UniverseActivity.universe;
         solarSystem = player.getCurrentSolarSystem();
         fuel_textview = findViewById(R.id.fuel_textview);
-        Ship myShip = player.getShipType();
-        fuel_textview.setText("fuel "+ myShip.getFuel());
+        fuel_textview.setText("fuel "+ player.getShipFuel());
         solar_s_textview = findViewById(R.id.curr_solar_s_textview);
 
-        solar_s_textview.setText("the current ss is " + solarSystem.getName());
+        solar_s_textview.setText("the current ss is " + player.getSolarSystemName());
 
-        int x2 = player.getCurrentSolarSystem().getxCoor();
-        int y2 = player.getCurrentSolarSystem().getyCoor();
+        int x2 = player.getXCoordinate();
+        int y2 = player.getYCoordinate();
 
         allSolarList = universe.getSolarList();
 
@@ -59,8 +58,8 @@ public class TravelActivity extends AppCompatActivity {
             int x1 = ss.getxCoor();
             ss = universe.getSolarSystem(i);
             int y1 = ss.getyCoor();
-            if ((player.getShipType().getFuel() - Math.hypot(x2-x1, y2-y1)) >= 0){
-                validSolarList.add(universe.getSolarSystem(i).getName());
+            if ((player.getShipFuel() - Math.hypot(x2-x1, y2-y1)) >= 0){
+                validSolarList.add(universe.getSolarSystemName(i));
             }
 
         }
@@ -77,8 +76,8 @@ public class TravelActivity extends AppCompatActivity {
                 //update fuel
                 //up
                 String newSS = (String) solar_spinner.getSelectedItem();
-                int x2 = player.getCurrentSolarSystem().getxCoor();
-                int y2 = player.getCurrentSolarSystem().getyCoor();
+                int x2 = player.getXCoordinate();
+                int y2 = player.getYCoordinate();
 
                 for (SolarSystem ss:allSolarList) {
                     //
@@ -87,7 +86,7 @@ public class TravelActivity extends AppCompatActivity {
                         int x1 = ss.getxCoor();
                         int y1 = ss.getyCoor();
                         double distance = Math.hypot(x2-x1, y2-y1);
-                        player.getShipType().travel((int)distance);
+                        player.travel((int)distance);
                         player.setCurrentSolarSystem(ss);
 
                     }
