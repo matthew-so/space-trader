@@ -7,6 +7,7 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.view.View;
 
+
 import android.widget.*;
 import com.example.spacetrader.R;
 import com.example.spacetrader.entity.Constants;
@@ -86,8 +87,8 @@ public class ConfigurationActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 pilotTextView.setText(progress + " Pilot points allocated");
-                if (trader_bar.getProgress() + pilot_bar.getProgress()
-                        + fighter_bar.getProgress() + engineer_bar.getProgress() != Constants.START_SKILL) {
+                if ((trader_bar.getProgress() + pilot_bar.getProgress()
+                        + fighter_bar.getProgress() + engineer_bar.getProgress()) != Constants.START_SKILL) {
                     checkerTextView.setText("You must use exactly 16 Skill Points!");
 
                     create_player.setEnabled(false);
@@ -113,8 +114,8 @@ public class ConfigurationActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 traderTextView.setText(progress + " Trader points allocated");
-                if (trader_bar.getProgress() + pilot_bar.getProgress()
-                        + fighter_bar.getProgress() + engineer_bar.getProgress() != Constants.START_SKILL) {
+                if ((trader_bar.getProgress() + pilot_bar.getProgress()
+                        + fighter_bar.getProgress() + engineer_bar.getProgress()) != Constants.START_SKILL) {
                     checkerTextView.setText("You must use exactly 16 Skill Points!");
 
                     create_player.setEnabled(false);
@@ -138,8 +139,8 @@ public class ConfigurationActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 engineerTextView.setText(progress + " Engineer points allocated");
-                if (trader_bar.getProgress() + pilot_bar.getProgress()
-                        + fighter_bar.getProgress() + engineer_bar.getProgress() != Constants.START_SKILL) {
+                if ((trader_bar.getProgress() + pilot_bar.getProgress()
+                        + fighter_bar.getProgress() + engineer_bar.getProgress()) != Constants.START_SKILL) {
                     checkerTextView.setText("You must use exactly 16 Skill Points!");
 
                     create_player.setEnabled(false);
@@ -165,8 +166,8 @@ public class ConfigurationActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 fighterTextView.setText(progress + " Fighter points allocated");
-                if (trader_bar.getProgress() + pilot_bar.getProgress()
-                        + fighter_bar.getProgress() + engineer_bar.getProgress() != Constants.START_SKILL) {
+                if ((trader_bar.getProgress() + pilot_bar.getProgress()
+                        + fighter_bar.getProgress() + engineer_bar.getProgress()) != Constants.START_SKILL) {
                     checkerTextView.setText("You must use exactly 16 Skill Points!");
                     create_player.setEnabled(false);
                 } else {
