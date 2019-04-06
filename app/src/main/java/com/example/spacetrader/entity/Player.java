@@ -31,9 +31,9 @@ public class Player implements Serializable {
 
     private int inventorySpace;
 
-    public Map<Good,Integer> howMuchPlayerCanBuy;
+    private Map<Good,Integer> howMuchPlayerCanBuy;
 
-    public Map<Good,Integer> whatPlayerCanSell;
+    private Map<Good,Integer> whatPlayerCanSell;
 
     public Player(String name, int trader, int fighter, int pilot, int engineer) {
         this.name = name;
@@ -64,7 +64,7 @@ public class Player implements Serializable {
      * @param good the good the player wishes to buy
      * @return true if the player can buy the good, false if not
      */
-    public boolean canBuy(Good good) {
+    private boolean canBuy(Good good) {
         return !(this.getCredits() <= 0
                 || inventorySpace == 0
                 || this.getCurrentSolarSystem().getBuyGoodPrice(good) > credits);
@@ -107,8 +107,9 @@ public class Player implements Serializable {
 
             return false;
         } else {
-            this.setCredits(good.sellAndReturnMoney(credits));
+            this.setCredits(credits += good.getPrice());
             this.inventorySpace++;
+            good.setQuantity(good.getQuantity() - 1);
             return true;
         }
 

@@ -36,22 +36,22 @@
             android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/market_button"
             android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.498"
-            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/randomEventTextView"/>
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/save_game"/>
     <Button
             android:text="Save Game"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/save_game" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498" app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="506dp" android:layout_marginTop="12dp"
-            app:layout_constraintTop_toBottomOf="@+id/_button" android:onClick="saveGame"
-            app:layout_constraintVertical_bias="0.0"/>
+            app:layout_constraintHorizontal_bias="0.498"
+            android:onClick="saveGame"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/randomEventTextView"/>
     <TextView
             android:layout_width="313dp"
             android:layout_height="46dp"
             android:id="@+id/randomEventTextView"
-            android:layout_marginBottom="386dp"
+            android:layout_marginBottom="324dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"/>
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.455"/>
 </android.support.constraint.ConstraintLayout>

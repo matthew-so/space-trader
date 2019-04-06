@@ -22,21 +22,21 @@ public class MarketplaceActivity extends AppCompatActivity {
      * The maps contain the goods and they're respective prices
      * But since maps cannot go into a recycler view, the keys will be put in ArrayLists
      */
-    Map<Good,Integer> mapOfPlanetGoods;
-    ArrayList<Good> planetGoods;
-    Map<Good,Integer> mapOfSellableGoods;
-    ArrayList<Good> playerGoods;
+    private Map<Good,Integer> mapOfPlanetGoods;
+    private ArrayList<Good> planetGoods;
+    private Map<Good,Integer> mapOfSellableGoods;
+    private ArrayList<Good> playerGoods;
 
     /**
      * These adapters are made static so when a button is pressed in @code GoodsAdapter,
      * GoodsAdapter can notify playerAdapter to update via this class
      */
-    GoodsAdapter adapter;
+    private GoodsAdapter adapter;
     public static PlayerGoodsAdapter playerAdapter;
 
     //public Player player;
-    Player player;
-    SolarSystem solarSystem;
+    private Player player;
+    private SolarSystem solarSystem;
     public static TextView credits_TextView;
 
 
