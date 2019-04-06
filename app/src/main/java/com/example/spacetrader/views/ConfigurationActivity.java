@@ -8,7 +8,12 @@ import android.text.TextUtils;
 import android.view.View;
 
 
-import android.widget.*;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.SeekBar;
+import android.widget.Spinner;
+import android.widget.TextView;
 import com.example.spacetrader.R;
 import com.example.spacetrader.entity.Constants;
 import com.example.spacetrader.entity.Difficulty;

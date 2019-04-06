@@ -14,7 +14,7 @@ import com.example.spacetrader.entity.SolarSystem;
 import com.example.spacetrader.views.MarketplaceActivity;
 import com.example.spacetrader.views.StartPlayActivity;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import static com.example.spacetrader.views.StartPlayActivity.player;

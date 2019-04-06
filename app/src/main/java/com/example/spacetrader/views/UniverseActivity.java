@@ -7,7 +7,13 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.spacetrader.R;
-import com.example.spacetrader.entity.*;
+import com.example.spacetrader.entity.Constants;
+import com.example.spacetrader.entity.Planet;
+import com.example.spacetrader.entity.Resource;
+import com.example.spacetrader.entity.SolarSystem;
+import com.example.spacetrader.entity.TechLevel;
+import com.example.spacetrader.entity.Universe;
+
 
 import java.util.ArrayList;
 

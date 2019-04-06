@@ -104,7 +104,6 @@ public class Player implements Serializable {
      */
     public boolean sell(Good good) {
         if (!canSell(good) || good.getQuantity() == 0) {
-
             return false;
         } else {
             this.setCredits(good.sellAndReturnMoney(credits));
