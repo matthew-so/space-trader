@@ -10,10 +10,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import com.example.spacetrader.R;
 import com.example.spacetrader.entity.Player;
+import com.example.spacetrader.entity.Ship;
 import com.example.spacetrader.entity.SolarSystem;
 import com.example.spacetrader.entity.Universe;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TravelActivity extends AppCompatActivity {
 
@@ -25,7 +27,7 @@ public class TravelActivity extends AppCompatActivity {
     public static TextView solar_s_textview;
     public static Universe universe;
     public ArrayList<String> validSolarList;
-    public ArrayList<SolarSystem> allSolarList;
+    public List<SolarSystem> allSolarList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +40,12 @@ public class TravelActivity extends AppCompatActivity {
         player = ConfigurationActivity.newGame.getPlayer();
         universe = UniverseActivity.universe;
         solarSystem = player.getCurrentSolarSystem();
-        fuel_textview = (TextView) findViewById(R.id.fuel_textview);
-        fuel_textview.setText("fuel "+ player.getShipType().getFuel());
-        solar_s_textview = (TextView) findViewById(R.id.curr_solar_s_textview);
-        solar_s_textview.setText("the current ss is " + player.getCurrentSolarSystem().getName());
+        fuel_textview = findViewById(R.id.fuel_textview);
+        Ship myShip = player.getShipType();
+        fuel_textview.setText("fuel "+ myShip.getFuel());
+        solar_s_textview = findViewById(R.id.curr_solar_s_textview);
+
+        solar_s_textview.setText("the current ss is " + solarSystem.getName());
 
         int x2 = player.getCurrentSolarSystem().getxCoor();
         int y2 = player.getCurrentSolarSystem().getyCoor();
@@ -63,7 +67,7 @@ public class TravelActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         solar_spinner.setAdapter(adapter);
 
-        Button goButton = (Button) findViewById(R.id.go_button);
+        Button goButton =  findViewById(R.id.go_button);
         goButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

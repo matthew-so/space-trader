@@ -31,9 +31,9 @@ public class Player implements Serializable {
 
     private int inventorySpace;
 
-    private Map<Good,Integer> howMuchPlayerCanBuy;
+    public Map<Good,Integer> howMuchPlayerCanBuy;
 
-    private Map<Good,Integer> whatPlayerCanSell;
+    public Map<Good,Integer> whatPlayerCanSell;
 
     public Player(String name, int trader, int fighter, int pilot, int engineer) {
         this.name = name;
@@ -44,7 +44,7 @@ public class Player implements Serializable {
         credits = 1000;
         ship = new Ship(Ship.ShipType.GNAT);
         inventorySpace = ship.getCargoCapacity();
-        totalPoints = 16;
+        totalPoints = Constants.START_SKILL;
         playerGoods = new ArrayList<>();
 
     }
@@ -65,13 +65,9 @@ public class Player implements Serializable {
      * @return true if the player can buy the good, false if not
      */
     public boolean canBuy(Good good) {
-        if (this.getCredits() <= 0
+        return !(this.getCredits() <= 0
                 || inventorySpace == 0
-                || this.getCurrentSolarSystem().getBuyGoodPrice(good) > credits) {
-            return false;
-        } else {
-            return true;
-        }
+                || this.getCurrentSolarSystem().getBuyGoodPrice(good) > credits);
     }
 
     /**
@@ -81,11 +77,7 @@ public class Player implements Serializable {
      * @return true if the player can false if he or she cannot
      */
     public boolean canSell(Good good) {
-        if (!playerGoods.contains(good)){
-           return false;
-        } else {
-            return true;
-        }
+        return (playerGoods.contains(good));
     }
 
     /**
@@ -93,15 +85,14 @@ public class Player implements Serializable {
      * @param good the good the player wishes to buy
      */
     public boolean buy(Good good) {
-        if (canBuy(good) == false) {
+        if (!canBuy(good)) {
             return false;
         } else {
-            this.setCredits(this.credits -= good.getPrice());
+            this.setCredits(good.buyAndReturnMoney(credits));
             if (!playerGoods.contains(good)) {
                 playerGoods.add(good);
             }
             this.inventorySpace--;
-            good.setQuantity(good.getQuantity() + 1);
             return true;
         }
 
@@ -116,9 +107,8 @@ public class Player implements Serializable {
 
             return false;
         } else {
-            this.setCredits(credits += good.getPrice());
+            this.setCredits(good.sellAndReturnMoney(credits));
             this.inventorySpace++;
-            good.setQuantity(good.getQuantity() - 1);
             return true;
         }
 

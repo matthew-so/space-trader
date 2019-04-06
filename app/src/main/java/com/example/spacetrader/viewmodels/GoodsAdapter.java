@@ -9,11 +9,13 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.example.spacetrader.entity.Good;
 import com.example.spacetrader.R;
+import com.example.spacetrader.entity.Player;
 import com.example.spacetrader.entity.SolarSystem;
 import com.example.spacetrader.views.MarketplaceActivity;
 import com.example.spacetrader.views.StartPlayActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.example.spacetrader.views.StartPlayActivity.player;
 
@@ -26,21 +28,21 @@ public class GoodsAdapter extends
 
         // Your holder should contain a member variable
         // for any view that will be set as you render a row
-        public TextView planetGoodTextView;
-        public final Button buy_button;
+        TextView planetGoodTextView;
+        Button buy_button;
 
 
         // We also create a constructor that accepts the entire item row
         // and does the view lookups to find each subview
 
-        public ViewHolder( View itemView) {
+        ViewHolder( View itemView) {
             // Stores the itemView in a public final member variable that can be used
             // to access the context from any ViewHolder instance.
             super(itemView);
 
 
-            planetGoodTextView = (TextView) itemView.findViewById(R.id.planetGoodTextView);
-            buy_button = (Button) itemView.findViewById(R.id.buy_button);
+            planetGoodTextView =  itemView.findViewById(R.id.planetGoodTextView);
+            buy_button = itemView.findViewById(R.id.buy_button);
 
 
 
@@ -49,13 +51,13 @@ public class GoodsAdapter extends
         }
 
     }
-    private ArrayList<Good> planetGoods;
+    private List<Good> planetGoods;
     // Used to cache the views within the item layout for fast access
 
 
 
     // Pass in the contact array into the constructor
-    public GoodsAdapter(ArrayList<Good> goods) {
+    public GoodsAdapter(List<Good> goods) {
         planetGoods = goods;
     }
 
@@ -68,9 +70,7 @@ public class GoodsAdapter extends
         View contactView = inflater.inflate(R.layout.market_goods_layout, parent, false);
 
         // Return a new holder instance
-        ViewHolder viewHolder = new ViewHolder(contactView);
-
-        return viewHolder;
+        return new ViewHolder(contactView);
     }
 
     @Override
@@ -78,9 +78,10 @@ public class GoodsAdapter extends
         // Get the data model based on position
         final Good good = planetGoods.get(position);
 
+        final Player myPlayer = StartPlayActivity.game.getPlayer();
         // Set item views based on your views and data model
         TextView textView = viewHolder.planetGoodTextView;
-        SolarSystem curr = StartPlayActivity.game.getPlayer().getCurrentSolarSystem();
+        SolarSystem curr = myPlayer.getCurrentSolarSystem();
         textView.setText(good.getName() + " [$" + good.getPrice() + "]");
         Button button = viewHolder.buy_button;
         button.setText("Buy");
@@ -98,9 +99,10 @@ public class GoodsAdapter extends
                     /**
                      *Updates the Player's inventory when buying a good
                      */
+                    ArrayList<Good> myGoods = myPlayer.getPlayerGoods();
                     MarketplaceActivity.playerAdapter
-                            .notifyItemRangeInserted(player.getPlayerGoods().size(), 1);
-                    MarketplaceActivity.playerAdapter.notifyItemChanged(player.getPlayerGoods().size());
+                            .notifyItemRangeInserted(myGoods.size(), 1);
+                    MarketplaceActivity.playerAdapter.notifyItemChanged(myGoods.size());
                     MarketplaceActivity.playerAdapter.notifyDataSetChanged();
 
 
@@ -112,8 +114,8 @@ public class GoodsAdapter extends
 
                 }
 
-                MarketplaceActivity.credits_TextView.setText("$" + player.getCredits() + "\n" +
-                        "Capacity: " + player.getInventorySpace());
+                MarketplaceActivity.credits_TextView.setText("$" + myPlayer.getCredits() + "\n" +
+                        "Capacity: " + myPlayer.getInventorySpace());
 
             }
         });

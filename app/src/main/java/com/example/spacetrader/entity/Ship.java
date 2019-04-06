@@ -17,7 +17,6 @@ public class Ship {
         public String toString() {
             return val;
         }
-        public int getCargoCapacity() { return cargoCapacity; }
         public int getFuel() { return fuel; }
     }
     /*private class CargoHold {

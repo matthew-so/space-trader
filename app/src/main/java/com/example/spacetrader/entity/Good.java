@@ -145,25 +145,25 @@ public enum Good {
     }
 
     public int sellPrice(int buyprice, int traderskill) {
-        return buyprice * (103 + (Constants.MAX_SKILL - traderskill)) / 100;
+        return buyprice * (Constants.ONEOTHREE + (Constants.MAX_SKILL - traderskill)) / 100;
     }
 
 
     /**
      * Used for onEnter method in SolarSystem.java
-     * @param soltech
-     * @return
+     * @param soltech Tech level of the solar system
+     * @return boolean
      */
-    public boolean canBuy(TechLevel soltech) {
+    public boolean canBuy(Comparable soltech) {
         return soltech.compareTo(mtlu) >= 0;
     }
 
     /**
      * Used for onEnter method in SolarSystem.java
-     * @param soltech
+     * @param soltech Tech level of the solar system
      * @return
      */
-    public boolean canSell(TechLevel soltech) {
+    public boolean canSell(Comparable soltech) {
         return soltech.compareTo(mtlp) >= 0;
     }
 
@@ -178,11 +178,11 @@ public enum Good {
             quantity *= 4;
             quantity /= 3;
         }
-        if (er != null &&resource.equals(er)) {
+        if (resource != null && resource.equals(er)) {
             quantity *= 3;
             quantity /= 4;
         }
-        if (ie != null && solar != null && solar.equals(ie)) {
+        if (solar != null && solar.equals(ie)) {
             quantity /= 5;
         }
         quantity += (int) (10 * Math.random());
@@ -191,6 +191,17 @@ public enum Good {
             quantity = 0;
         }
         return quantity;
+    }
+    public int buyAndReturnMoney(int money) {
+        money -= this.price;
+        this.quantity++;
+        return money;
+    }
+
+    public int sellAndReturnMoney(int money) {
+        money += this.price;
+        this.quantity--;
+        return money;
     }
 
     public void setQuantity(int quantity) {

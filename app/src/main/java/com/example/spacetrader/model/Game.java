@@ -4,7 +4,6 @@ import com.example.spacetrader.entity.Difficulty;
 import com.example.spacetrader.entity.Player;
 
 public class Game{
-    // De-facto Model
     private Difficulty difficulty;
     public Player player;
 
