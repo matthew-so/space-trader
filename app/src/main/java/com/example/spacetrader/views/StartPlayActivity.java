@@ -117,13 +117,13 @@ public class StartPlayActivity extends AppCompatActivity {
             GsonBuilder ub = new GsonBuilder().serializeNulls();
             Gson gg = ub.create();
 
-            FileOutputStream outputStream = openFileOutput("ufile.json", Context.MODE_PRIVATE);
+            FileOutputStream outputStream = openFileOutput("uFile.json", Context.MODE_PRIVATE);
             String outString = ug.toJson(universe);
             outputStream.write(outString.getBytes());
             Log.d("oijoij", outString);
             outputStream.close();
 
-            outputStream = openFileOutput("gfile.json", Context.MODE_PRIVATE);
+            outputStream = openFileOutput("gFile.json", Context.MODE_PRIVATE);
             String goutString = gg.toJson(ConfigurationActivity.newGame);
             outputStream.write(goutString.getBytes());
             Log.d("oijoij", goutString);
@@ -132,7 +132,7 @@ public class StartPlayActivity extends AppCompatActivity {
             Log.e("StartPlayActivity", "false");
             return false;
         } catch (IOException i) {
-            Log.e("StartPlayActivity", "notfalse");
+            Log.e("StartPlayActivity", "not false");
             return false;
         }
         

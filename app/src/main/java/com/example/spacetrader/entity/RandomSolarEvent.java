@@ -5,6 +5,7 @@ import java.util.Random;
 /**
  * This class represents the random solar events
  */
+@SuppressWarnings("SpellCheckingInspection")
 public enum RandomSolarEvent {
     UNEVENTFUL("Uneventful"), DROUGHT("Drought"), COLD("Cold"), CROPFAIL("Crop fail"), WAR("War"), BOREDOM("Boredom"),
     PLAGUE("Plague"), LACKOFWORKERS("Lack of Workers");

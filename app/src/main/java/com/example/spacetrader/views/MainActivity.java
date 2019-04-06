@@ -43,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
      * @param view The current view
      */
     public void loadGame(View view) {
-        File uf = new File(this.getFilesDir(), "ufile.json");
-        File gf = new File(this.getFilesDir(), "gfile.json");
+        File uf = new File(this.getFilesDir(), "uFile.json");
+        File gf = new File(this.getFilesDir(), "gFile.json");
 
         try {
             BufferedReader input = new BufferedReader(new FileReader(uf));

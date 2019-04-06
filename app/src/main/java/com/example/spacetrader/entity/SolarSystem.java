@@ -14,15 +14,15 @@ public class SolarSystem {
     private final String name;
     private final TechLevel techLev;
     private final Resource resourceType;
-    private final int xCoor;
-    private final int yCoor;
+    private final int xCoordinate;
+    private final int yCoordinate;
     private final List<Planet> planet;
     private RandomSolarEvent solar;
     private Map<Good, Integer> buyGood;
     private Map<Good, Integer> sellGood;
     private Map<Good, Integer> quantityBuy;
     private ArrayList<Good> goodsForSale;
-    private int startcountdown;
+    private int startCountdown;
 
     /**
      * The constructor for the solar system
@@ -37,8 +37,8 @@ public class SolarSystem {
         this.name = name;
         this.techLev = techLev;
         this.resourceType = resourceType;
-        this.xCoor = x;
-        this.yCoor = y;
+        this.xCoordinate = x;
+        this.yCoordinate = y;
         this.planet = new ArrayList<>();
         this.planet.add(planet);
     }
@@ -56,8 +56,8 @@ public class SolarSystem {
         this.name = name;
         this.techLev = techLev;
         this.resourceType = resourceType;
-        this.xCoor = x;
-        this.yCoor = y;
+        this.xCoordinate = x;
+        this.yCoordinate = y;
         this.planet = new ArrayList<>();
         this.planet.addAll(planet);
     }
@@ -66,16 +66,16 @@ public class SolarSystem {
      * Gets the x-coordinate of the solar system
      * @return x-coordinate
      */
-    public int getxCoor() {
-        return xCoor;
+    public int getXCoordinate() {
+        return xCoordinate;
     }
 
     /**
      * Gets the y-coordinate of the solar system
      * @return y-coordinate
      */
-    public int getyCoor() {
-        return yCoor;
+    public int getYCoordinate() {
+        return yCoordinate;
     }
 
     /**
@@ -95,17 +95,16 @@ public class SolarSystem {
     }
 
     /**
-     * When you enter a planet this method calculates the goods that the solarsystem
+     * When you enter a planet this method calculates the goods that the solar system
      * can buy or sell
-     * @param traderskill the amount of skill points the player has for "trader"
+     * @param traderSkill the amount of skill points the player has for "trader"
      */
-    public void onEnter(int traderskill) {
+    public void onEnter(int traderSkill) {
         /*maps that have goods as keys and prices as values*/
         buyGood = new HashMap<>();
         sellGood = new HashMap<>();
         quantityBuy = new HashMap<>();
         int price;
-        int quantity;
         goodsForSale = new ArrayList<>();
         for (Good i: Good.values()) {
             price = i.getBasePrice(techLev);
@@ -116,7 +115,7 @@ public class SolarSystem {
             if (i.canBuy(techLev)) {
                 buyGood.put(i, price);
                 if (i.canSell(techLev)) {
-                    sellGood.put(i, i.sellPrice(price, traderskill));
+                    sellGood.put(i, i.sellPrice(price, traderSkill));
                     if (this.getBuyGoodPrice(i) > 0) {
                         goodsForSale.add(i);
                     }
@@ -126,13 +125,13 @@ public class SolarSystem {
 
          // Sets up the quantity that can be bought for each good from a planet/SS
 
-        if (startcountdown == 0) {
+        if (startCountdown == 0) {
             for (Good i: Good.values()) {
                 quantityBuy.put(i, i.calculateQuantity(techLev,planet.size(),resourceType,solar));
             }
-            startcountdown = Constants.COUNTDOWN;
+            startCountdown = Constants.COUNTDOWN;
         } else {
-            startcountdown--;
+            startCountdown--;
         }
     }
 

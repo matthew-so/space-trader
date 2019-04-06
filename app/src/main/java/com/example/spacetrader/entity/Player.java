@@ -150,7 +150,7 @@ public class Player implements Serializable {
      * @return x-coordinate
      */
     public int getXCoordinate() {
-        return currentSolarSystem.getxCoor();
+        return currentSolarSystem.getXCoordinate();
     }
 
     /**
@@ -158,7 +158,7 @@ public class Player implements Serializable {
      * @return y-coordinate
      */
     public int getYCoordinate() {
-        return currentSolarSystem.getyCoor();
+        return currentSolarSystem.getYCoordinate();
     }
 
     /**

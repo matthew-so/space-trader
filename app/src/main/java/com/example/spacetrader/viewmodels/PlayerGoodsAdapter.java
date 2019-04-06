@@ -27,7 +27,7 @@ public class PlayerGoodsAdapter extends
     public class ViewHolder extends RecyclerView.ViewHolder {
         // Your holder should contain a member variable
         // for any view that will be set as you render a row
-        final TextView playerGoodTextview;
+        final TextView playerGoodTextView;
         final Button sell_Button;
 
         // We also create a constructor that accepts the entire item row
@@ -37,7 +37,7 @@ public class PlayerGoodsAdapter extends
             // to access the context from any ViewHolder instance.
             super(itemView);
 
-            playerGoodTextview =  itemView.findViewById(R.id.playerGoodTextview);
+            playerGoodTextView =  itemView.findViewById(R.id.playerGoodTextview);
             sell_Button = itemView.findViewById(R.id.sell_Button);
         }
     }
@@ -72,7 +72,7 @@ public class PlayerGoodsAdapter extends
         final Good playerGood = playerGoods.get(position);
 
         // Set item views based on your views and data model
-        TextView textView = viewHolder.playerGoodTextview;
+        TextView textView = viewHolder.playerGoodTextView;
         textView.setText(playerGood.getName()+ " [$"+ playerGood.getPrice()+"]");
         final Button button = viewHolder.sell_Button;
         button.setText("Sell");

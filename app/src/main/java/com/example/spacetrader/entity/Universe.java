@@ -22,6 +22,9 @@ public class Universe {
     private SolarSystem saltyWay;
     private SolarSystem datWay;
 
+    /**
+     * The Universe constructor creates the universe
+     */
     public Universe() {
 
         this.makeSolarSystems();
@@ -61,12 +64,17 @@ public class Universe {
         return solarSystemsList.get(i).getName();
     }
 
+    /**
+     * Print the solar system and its attributes as a string
+     * @param index the position
+     * @return string
+     */
     public String toString(int index) {
         return "Solar system: " + solarSystemsList.get(index).getName() + " Tech Level: " +
                 solarSystemsList.get(index).getTech()
                 + " Resource Level: " + solarSystemsList.get(index).getResource() + " Coordinates: " +
-                "("+solarSystemsList.get(index).getxCoor() + "," +
-                solarSystemsList.get(index).getyCoor()+")";
+                "("+solarSystemsList.get(index).getXCoordinate() + "," +
+                solarSystemsList.get(index).getYCoordinate()+")";
     }
 
     private void makeSolarSystems() {
@@ -78,7 +86,7 @@ public class Universe {
         Planet Uranus;
         Planet Pluto;
         Planet Ares;
-        Planet Gelo;
+        Planet Jello;
         Planet Vulcan;
         Planet Swirl;
 
@@ -91,10 +99,10 @@ public class Universe {
         Pluto = new Planet("Pluto");
         Ares = new Planet("Ares");
         Vulcan = new Planet("Vulcan");
-        Gelo = new Planet("Jello");
+        Jello = new Planet("Jello");
         Swirl = new Planet("Swirl");
         ArrayList<Planet> twoPlanets = new ArrayList<>();
-        twoPlanets.add(Gelo);
+        twoPlanets.add(Jello);
         twoPlanets.add(Swirl);
 
         solarSystemsList = new ArrayList<>();

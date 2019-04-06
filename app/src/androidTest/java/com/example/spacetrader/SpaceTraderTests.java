@@ -18,6 +18,8 @@ import java.util.Collection;
 /**
  * This class is for testing methods in the application
  */
+
+@SuppressWarnings("SpellCheckingInspection")
 public class SpaceTraderTests {
     //Selling Tests made by Kyser Montalvo
     @Rule

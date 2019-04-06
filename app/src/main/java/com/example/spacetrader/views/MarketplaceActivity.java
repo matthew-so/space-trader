@@ -93,13 +93,13 @@ public class MarketplaceActivity extends AppCompatActivity {
 
     private void assignPrices(Collection<Good> planetGoods, Collection<Good> playerGoods, SolarSystem solarSystem) {
         Map<Good,Integer> mapOfPlanetGoods;
-        Map<Good,Integer> mapOfSellableGoods;
+        Map<Good,Integer> mapOfSellAbleGoods;
         mapOfPlanetGoods = solarSystem.getBuyGood();
-        mapOfSellableGoods = solarSystem.getSellGood();
+        mapOfSellAbleGoods = solarSystem.getSellGood();
         for(Good g:playerGoods) {
-            if ((mapOfSellableGoods!= null) && (!mapOfSellableGoods.isEmpty())
+            if ((mapOfSellAbleGoods!= null) && (!mapOfSellAbleGoods.isEmpty())
                     && (solarSystem.getBuyGoodPrice(g) > 0) && (!playerGoods.isEmpty())) {
-                g.setPrice(mapOfSellableGoods.get(g));
+                g.setPrice(mapOfSellAbleGoods.get(g));
             }
         }
         Set<Good> planetGoodsSet = mapOfPlanetGoods.keySet();

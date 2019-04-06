@@ -10,7 +10,9 @@ import com.example.spacetrader.R;
 import com.example.spacetrader.entity.Universe;
 
 
-
+/**
+ * This class represents the universe display screen
+ */
 
 public class UniverseActivity extends AppCompatActivity {
 

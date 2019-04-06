@@ -20,7 +20,6 @@ public class Ship {
         public String toString() {
             return val;
         }
-        int getFuel() { return fuel; }
     }
     /*private class CargoHold {
         private Map<Good, Integer> cargo;
@@ -58,10 +57,10 @@ public class Ship {
 
     /**
      * This constructor for ship
-     * @param shiptype the ship
+     * @param shipType the ship
      */
-    public Ship(ShipType shiptype) {
-        this.shiptype = shiptype;
+    public Ship(ShipType shipType) {
+        this.shiptype = shipType;
         fuel = this.shiptype.fuel;
     }
     @Override

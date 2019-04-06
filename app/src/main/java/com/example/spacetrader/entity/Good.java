@@ -19,8 +19,8 @@ public enum Good {
 
 
     private final String name;
-    private TechLevel mtlp; //minimum tech level to produce good
-    private TechLevel mtlu; //minimum tech level to use good
+    private TechLevel mTlp; //minimum tech level to produce good
+    private TechLevel mTlu; //minimum tech level to use good
     private TechLevel ttp; //tech level which produces the most of good
     private int base; //base price of good
     private int ipl; //price increase per tech level
@@ -30,13 +30,13 @@ public enum Good {
     private Resource er; //high-price condition
 
     private int quantity;
-    private int price; //this is the price that was calculated on onEnter in Solarsystem
+    private int price; //this is the price that was calculated on onEnter in solar system
 
 
-    Good(String name, TechLevel mtlp, TechLevel mtlu, TechLevel ttp, int base, int ipl, int var, RandomSolarEvent ie, Resource cr, Resource er, int mtl, int mth) {
+    Good(String name, TechLevel mTlp, TechLevel mTlu, TechLevel ttp, int base, int ipl, int var, RandomSolarEvent ie, Resource cr, Resource er, int mtl, int mth) {
         this.name = name;
-        this.mtlp = mtlp;
-        this.mtlu = mtlu;
+        this.mTlp = mTlp;
+        this.mTlu = mTlu;
         this.ttp = ttp;
         this.base = base;
         this.ipl = ipl;
@@ -82,11 +82,11 @@ public enum Good {
     /**
      * The special resources
      * @param resource The resource enum
-     * @param baseprice The price of the good
+     * @param basePrice The price of the good
      * @return The price of the good
      */
-    public int specialResources(Resource resource, int baseprice) {
-        int num = baseprice;
+    public int specialResources(Resource resource, int basePrice) {
+        int num = basePrice;
         if (cr != null) {
             if (resource.equals(cr)) {
 
@@ -105,14 +105,14 @@ public enum Good {
 
     /**
      * Changes the price of a good based on a random event
-     * @param randomev The random event
-     * @param baseprice The price of the good
+     * @param randomEv The random event
+     * @param basePrice The price of the good
      * @return The new price of the good
      */
-    public int specialEvent(RandomSolarEvent randomev, int baseprice) {
-        int num = baseprice;
+    public int specialEvent(RandomSolarEvent randomEv, int basePrice) {
+        int num = basePrice;
         if (ie != null) {
-            if (ie.equals(randomev)) {
+            if (ie.equals(randomEv)) {
                 num *= 3;
                 num /= 2;
             }
@@ -122,11 +122,11 @@ public enum Good {
 
     /**
      * This method randomizes the price of a market good
-     * @param baseprice The price of the good
+     * @param basePrice The price of the good
      * @return The new price of the good
      */
-    public int randomizePrice(int baseprice) {
-        int num = baseprice;
+    public int randomizePrice(int basePrice) {
+        int num = basePrice;
         num += (int) (Math.random() * var);
         num -= (int) (Math.random() * var);
         return num;
@@ -134,43 +134,43 @@ public enum Good {
 
     /**
      * This method calculates the price for a good to be sold at
-     * @param buyprice The price which you can buy a good for
-     * @param traderskill The player's trader skill points
+     * @param buyPrice The price which you can buy a good for
+     * @param traderSkill The player's trader skill points
      * @return The price of the good to be sold
      */
-    public int sellPrice(int buyprice, int traderskill) {
-        return ((buyprice) * (((Constants.ONEOTHREE) + (Constants.MAX_SKILL - traderskill)) / (100)));
+    public int sellPrice(int buyPrice, int traderSkill) {
+        return ((buyPrice) * (((Constants.ONEOTHREE) + (Constants.MAX_SKILL - traderSkill)) / (100)));
     }
 
 
     /**
      * Used for onEnter method in SolarSystem.java
-     * @param soltech Tech level of the solar system
+     * @param solTech Tech level of the solar system
      * @return boolean
      */
-    public boolean canBuy(Comparable soltech) {
-        return soltech.compareTo(mtlu) >= 0;
+    public boolean canBuy(Comparable solTech) {
+        return solTech.compareTo(mTlu) >= 0;
     }
 
     /**
      * Used for onEnter method in SolarSystem.java
-     * @param soltech Tech level of the solar system
+     * @param solTech Tech level of the solar system
      * @return boolean
      */
-    public boolean canSell(Comparable soltech) {
-        return soltech.compareTo(mtlp) >= 0;
+    public boolean canSell(Comparable solTech) {
+        return solTech.compareTo(mTlp) >= 0;
     }
 
     /**
      * This method calculates the quantity of a good
-     * @param soltech The tech level of the solar system
+     * @param solTech The tech level of the solar system
      * @param size The size
      * @param resource The resource level
      * @param solar A random event
      * @return The quantity
      */
-    public int calculateQuantity(TechLevel soltech, int size, Resource resource, RandomSolarEvent solar) {
-        int quantity = ((9) + ((int) (((5 * Math.random())) - (Math.abs(ttp.compareTo(soltech))) * (1 + (size)))));
+    public int calculateQuantity(TechLevel solTech, int size, Resource resource, RandomSolarEvent solar) {
+        int quantity = ((9) + ((int) (((5 * Math.random())) - (Math.abs(ttp.compareTo(solTech))) * (1 + (size)))));
         if ("Robots".equals(name) || "Narcotics".equals(name)) {
             quantity *= 5;
             quantity /= 6;
