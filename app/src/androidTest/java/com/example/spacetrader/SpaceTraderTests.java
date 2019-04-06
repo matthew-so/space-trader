@@ -1,5 +1,6 @@
 package com.example.spacetrader;
 
+import com.example.spacetrader.entity.Constants;
 import com.example.spacetrader.entity.Good;
 import com.example.spacetrader.entity.Planet;
 import com.example.spacetrader.entity.Player;
@@ -26,7 +27,7 @@ public class SpaceTraderTests {
     public void setUp() {
 
         this.regularPlayer = new Player("Regular Player",4,4,4,4);
-        currentSolarSystem = new SolarSystem("Dat Way",TechLevel.FIVE,Resource.EIGHT,20,20,new Planet("Uranus"));
+        currentSolarSystem = new SolarSystem("Dat Way",TechLevel.FIVE,Resource.EIGHT,Constants.TWENTY,Constants.TWENTY,new Planet("Uranus"));
         regularPlayer.setCurrentSolarSystem(currentSolarSystem);
         notRandomGood = Good.FIREARMS;
         differentGood = Good.FOOD;
@@ -58,11 +59,7 @@ public class SpaceTraderTests {
         Assert.assertFalse("Player should not be able to sell good with quantity of 0",regularPlayer.sell(notRandomGood));
     }
 
-    @Test
-    public void testNullGood() {
-        notRandomGood = null;
-        Assert.assertFalse("Player should not be able to sell NULL",regularPlayer.sell(notRandomGood));
-    }
+
 
 }
 

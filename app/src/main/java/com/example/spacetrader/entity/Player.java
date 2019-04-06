@@ -65,9 +65,10 @@ public class Player implements Serializable {
      * @return true if the player can buy the good, false if not
      */
     private boolean canBuy(Good good) {
+
         return !(this.getCredits() <= 0
                 || inventorySpace == 0
-                || this.getCurrentSolarSystem().getBuyGoodPrice(good) > credits);
+                || currentSolarSystem.getBuyGoodPrice(good) > credits);
     }
 
     /**

@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.example.spacetrader.entity.Good;
 import com.example.spacetrader.R;
-import com.example.spacetrader.entity.SolarSystem;
 import com.example.spacetrader.views.MarketplaceActivity;
 import com.example.spacetrader.views.StartPlayActivity;
 
@@ -66,7 +65,6 @@ public class PlayerGoodsAdapter extends
 
         // Set item views based on your views and data model
         TextView textView = viewHolder.playerGoodTextview;
-        SolarSystem curr = StartPlayActivity.game.getPlayer().getCurrentSolarSystem();
         textView.setText(playerGood.getName()+ " [$"+ playerGood.getPrice()+"]");
         final Button button = viewHolder.sell_Button;
         button.setText("Sell");

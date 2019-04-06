@@ -13,6 +13,7 @@ import com.example.spacetrader.viewmodels.GoodsAdapter;
 import com.example.spacetrader.viewmodels.PlayerGoodsAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -89,7 +90,7 @@ public class MarketplaceActivity extends AppCompatActivity {
         playerGoodsRV.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    public void assignPrices(ArrayList<Good> planetGoods, ArrayList<Good> playerGoods, SolarSystem solarSystem) {
+    public void assignPrices(List<Good> planetGoods, List<Good> playerGoods, SolarSystem solarSystem) {
         Map<Good,Integer> mapOfPlanetGoods;
         Map<Good,Integer> mapOfSellableGoods;
         mapOfPlanetGoods = solarSystem.getBuyGood();

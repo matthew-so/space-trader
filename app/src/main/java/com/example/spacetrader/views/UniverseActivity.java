@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 public class UniverseActivity extends AppCompatActivity {
 
+    //TODO: Put all this creation stuff in universe constructor and just call constructor with no params
     /**
      * planets
      */
