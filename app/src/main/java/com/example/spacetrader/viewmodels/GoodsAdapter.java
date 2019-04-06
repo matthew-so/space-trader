@@ -81,7 +81,6 @@ public class GoodsAdapter extends
         final Player myPlayer = StartPlayActivity.game.getPlayer();
         // Set item views based on your views and data model
         TextView textView = viewHolder.planetGoodTextView;
-        SolarSystem curr = myPlayer.getCurrentSolarSystem();
         textView.setText(good.getName() + " [$" + good.getPrice() + "]");
         Button button = viewHolder.buy_button;
         button.setText("Buy");

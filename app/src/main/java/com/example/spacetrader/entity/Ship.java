@@ -72,7 +72,7 @@ public class Ship {
         if (fuel == shiptype.getFuel()) {
             return -1; //error, fuel-tank full
         }
-        if (fuel + this.fuel > shiptype.getFuel()) {
+        if (((fuel) + this.fuel) > (shiptype.getFuel())) {
             int ret = shiptype.getFuel() - fuel;
             this.fuel = shiptype.getFuel();
             return ret; //return unused fuel

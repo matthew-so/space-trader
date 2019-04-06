@@ -13,6 +13,7 @@ import com.example.spacetrader.viewmodels.GoodsAdapter;
 import com.example.spacetrader.viewmodels.PlayerGoodsAdapter;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -90,20 +91,20 @@ public class MarketplaceActivity extends AppCompatActivity {
         playerGoodsRV.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    public void assignPrices(List<Good> planetGoods, List<Good> playerGoods, SolarSystem solarSystem) {
+    private void assignPrices(Collection<Good> planetGoods, Collection<Good> playerGoods, SolarSystem solarSystem) {
         Map<Good,Integer> mapOfPlanetGoods;
         Map<Good,Integer> mapOfSellableGoods;
         mapOfPlanetGoods = solarSystem.getBuyGood();
         mapOfSellableGoods = solarSystem.getSellGood();
         for(Good g:playerGoods) {
-            if (mapOfSellableGoods!= null && !mapOfSellableGoods.isEmpty()
-                    &&solarSystem.getBuyGoodPrice(g) > 0 && !playerGoods.isEmpty()) {
+            if ((mapOfSellableGoods!= null) && (!mapOfSellableGoods.isEmpty())
+                    && (solarSystem.getBuyGoodPrice(g) > 0) && (!playerGoods.isEmpty())) {
                 g.setPrice(mapOfSellableGoods.get(g));
             }
         }
         Set<Good> planetGoodsSet = mapOfPlanetGoods.keySet();
         for(Good g:planetGoodsSet) {
-            if (mapOfPlanetGoods!= null && solarSystem.getBuyGoodPrice(g) > 0) {
+            if ((mapOfPlanetGoods!= null) && (solarSystem.getBuyGoodPrice(g) > 0)) {
                 planetGoods.add(g);
                 g.setPrice(mapOfPlanetGoods.get(g));
             }

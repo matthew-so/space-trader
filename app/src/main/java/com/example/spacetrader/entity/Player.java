@@ -66,9 +66,9 @@ public class Player implements Serializable {
      */
     private boolean canBuy(Good good) {
 
-        return !(this.getCredits() <= 0
-                || inventorySpace == 0
-                || currentSolarSystem.getBuyGoodPrice(good) > credits);
+        return !((((this.getCredits() <= 0)
+                || (inventorySpace == 0))
+                || (currentSolarSystem.getBuyGoodPrice(good) > credits)));
     }
 
     /**
@@ -104,7 +104,7 @@ public class Player implements Serializable {
      * @param good
      */
     public boolean sell(Good good) {
-        if (!canSell(good) || good.getQuantity() == 0) {
+        if ((!canSell(good)) || (good.getQuantity() == 0)) {
             return false;
         } else {
             this.setCredits(good.sellAndReturnMoney(credits));

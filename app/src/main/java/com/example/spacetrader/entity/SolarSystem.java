@@ -32,7 +32,7 @@ public class SolarSystem {
     }
 
 
-    public SolarSystem(String name, TechLevel techLev, Resource resourceType, int x, int y, Collection planet){
+    public SolarSystem(String name, TechLevel techLev, Resource resourceType, int x, int y, Collection<Planet> planet){
         this.name = name;
         this.techLev = techLev;
         this.resourceType = resourceType;

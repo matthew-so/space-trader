@@ -55,9 +55,10 @@ public class TravelActivity extends AppCompatActivity {
         allSolarList = universe.getSolarList();
 
         for (int i = 0; i < allSolarList.size(); i++) {
-
-            int x1 = allSolarList.get(i).getxCoor();
-            int y1 = universe.getSolarSystem(i).getyCoor();
+            SolarSystem ss = allSolarList.get(i);
+            int x1 = ss.getxCoor();
+            ss = universe.getSolarSystem(i);
+            int y1 = ss.getyCoor();
             if ((player.getShipType().getFuel() - Math.hypot(x2-x1, y2-y1)) >= 0){
                 validSolarList.add(universe.getSolarSystem(i).getName());
             }

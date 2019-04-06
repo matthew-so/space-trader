@@ -1,5 +1,5 @@
 package com.example.spacetrader.entity;
-public enum TechLevel implements Comparable<TechLevel> {
+public enum TechLevel {
     ZERO("Pre-Agriculture"),
     ONE("Agriculture"),
     TWO("Medieval"),

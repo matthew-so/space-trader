@@ -5,7 +5,6 @@ public class Constants {
     public static final int COUNTDOWN = 6;
     public static final int START_SKILL = 16;
     public static final int ONEOTHREE = 103;
-    public static final int ZERO = 0;
     public static final int TWENTY = 20;
     public static final int FOURTY = 40;
     public static final int THIRTY = 30;

@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.spacetrader.entity.Planet;
 import com.example.spacetrader.entity.Player;
 import com.example.spacetrader.entity.RandomSolarEvent;
 import com.example.spacetrader.entity.SolarSystem;
@@ -21,6 +22,8 @@ import com.google.gson.GsonBuilder;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.FileNotFoundException;
+import java.util.Collection;
+import java.util.List;
 
 public class StartPlayActivity extends AppCompatActivity {
 
@@ -58,12 +61,13 @@ public class StartPlayActivity extends AppCompatActivity {
         }
 
         player.setCurrentSolarSystem(currentSolarSystem);
-        //String solarSystemName = currentSolarSystem.getName();
-        String planetName = currentSolarSystem.getPlanet().get(0).getName();
+        List<Planet> solarSystem = currentSolarSystem.getPlanet();
+        Planet myPlanet = solarSystem.get(0);
+        String planetName = myPlanet.getName();
         //player.setCurrentSolarSystem(currentSolarSystem);
         planet_textView = findViewById(R.id.planet_textView);
         universe_textView = findViewById(R.id.universe_textView);
-        RandomSolarEvent solarEvent = currentSolarSystem.getSolar();
+        RandomSolarEvent solarEvent;
         randomEventTextView = findViewById(R.id.randomEventTextView);
 
 
@@ -90,9 +94,10 @@ public class StartPlayActivity extends AppCompatActivity {
     public boolean saveGame(View view) {
         Universe universe = UniverseActivity.universe;
         try {
-
-            Gson ug = new GsonBuilder().serializeNulls().create();
-            Gson gg = new GsonBuilder().serializeNulls().create();
+            GsonBuilder gb = new GsonBuilder().serializeNulls();
+            Gson ug = gb.create();
+            GsonBuilder ub = new GsonBuilder().serializeNulls();
+            Gson gg = ub.create();
 
             FileOutputStream outputStream = openFileOutput("ufile.json", Context.MODE_PRIVATE);
             String outString = ug.toJson(universe);
@@ -112,8 +117,10 @@ public class StartPlayActivity extends AppCompatActivity {
             Log.e("StartPlayActivity", "notfalse");
             return false;
         }
-        Toast.makeText(getApplicationContext(), "Game Saved!",
-                Toast.LENGTH_LONG).show();
+        
+        Toast myToast = Toast.makeText(getApplicationContext(), "Game Saved!",
+                Toast.LENGTH_LONG);
+        myToast.show();
         return true;
     }
 

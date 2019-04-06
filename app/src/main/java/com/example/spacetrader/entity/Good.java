@@ -60,52 +60,15 @@ public enum Good {
         return name;
     }
 
-    public TechLevel getMtlp() {
-        return mtlp;
-    }
-
-    public TechLevel getMtlu() {
-        return mtlu;
-    }
-
-    public TechLevel getTtp() {
-        return ttp;
-    }
 
     public int getBase() {
         return base;
     }
 
-    public int getIpl() {
-        return ipl;
-    }
 
-    public int getVar() {
-        return var;
-    }
-
-    public RandomSolarEvent getIe() {
-        return ie;
-    }
-
-    public Resource getCr() {
-        return cr;
-    }
-
-    public Resource getEr() {
-        return er;
-    }
-
-    public int getMtl() {
-        return mtl;
-    }
-
-    public int getMth() {
-        return mth;
-    }
 
     public int getBasePrice(Comparable<TechLevel> planetech) {
-        return base + ipl*planetech.compareTo(TechLevel.ZERO);
+        return ((base) + ((ipl)*(planetech.compareTo(TechLevel.ZERO))));
     }
 
     public void setPrice(int price) {
@@ -127,7 +90,7 @@ public enum Good {
                 num /= 3;
             }
         }
-        return baseprice;
+        return num;
     }
 
     public int specialEvent(RandomSolarEvent randomev, int baseprice) {
@@ -149,7 +112,7 @@ public enum Good {
     }
 
     public int sellPrice(int buyprice, int traderskill) {
-        return buyprice * (Constants.ONEOTHREE + (Constants.MAX_SKILL - traderskill)) / 100;
+        return ((buyprice) * (((Constants.ONEOTHREE) + (Constants.MAX_SKILL - traderskill)) / (100)));
     }
 
 
@@ -172,21 +135,21 @@ public enum Good {
     }
 
     public int calculateQuantity(TechLevel soltech, int size, Resource resource, RandomSolarEvent solar) {
-        int quantity = 9 + ((int) (5 * Math.random())) - Math.abs(ttp.compareTo(soltech)) * (1 + size);
-        if (name.equals("Robots") || name.equals("Narcotics")) {
+        int quantity = ((9) + ((int) (((5 * Math.random())) - (Math.abs(ttp.compareTo(soltech))) * (1 + (size)))));
+        if ("Robots".equals(name) || "Narcotics".equals(name)) {
             quantity *= 5;
             quantity /= 6;
             quantity += 1;
         }
-        if (resource != null && resource.equals(cr)) {
+        if ((resource != null) && (resource.equals(cr))) {
             quantity *= 4;
             quantity /= 3;
         }
-        if (resource != null && resource.equals(er)) {
+        if ((resource != null) && (resource.equals(er))) {
             quantity *= 3;
             quantity /= 4;
         }
-        if (solar != null && solar.equals(ie)) {
+        if ((solar != null) && (solar.equals(ie))) {
             quantity /= 5;
         }
         quantity += (int) (10 * Math.random());

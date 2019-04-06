@@ -13,6 +13,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.Timeout;
 
+import java.util.Collection;
+
 public class SpaceTraderTests {
     //Selling Tests made by Kyser Montalvo
     @Rule
@@ -36,7 +38,8 @@ public class SpaceTraderTests {
     @Test
     public void testSellContainsGoodPlayer() {
         notRandomGood.setQuantity(1);
-        regularPlayer.getPlayerGoods().add(notRandomGood);
+        Collection<Good> goods = regularPlayer.getPlayerGoods();
+        goods.add(notRandomGood);
         Assert.assertTrue("Player should be able to sell goods that are in inventory and have quantity > 0", regularPlayer.sell(notRandomGood));
     }
 
@@ -48,7 +51,8 @@ public class SpaceTraderTests {
     @Test
     public void testSellFakeGoodPlayer() {
         differentGood.setQuantity(1);
-        regularPlayer.getPlayerGoods().add(differentGood);
+        Collection<Good> goods = regularPlayer.getPlayerGoods();
+        goods.add(differentGood);
         Assert.assertFalse("Player should not be able to sell good that does not match any of the goods held in inventory",regularPlayer.sell(notRandomGood));
     }
 
