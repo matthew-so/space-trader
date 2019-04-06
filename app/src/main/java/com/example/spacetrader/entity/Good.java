@@ -15,7 +15,7 @@ public enum Good {
     @SerializedName("Robots") ROBOTS("Robots", TechLevel.SIX, TechLevel.FOUR, TechLevel.SEVEN, 5000, -150, 100, RandomSolarEvent.LACKOFWORKERS, null, null, 3500, 5000);
 
 
-    private String name;
+    private final String name;
     private TechLevel mtlp; //minimum tech level to produce good
     private TechLevel mtlu; //minimum tech level to use good
     private TechLevel ttp; //tech level which produces the most of good
@@ -60,52 +60,15 @@ public enum Good {
         return name;
     }
 
-    public TechLevel getMtlp() {
-        return mtlp;
-    }
-
-    public TechLevel getMtlu() {
-        return mtlu;
-    }
-
-    public TechLevel getTtp() {
-        return ttp;
-    }
 
     public int getBase() {
         return base;
     }
 
-    public int getIpl() {
-        return ipl;
-    }
 
-    public int getVar() {
-        return var;
-    }
 
-    public RandomSolarEvent getIe() {
-        return ie;
-    }
-
-    public Resource getCr() {
-        return cr;
-    }
-
-    public Resource getEr() {
-        return er;
-    }
-
-    public int getMtl() {
-        return mtl;
-    }
-
-    public int getMth() {
-        return mth;
-    }
-
-    public int getBasePrice(TechLevel planetech) {
-        return base + ipl*planetech.compareTo(TechLevel.ZERO);
+    public int getBasePrice(Comparable<TechLevel> planetech) {
+        return ((base) + ((ipl)*(planetech.compareTo(TechLevel.ZERO))));
     }
 
     public void setPrice(int price) {
@@ -113,76 +76,80 @@ public enum Good {
     }
 
     public int specialResources(Resource resource, int baseprice) {
+        int num = baseprice;
         if (cr != null) {
             if (resource.equals(cr)) {
-                baseprice *= 3;
-                baseprice /= 4;
+
+                num *= 3;
+                num /= 4;
             }
         }
         if (er != null) {
             if (resource.equals(er)) {
-                baseprice *= 4;
-                baseprice /= 3;
+                num *= 4;
+                num /= 3;
             }
         }
-        return baseprice;
+        return num;
     }
 
     public int specialEvent(RandomSolarEvent randomev, int baseprice) {
+        int num = baseprice;
         if (ie != null) {
             if (ie.equals(randomev)) {
-                baseprice *= 3;
-                baseprice /= 2;
+                num *= 3;
+                num /= 2;
             }
         }
-        return baseprice;
+        return num;
     }
 
     public int randomizePrice(int baseprice) {
-        baseprice += (int) (Math.random() * var);
-        baseprice -= (int) (Math.random() * var);
-        return baseprice;
+        int num = baseprice;
+        num += (int) (Math.random() * var);
+        num -= (int) (Math.random() * var);
+        return num;
     }
 
     public int sellPrice(int buyprice, int traderskill) {
-        return buyprice * (103 + (Constants.MAX_SKILL - traderskill)) / 100;
+        return ((buyprice) * (((Constants.ONEOTHREE) + (Constants.MAX_SKILL - traderskill)) / (100)));
     }
 
 
     /**
      * Used for onEnter method in SolarSystem.java
-     * @param soltech
-     * @return
+     * @param soltech Tech level of the solar system
+     * @return boolean
      */
-    public boolean canBuy(TechLevel soltech) {
+    public boolean canBuy(Comparable soltech) {
         return soltech.compareTo(mtlu) >= 0;
     }
 
     /**
      * Used for onEnter method in SolarSystem.java
-     * @param soltech
+     * @param soltech Tech level of the solar system
      * @return
      */
-    public boolean canSell(TechLevel soltech) {
+    public boolean canSell(Comparable soltech) {
         return soltech.compareTo(mtlp) >= 0;
     }
 
     public int calculateQuantity(TechLevel soltech, int size, Resource resource, RandomSolarEvent solar) {
-        int quantity = 9 + ((int) (5 * Math.random())) - Math.abs(ttp.compareTo(soltech)) * (1 + size);
-        if (name.equals("Robots") || name.equals("Narcotics")) {
+        int quantity = ((9) + ((int) (((5 * Math.random())) - (Math.abs(ttp.compareTo(soltech))) * (1 + (size)))));
+        if ("Robots".equals(name) || "Narcotics".equals(name)) {
             quantity *= 5;
             quantity /= 6;
             quantity += 1;
         }
-        if (resource != null && resource.equals(cr)) {
+        if ((resource != null) && (resource.equals(cr))) {
             quantity *= 4;
             quantity /= 3;
         }
-        if (er != null &&resource.equals(er)) {
+        if ((resource != null) && (resource.equals(er))) {
             quantity *= 3;
             quantity /= 4;
         }
-        if (ie != null && solar != null && solar.equals(ie)) {
+        if ((solar != null) && (solar.equals(ie))) {
             quantity /= 5;
         }
         quantity += (int) (10 * Math.random());
@@ -191,6 +158,19 @@ public enum Good {
             quantity = 0;
         }
         return quantity;
+    }
+    public int buyAndReturnMoney(int money) {
+        int currency = money;
+        currency -= this.price;
+        this.quantity++;
+        return currency;
+    }
+
+    public int sellAndReturnMoney(int money) {
+        int currency = money;
+        currency += this.price;
+        this.quantity--;
+        return currency;
     }
 
     public void setQuantity(int quantity) {

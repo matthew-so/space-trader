@@ -13,30 +13,25 @@ import com.example.spacetrader.viewmodels.GoodsAdapter;
 import com.example.spacetrader.viewmodels.PlayerGoodsAdapter;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 public class MarketplaceActivity extends AppCompatActivity {
 
-    /**
-     * The maps contain the goods and they're respective prices
-     * But since maps cannot go into a recycler view, the keys will be put in ArrayLists
-     */
-    public static Map<Good,Integer> mapOfPlanetGoods;
-    public static ArrayList<Good> planetGoods;
-    public static Map<Good,Integer> mapOfSellableGoods;
-    public static ArrayList<Good> playerGoods;
+
 
     /**
      * These adapters are made static so when a button is pressed in @code GoodsAdapter,
      * GoodsAdapter can notify playerAdapter to update via this class
      */
-    public static GoodsAdapter adapter;
+
     public static PlayerGoodsAdapter playerAdapter;
 
     //public Player player;
-    public static Player player;
-    public SolarSystem solarSystem;
+
+
     public static TextView credits_TextView;
 
 
@@ -46,89 +41,73 @@ public class MarketplaceActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        /**
+         * The maps contain the goods and they're respective prices
+         * But since maps cannot go into a recycler view, the keys will be put in ArrayLists
+         */
+
+        ArrayList<Good> planetGoods;
+
+        ArrayList<Good> playerGoods;
+        GoodsAdapter adapter;
+        Player player;
+        SolarSystem solarSystem;
         // ...
         // Lookup the recycler view in activity layout
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_marketplace);
-
         player = ConfigurationActivity.newGame.getPlayer();
         solarSystem = player.getCurrentSolarSystem();
         solarSystem.onEnter(player.getTrader());
-
-
         /**
          * These two recycler views are sideby side inside of MarketPlaceActivity
          */
-        RecyclerView rvContacts = (RecyclerView) findViewById(R.id.rvContacts);
-        RecyclerView playerGoodsRV = (RecyclerView) findViewById(R.id.playerGoodsRV);
-
-
-        credits_TextView= (TextView) findViewById(R.id.credits_TextView);
-
+        RecyclerView rvContacts =  findViewById(R.id.rvContacts);
+        RecyclerView playerGoodsRV =  findViewById(R.id.playerGoodsRV);
+        credits_TextView=  findViewById(R.id.credits_TextView);
         /**
          * We will be updating the cargo capacity and credits in real time,
          * showing them to the player as he or she buys/sells
          */
         credits_TextView.setText("$"+player.getCredits() + "\n" + "Capacity: " + player.getInventorySpace());
 
-        // Initialize goods for player and planet
 
-        mapOfPlanetGoods = solarSystem.getBuyGood();
-        mapOfSellableGoods = solarSystem.getSellGood();
-        Set<Good> planetGoodsSet = mapOfPlanetGoods.keySet();
         /**
          * The player's goods start off as empty in the very beginning
          */
         planetGoods = new ArrayList<>();
         playerGoods = player.getPlayerGoods();
-
+        assignPrices(planetGoods,playerGoods,solarSystem);
         /**
          * Assigning the price to each good.
          * Note: price is an instance variable in the @code Good class
          */
+
+        adapter = new GoodsAdapter(planetGoods);
+        playerAdapter = new PlayerGoodsAdapter(playerGoods);
+        rvContacts.setAdapter(adapter);
+        playerGoodsRV.setAdapter(playerAdapter);
+        rvContacts.setLayoutManager(new LinearLayoutManager(this));
+        playerGoodsRV.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    private void assignPrices(Collection<Good> planetGoods, Collection<Good> playerGoods, SolarSystem solarSystem) {
+        Map<Good,Integer> mapOfPlanetGoods;
+        Map<Good,Integer> mapOfSellableGoods;
+        mapOfPlanetGoods = solarSystem.getBuyGood();
+        mapOfSellableGoods = solarSystem.getSellGood();
         for(Good g:playerGoods) {
-            if (!mapOfSellableGoods.isEmpty()
-                    &&solarSystem.getBuyGoodPrice(g) > 0 && !playerGoods.isEmpty()) {
+            if ((mapOfSellableGoods!= null) && (!mapOfSellableGoods.isEmpty())
+                    && (solarSystem.getBuyGoodPrice(g) > 0) && (!playerGoods.isEmpty())) {
                 g.setPrice(mapOfSellableGoods.get(g));
             }
         }
+        Set<Good> planetGoodsSet = mapOfPlanetGoods.keySet();
         for(Good g:planetGoodsSet) {
-            if (solarSystem.getBuyGoodPrice(g) > 0) {
+            if ((mapOfPlanetGoods!= null) && (solarSystem.getBuyGoodPrice(g) > 0)) {
                 planetGoods.add(g);
                 g.setPrice(mapOfPlanetGoods.get(g));
             }
         }
-
-
-
-
-
-
-        //sample goods
-
-
-
-        // Create adapter passing in the sample user data
-        adapter = new GoodsAdapter(planetGoods);
-        playerAdapter = new PlayerGoodsAdapter(playerGoods);
-
-
-
-
-        // Attach the adapter to the recycler view to populate items
-        rvContacts.setAdapter(adapter);
-        playerGoodsRV.setAdapter(playerAdapter);
-
-
-
-        // Set layout manager to position the items
-        rvContacts.setLayoutManager(new LinearLayoutManager(this));
-        playerGoodsRV.setLayoutManager(new LinearLayoutManager(this));
-        
-
-
-
     }
-
-
 }

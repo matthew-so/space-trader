@@ -53,8 +53,10 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, StartPlayActivity.class);
             startActivity(intent);
         } catch (IOException e) {
-            Toast.makeText(getApplicationContext(), "No saved files!",
-                    Toast.LENGTH_LONG).show();
+            Toast myToast = Toast.makeText(getApplicationContext(), "No saved files!",
+                    Toast.LENGTH_LONG);
+            myToast.show();
+
             Log.e("Main", "fail");
         }
     }

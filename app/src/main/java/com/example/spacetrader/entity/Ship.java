@@ -4,9 +4,9 @@ public class Ship {
 
     public enum ShipType {
         GNAT("Gnat", 15, 75);
-        private String val;
-        private int cargoCapacity;
-        private int fuel;
+        private final String val;
+        private final int cargoCapacity;
+        private final int fuel;
 
         ShipType(String val, int cargoCapacity, int fuel) {
             this.val = val;
@@ -17,8 +17,7 @@ public class Ship {
         public String toString() {
             return val;
         }
-        public int getCargoCapacity() { return cargoCapacity; }
-        public int getFuel() { return fuel; }
+        int getFuel() { return fuel; }
     }
     /*private class CargoHold {
         private Map<Good, Integer> cargo;
@@ -50,7 +49,7 @@ public class Ship {
             return true;
         }
     }*/
-    private ShipType shiptype;
+    private final ShipType shiptype;
     //private CargoHold cargoHold;
     private int fuel;
 
@@ -73,7 +72,7 @@ public class Ship {
         if (fuel == shiptype.getFuel()) {
             return -1; //error, fuel-tank full
         }
-        if (fuel + this.fuel > shiptype.getFuel()) {
+        if (((fuel) + this.fuel) > (shiptype.getFuel())) {
             int ret = shiptype.getFuel() - fuel;
             this.fuel = shiptype.getFuel();
             return ret; //return unused fuel

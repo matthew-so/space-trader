@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.example.spacetrader.entity.Good;
 import com.example.spacetrader.R;
-import com.example.spacetrader.entity.SolarSystem;
 import com.example.spacetrader.views.MarketplaceActivity;
 import com.example.spacetrader.views.StartPlayActivity;
 
@@ -25,21 +24,21 @@ public class PlayerGoodsAdapter extends
     public class ViewHolder extends RecyclerView.ViewHolder {
         // Your holder should contain a member variable
         // for any view that will be set as you render a row
-        public TextView playerGoodTextview;
-        public Button sell_Button;
+        final TextView playerGoodTextview;
+        final Button sell_Button;
 
         // We also create a constructor that accepts the entire item row
         // and does the view lookups to find each subview
-        public ViewHolder(View itemView) {
+         ViewHolder(View itemView) {
             // Stores the itemView in a public final member variable that can be used
             // to access the context from any ViewHolder instance.
             super(itemView);
 
-            playerGoodTextview = (TextView) itemView.findViewById(R.id.playerGoodTextview);
-            sell_Button = (Button) itemView.findViewById(R.id.sell_Button);
+            playerGoodTextview =  itemView.findViewById(R.id.playerGoodTextview);
+            sell_Button = itemView.findViewById(R.id.sell_Button);
         }
     }
-    private List<Good> playerGoods;
+    private final List<Good> playerGoods;
 
 
     // Pass in the contact array into the constructor
@@ -55,8 +54,8 @@ public class PlayerGoodsAdapter extends
         View contactView1 = inflater.inflate(R.layout.player_goods_layout, parent, false);
 
         // Return a new holder instance
-        ViewHolder viewHolder = new PlayerGoodsAdapter.ViewHolder(contactView1);
-        return viewHolder;
+        return  new PlayerGoodsAdapter.ViewHolder(contactView1);
+
     }
 
     @Override
@@ -66,7 +65,6 @@ public class PlayerGoodsAdapter extends
 
         // Set item views based on your views and data model
         TextView textView = viewHolder.playerGoodTextview;
-        SolarSystem curr = StartPlayActivity.game.getPlayer().getCurrentSolarSystem();
         textView.setText(playerGood.getName()+ " [$"+ playerGood.getPrice()+"]");
         final Button button = viewHolder.sell_Button;
         button.setText("Sell");
@@ -76,6 +74,7 @@ public class PlayerGoodsAdapter extends
             button.setEnabled(false);
         }
         button.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
                 if (!playerGoods.isEmpty() && player.sell(playerGoods.get(position))) {
                     button.setEnabled(true);

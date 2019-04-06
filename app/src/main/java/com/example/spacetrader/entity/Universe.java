@@ -1,21 +1,22 @@
 package com.example.spacetrader.entity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Universe {
 
-    private String name;
-    private ArrayList<SolarSystem> solarSystems;
+    private final String name;
+    private final List<SolarSystem> solarSystems;
 
 
-    public Universe(String name, ArrayList<SolarSystem> solars) {
+    public Universe(String name, List<SolarSystem> solars) {
         this.name = name;
 
         this.solarSystems = solars;
     }
 
 
-    public ArrayList<SolarSystem> getSolarList() {return this.solarSystems;}
+    public List<SolarSystem> getSolarList() {return this.solarSystems;}
 
     public SolarSystem getSolarSystem(int i) {
         return solarSystems.get(i);

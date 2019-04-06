@@ -1,17 +1,19 @@
 package com.example.spacetrader.entity;
 
+
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class SolarSystem {
-    private String name;
-    private TechLevel techLev;
-    private Resource resourceType;
-    private int xCoor;
-    private int yCoor;
-    private List<Planet> planet;
+    private final String name;
+    private final TechLevel techLev;
+    private final Resource resourceType;
+    private final int xCoor;
+    private final int yCoor;
+    private final List<Planet> planet;
     private RandomSolarEvent solar;
     private Map<Good, Integer> buyGood;
     private Map<Good, Integer> sellGood;
@@ -29,19 +31,8 @@ public class SolarSystem {
         this.planet.add(planet);
     }
 
-    public SolarSystem(String name, List<String> planet, TechLevel techLev, Resource resourceType, int x, int y){
-        this.name = name;
-        this.techLev = techLev;
-        this.resourceType = resourceType;
-        this.xCoor = x;
-        this.yCoor = y;
-        this.planet = new ArrayList<>();
-        for (String str: planet) {
-            this.planet.add(new Planet(str));
-        }
-    }
 
-    public SolarSystem(String name, TechLevel techLev, Resource resourceType, int x, int y, List<Planet> planet){
+    public SolarSystem(String name, TechLevel techLev, Resource resourceType, int x, int y, Collection<Planet> planet){
         this.name = name;
         this.techLev = techLev;
         this.resourceType = resourceType;
