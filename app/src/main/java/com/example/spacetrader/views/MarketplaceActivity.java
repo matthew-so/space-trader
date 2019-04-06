@@ -61,7 +61,7 @@ public class MarketplaceActivity extends AppCompatActivity {
         solarSystem = player.getCurrentSolarSystem();
         solarSystem.onEnter(player.getTrader());
 
-         // These two recycler views are sideby side inside of MarketPlaceActivity
+         // These two recycler views are side by side inside of MarketPlaceActivity
 
         RecyclerView rvContacts =  findViewById(R.id.rvContacts);
         RecyclerView playerGoodsRV =  findViewById(R.id.playerGoodsRV);

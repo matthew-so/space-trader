@@ -19,7 +19,7 @@ import java.util.List;
 import static com.example.spacetrader.views.StartPlayActivity.player;
 
 /**
- * Adapter for goods
+ * GoodsAdapter for Market
  */
 public class GoodsAdapter extends
         RecyclerView.Adapter<GoodsAdapter.ViewHolder> {
@@ -58,8 +58,8 @@ public class GoodsAdapter extends
 
 
     /**
-     *  The goods adapter constructor
-     * @param goods Contact array
+     * Assigns goods to list
+     * @param goods the list of goods
      */
     public GoodsAdapter(List<Good> goods) {
         planetGoods = goods;

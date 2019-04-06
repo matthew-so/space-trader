@@ -18,9 +18,7 @@ public class PlayerIntroActivity extends AppCompatActivity {
     public static Player player;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
-       TextView credits_TextView;
+        TextView credits_TextView;
         TextView difficulty_TextView;
         TextView ship_TextView;
         TextView points_TextView;
@@ -34,12 +32,8 @@ public class PlayerIntroActivity extends AppCompatActivity {
         player = ConfigurationActivity.newGame.getPlayer();
         toolbar.setTitle("Hi " + player.getName() + "!");
         setSupportActionBar(toolbar);
-
         Game newGame = ConfigurationActivity.newGame;
         Player player = newGame.player;
-
-
-
         credits_TextView =  findViewById(R.id.credits_TextView);
         credits_TextView.setText("Credits: " + player.getCredits());
 
