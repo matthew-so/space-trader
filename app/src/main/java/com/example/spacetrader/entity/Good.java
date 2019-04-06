@@ -2,9 +2,6 @@ package com.example.spacetrader.entity;
 import com.example.spacetrader.entity.TechLevel;
 import com.google.gson.annotations.SerializedName;
 
-/**
- * This class represents the goods traded
- */
 public enum Good {
     @SerializedName("Water") WATER("Water", TechLevel.ZERO, TechLevel.ZERO, TechLevel.TWO, 30, 3, 4, RandomSolarEvent.DROUGHT, Resource.FOUR, Resource.THREE, 30, 50),
     @SerializedName("Furs") FURS("Furs", TechLevel.ZERO, TechLevel.ZERO, TechLevel.ZERO, 250, 10, 10, RandomSolarEvent.COLD, Resource.SEVEN, Resource.EIGHT, 230, 280),
@@ -28,8 +25,7 @@ public enum Good {
     private RandomSolarEvent ie; //radical price increase event
     private Resource cr; //low-price condition
     private Resource er; //high-price condition
-    private int mtl; //min price offered in space trade
-    private int mth; //max price offered in space trade
+
     private int quantity;
     private int price; //this is the price that was calculated on onEnter in Solarsystem
 
@@ -45,13 +41,7 @@ public enum Good {
         this.ie = ie;
         this.cr = cr;
         this.er = er;
-        this.mtl = mtl;
-        this.mth = mth;
-        quantity = 0;
-    }
 
-    Good(String name) {
-        this.name = name;
         quantity = 0;
     }
 
@@ -66,6 +56,8 @@ public enum Good {
     public String getName() {
         return name;
     }
+
+
 
     /**
      * Gets the price of the good

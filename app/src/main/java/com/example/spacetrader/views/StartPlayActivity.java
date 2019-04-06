@@ -22,7 +22,6 @@ import com.google.gson.GsonBuilder;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.FileNotFoundException;
-import java.util.Collection;
 import java.util.List;
 
 public class StartPlayActivity extends AppCompatActivity {

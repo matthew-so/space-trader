@@ -11,19 +11,20 @@ import com.example.spacetrader.entity.Player;
 import com.example.spacetrader.model.Game;
 
 public class PlayerIntroActivity extends AppCompatActivity {
-    private TextView credits_TextView;
-    private TextView difficulty_TextView;
-    private TextView ship_TextView;
-    private TextView points_TextView;
-    private TextView trader_TextView;
-    private TextView pilot_TextView;
-    private TextView engineer_TextView;
-    private TextView fighter_TextView;
+
     public static Player player;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
 
+       TextView credits_TextView;
+        TextView difficulty_TextView;
+        TextView ship_TextView;
+        TextView points_TextView;
+        TextView trader_TextView;
+        TextView pilot_TextView;
+        TextView engineer_TextView;
+        TextView fighter_TextView;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_intro);
         Toolbar toolbar =  findViewById(R.id.toolbar);

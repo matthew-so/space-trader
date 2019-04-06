@@ -23,11 +23,11 @@ public class SpaceTraderTests {
     private Player regularPlayer;
     private Good notRandomGood;
     private Good differentGood;
-    private SolarSystem currentSolarSystem;
+
 
     @Before
     public void setUp() {
-
+        SolarSystem currentSolarSystem;
         this.regularPlayer = new Player("Regular Player",4,4,4,4);
         currentSolarSystem = new SolarSystem("Dat Way",TechLevel.FIVE,Resource.EIGHT,Constants.TWENTY,Constants.TWENTY,new Planet("Uranus"));
         regularPlayer.setCurrentSolarSystem(currentSolarSystem);
