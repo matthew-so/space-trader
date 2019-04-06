@@ -1,5 +1,6 @@
 package com.example.spacetrader.entity;
 
+
 import java.util.*;
 
 public class SolarSystem {

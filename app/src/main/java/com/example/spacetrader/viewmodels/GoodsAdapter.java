@@ -90,6 +90,7 @@ public class GoodsAdapter extends
 
 
         button.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
 
 

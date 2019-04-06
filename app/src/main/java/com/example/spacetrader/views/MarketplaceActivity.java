@@ -18,25 +18,18 @@ import java.util.Set;
 
 public class MarketplaceActivity extends AppCompatActivity {
 
-    /**
-     * The maps contain the goods and they're respective prices
-     * But since maps cannot go into a recycler view, the keys will be put in ArrayLists
-     */
-    private Map<Good,Integer> mapOfPlanetGoods;
-    private ArrayList<Good> planetGoods;
-    private Map<Good,Integer> mapOfSellableGoods;
-    private ArrayList<Good> playerGoods;
+
 
     /**
      * These adapters are made static so when a button is pressed in @code GoodsAdapter,
      * GoodsAdapter can notify playerAdapter to update via this class
      */
-    private GoodsAdapter adapter;
+
     public static PlayerGoodsAdapter playerAdapter;
 
     //public Player player;
-    private Player player;
-    private SolarSystem solarSystem;
+
+
     public static TextView credits_TextView;
 
 
@@ -46,6 +39,17 @@ public class MarketplaceActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        /**
+         * The maps contain the goods and they're respective prices
+         * But since maps cannot go into a recycler view, the keys will be put in ArrayLists
+         */
+        Map<Good,Integer> mapOfPlanetGoods;
+        ArrayList<Good> planetGoods;
+        Map<Good,Integer> mapOfSellableGoods;
+        ArrayList<Good> playerGoods;
+        GoodsAdapter adapter;
+        Player player;
+        SolarSystem solarSystem;
         // ...
         // Lookup the recycler view in activity layout
         super.onCreate(savedInstanceState);

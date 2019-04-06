@@ -20,17 +20,19 @@ import java.util.List;
 public class TravelActivity extends AppCompatActivity {
 
     private Spinner solar_spinner;
+    static Player player;
 
-    public static Player player;
-    private SolarSystem solarSystem;
-    private static TextView fuel_textview;
-    private static TextView solar_s_textview;
-    private static Universe universe;
-    private ArrayList<String> validSolarList;
-    private List<SolarSystem> allSolarList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        SolarSystem solarSystem;
+        TextView fuel_textview;
+        TextView solar_s_textview;
+        Universe universe;
+        ArrayList<String> validSolarList;
+        final List<SolarSystem> allSolarList;
         validSolarList = new ArrayList<>();
         // ...
         // Lookup the recycler view in activity layout

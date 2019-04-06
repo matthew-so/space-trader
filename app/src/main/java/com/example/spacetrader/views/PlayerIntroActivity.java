@@ -11,7 +11,14 @@ import com.example.spacetrader.entity.Player;
 import com.example.spacetrader.model.Game;
 
 public class PlayerIntroActivity extends AppCompatActivity {
-
+    TextView credits_TextView;
+    TextView difficulty_TextView;
+    TextView ship_TextView;
+    TextView points_TextView;
+    TextView trader_TextView;
+    TextView pilot_TextView;
+    TextView engineer_TextView;
+    TextView fighter_TextView;
     public static Player player;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,14 +34,7 @@ public class PlayerIntroActivity extends AppCompatActivity {
         Game newGame = ConfigurationActivity.newGame;
         Player player = newGame.player;
 
-        TextView credits_TextView;
-        TextView difficulty_TextView;
-        TextView ship_TextView;
-        TextView points_TextView;
-        TextView trader_TextView;
-        TextView pilot_TextView;
-        TextView engineer_TextView;
-        TextView fighter_TextView;
+
 
         credits_TextView =  findViewById(R.id.credits_TextView);
         credits_TextView.setText("Credits: " + player.getCredits());

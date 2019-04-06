@@ -33,7 +33,7 @@ public class Player implements Serializable {
 
     private Map<Good,Integer> howMuchPlayerCanBuy;
 
-    private Map<Good,Integer> whatPlayerCanSell;
+
 
     public Player(String name, int trader, int fighter, int pilot, int engineer) {
         this.name = name;
@@ -107,9 +107,8 @@ public class Player implements Serializable {
 
             return false;
         } else {
-            this.setCredits(credits += good.getPrice());
+            this.setCredits(good.sellAndReturnMoney(credits));
             this.inventorySpace++;
-            good.setQuantity(good.getQuantity() - 1);
             return true;
         }
 
@@ -185,7 +184,7 @@ public class Player implements Serializable {
     }
 
     private void setWhatPlayerCanSell() {
-        whatPlayerCanSell = currentSolarSystem.getBuyGood();
+        Map<Good, Integer> whatPlayerCanSell = currentSolarSystem.getBuyGood();
     }
 
     public int getInventorySpace() {

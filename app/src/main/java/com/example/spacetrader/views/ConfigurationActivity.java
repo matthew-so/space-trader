@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.view.View;
+
 import android.widget.*;
 import com.example.spacetrader.R;
 import com.example.spacetrader.entity.Constants;
@@ -14,8 +15,8 @@ import com.example.spacetrader.entity.Player;
 import com.example.spacetrader.model.Game;
 
 public class ConfigurationActivity extends AppCompatActivity {
-    private  Button create_player;
-    private  SeekBar pilot_bar;
+    private Button create_player;
+    private SeekBar pilot_bar;
     private  SeekBar engineer_bar;
     private  SeekBar trader_bar;
     private  SeekBar fighter_bar;
@@ -34,7 +35,6 @@ public class ConfigurationActivity extends AppCompatActivity {
     public static Game newGame;
 
     public static Player player;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,9 +47,6 @@ public class ConfigurationActivity extends AppCompatActivity {
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         level_spinner.setAdapter(adapter);
-
-
-
 
         /**
          * Getting name of Player

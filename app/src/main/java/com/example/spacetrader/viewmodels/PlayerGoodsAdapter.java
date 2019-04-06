@@ -76,6 +76,7 @@ public class PlayerGoodsAdapter extends
             button.setEnabled(false);
         }
         button.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
                 if (!playerGoods.isEmpty() && player.sell(playerGoods.get(position))) {
                     button.setEnabled(true);

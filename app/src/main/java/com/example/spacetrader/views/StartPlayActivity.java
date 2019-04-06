@@ -8,7 +8,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.example.spacetrader.entity.*;
+
+import com.example.spacetrader.entity.Player;
+import com.example.spacetrader.entity.RandomSolarEvent;
+import com.example.spacetrader.entity.SolarSystem;
+import com.example.spacetrader.entity.Universe;
 import com.example.spacetrader.model.Game;
 import com.example.spacetrader.R;
 import com.google.gson.Gson;
@@ -24,12 +28,14 @@ public class StartPlayActivity extends AppCompatActivity {
     public static Player player;
 
     private static int count;
-    private TextView planet_textView;
-    private TextView universe_textView;
-    private TextView randomEventTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        TextView planet_textView;
+        TextView universe_textView;
+        TextView randomEventTextView;
         setContentView(R.layout.activity_start_play);
 
         //player = PlayerIntroActivity.player;

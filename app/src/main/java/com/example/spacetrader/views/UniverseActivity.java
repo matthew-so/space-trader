@@ -5,8 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import com.example.spacetrader.entity.*;
+
 import com.example.spacetrader.R;
+import com.example.spacetrader.entity.*;
 
 import java.util.ArrayList;
 
@@ -106,11 +107,6 @@ public class UniverseActivity extends AppCompatActivity {
         SolarSystem datWay = new SolarSystem("Dat Way", TechLevel.FOUR, Resource.TEN, Constants.ONEFIFTY, Constants.FOURTYFOUR, Vulcan);
 
 
-
-
-
-
-
         /**
          * Instantiate universe here
          */
@@ -127,10 +123,6 @@ public class UniverseActivity extends AppCompatActivity {
         solarSystemsList.add(datWay);
 
         universe = new Universe("Georgia", solarSystemsList);
-
-
-
-
 
         /**
          *Having each text view display a solar system and description
@@ -195,9 +187,6 @@ public class UniverseActivity extends AppCompatActivity {
                 + " Resource Level: " + solarSystemsList.get(9).getResourceType().getResource() + " Coordinates: " +
                 "("+solarSystemsList.get(9).getxCoor() + "," +
                 solarSystemsList.get(9).getyCoor()+")");
-
-
-
 
     }
 
