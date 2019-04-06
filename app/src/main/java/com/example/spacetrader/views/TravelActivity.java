@@ -10,7 +10,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import com.example.spacetrader.R;
 import com.example.spacetrader.entity.Player;
-import com.example.spacetrader.entity.Ship;
 import com.example.spacetrader.entity.SolarSystem;
 import com.example.spacetrader.entity.Universe;
 

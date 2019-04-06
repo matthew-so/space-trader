@@ -10,7 +10,6 @@ import android.widget.TextView;
 import com.example.spacetrader.entity.Good;
 import com.example.spacetrader.R;
 import com.example.spacetrader.entity.Player;
-import com.example.spacetrader.entity.SolarSystem;
 import com.example.spacetrader.views.MarketplaceActivity;
 import com.example.spacetrader.views.StartPlayActivity;
 
