@@ -26,7 +26,6 @@ public class TravelActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         SolarSystem solarSystem;
         TextView fuel_textview;
         TextView solar_s_textview;
@@ -36,7 +35,6 @@ public class TravelActivity extends AppCompatActivity {
         validSolarList = new ArrayList<>();
         // ...
         // Lookup the recycler view in activity layout
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_travel);
         player = ConfigurationActivity.newGame.getPlayer();
@@ -45,14 +43,10 @@ public class TravelActivity extends AppCompatActivity {
         fuel_textview = findViewById(R.id.fuel_textview);
         fuel_textview.setText("fuel "+ player.getShipFuel());
         solar_s_textview = findViewById(R.id.curr_solar_s_textview);
-
         solar_s_textview.setText("the current ss is " + player.getSolarSystemName());
-
         int x2 = player.getXCoordinate();
         int y2 = player.getYCoordinate();
-
         allSolarList = universe.getSolarList();
-
         for (int i = 0; i < allSolarList.size(); i++) {
             SolarSystem ss = allSolarList.get(i);
             int x1 = ss.getxCoor();
@@ -63,7 +57,6 @@ public class TravelActivity extends AppCompatActivity {
             }
 
         }
-
         solar_spinner = findViewById(R.id.solar_s_spinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, validSolarList);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

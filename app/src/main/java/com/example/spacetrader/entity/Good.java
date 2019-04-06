@@ -25,8 +25,7 @@ public enum Good {
     private RandomSolarEvent ie; //radical price increase event
     private Resource cr; //low-price condition
     private Resource er; //high-price condition
-    private int mtl; //min price offered in space trade
-    private int mth; //max price offered in space trade
+
     private int quantity;
     private int price; //this is the price that was calculated on onEnter in Solarsystem
 
@@ -42,15 +41,11 @@ public enum Good {
         this.ie = ie;
         this.cr = cr;
         this.er = er;
-        this.mtl = mtl;
-        this.mth = mth;
+
         quantity = 0;
     }
 
-    Good(String name) {
-        this.name = name;
-        quantity = 0;
-    }
+
 
     public String toString() {
         return name;
@@ -61,9 +56,7 @@ public enum Good {
     }
 
 
-    public int getBase() {
-        return base;
-    }
+
 
 
 
@@ -123,6 +116,7 @@ public enum Good {
      */
     public boolean canBuy(Comparable soltech) {
         return soltech.compareTo(mtlu) >= 0;
+
     }
 
     /**
