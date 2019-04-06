@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.spacetrader.R;
-import com.example.spacetrader.entity.Planet;
 import com.example.spacetrader.entity.Universe;
 
 
@@ -17,32 +16,22 @@ public class UniverseActivity extends AppCompatActivity {
 
     public static Universe universe;
 
+    TextView SolarSystemView0;
+    TextView SolarSystemView1;
+    TextView SolarSystemView2;
+    TextView SolarSystemView3;
+    TextView SolarSystemView4;
+    TextView SolarSystemView5;
+    TextView SolarSystemView6;
+    TextView SolarSystemView7;
+    TextView SolarSystemView8;
+    TextView SolarSystemView9;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_universe);
 
-        TextView SolarSystemView0;
-        TextView SolarSystemView1;
-        TextView SolarSystemView2;
-        TextView SolarSystemView3;
-        TextView SolarSystemView4;
-        TextView SolarSystemView5;
-        TextView SolarSystemView6;
-        TextView SolarSystemView7;
-        TextView SolarSystemView8;
-        TextView SolarSystemView9;
-
-        SolarSystemView0 =  findViewById(R.id.SolarSystemView0);
-        SolarSystemView1 =  findViewById(R.id.SolarSystemView1);
-        SolarSystemView2 =  findViewById(R.id.SolarSystemView2);
-        SolarSystemView3 =  findViewById(R.id.SolarSystemView3);
-        SolarSystemView4 =  findViewById(R.id.SolarSystemView4);
-        SolarSystemView5 =  findViewById(R.id.SolarSystemView5);
-        SolarSystemView6 =  findViewById(R.id.SolarSystemView6);
-        SolarSystemView7 =  findViewById(R.id.SolarSystemView7);
-        SolarSystemView8 =  findViewById(R.id.SolarSystemView8);
-        SolarSystemView9 =  findViewById(R.id.SolarSystemView9);
+        instantiateTextViews();
         universe = new Universe();
 
         SolarSystemView0.setText(universe.toString(0));
@@ -73,4 +62,19 @@ public class UniverseActivity extends AppCompatActivity {
         Intent intent = new Intent(this, StartPlayActivity.class);
         startActivity(intent);
     }
+
+    private void instantiateTextViews() {
+
+        SolarSystemView0 =  findViewById(R.id.SolarSystemView0);
+        SolarSystemView1 =  findViewById(R.id.SolarSystemView1);
+        SolarSystemView2 =  findViewById(R.id.SolarSystemView2);
+        SolarSystemView3 =  findViewById(R.id.SolarSystemView3);
+        SolarSystemView4 =  findViewById(R.id.SolarSystemView4);
+        SolarSystemView5 =  findViewById(R.id.SolarSystemView5);
+        SolarSystemView6 =  findViewById(R.id.SolarSystemView6);
+        SolarSystemView7 =  findViewById(R.id.SolarSystemView7);
+        SolarSystemView8 =  findViewById(R.id.SolarSystemView8);
+        SolarSystemView9 =  findViewById(R.id.SolarSystemView9);
+    }
 }
+

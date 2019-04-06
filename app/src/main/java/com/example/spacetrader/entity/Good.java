@@ -2,6 +2,9 @@ package com.example.spacetrader.entity;
 import com.example.spacetrader.entity.TechLevel;
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * Goods for market
+ */
 public enum Good {
     @SerializedName("Water") WATER("Water", TechLevel.ZERO, TechLevel.ZERO, TechLevel.TWO, 30, 3, 4, RandomSolarEvent.DROUGHT, Resource.FOUR, Resource.THREE, 30, 50),
     @SerializedName("Furs") FURS("Furs", TechLevel.ZERO, TechLevel.ZERO, TechLevel.ZERO, 250, 10, 10, RandomSolarEvent.COLD, Resource.SEVEN, Resource.EIGHT, 230, 280),
