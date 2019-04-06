@@ -17,7 +17,9 @@ import com.example.spacetrader.entity.Universe;
 
 import java.util.ArrayList;
 
-
+/**
+ * This class represents the universe screen
+ */
 public class UniverseActivity extends AppCompatActivity {
 
     //TODO: Put all this creation stuff in universe constructor and just call constructor with no params
@@ -203,8 +205,5 @@ public class UniverseActivity extends AppCompatActivity {
         Intent intent = new Intent(this, StartPlayActivity.class);
         startActivity(intent);
     }
-    
-    public void setSolarSystemText(View view, int sol) {
-        
-    }
+
 }

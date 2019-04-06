@@ -7,6 +7,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * This class represents the solar system
+ */
 public class SolarSystem {
     private final String name;
     private final TechLevel techLev;
@@ -21,6 +24,15 @@ public class SolarSystem {
     private ArrayList<Good> goodsForSale;
     private int startcountdown;
 
+    /**
+     * The constructor for the solar system
+     * @param name The name of the solar system
+     * @param techLev The techLevel of the solar system
+     * @param resourceType The resource type of the solar system
+     * @param x The x-coordinate of the solar system
+     * @param y The y-coordinate of the solar system
+     * @param planet The planet in the solar system
+     */
     public SolarSystem(String name, TechLevel techLev, Resource resourceType, int x, int y, Planet planet){
         this.name = name;
         this.techLev = techLev;
@@ -31,7 +43,15 @@ public class SolarSystem {
         this.planet.add(planet);
     }
 
-
+    /**
+     * The constructor for solar systems with multiple planets
+     * @param name The name of the solar system
+     * @param techLev The techLevel of the solar system
+     * @param resourceType The resource type of the solar system
+     * @param x The x-coordinate of the solar system
+     * @param y The y-coordinate of the solar system
+     * @param planet The planets in the solar system
+     */
     public SolarSystem(String name, TechLevel techLev, Resource resourceType, int x, int y, Collection<Planet> planet){
         this.name = name;
         this.techLev = techLev;
@@ -42,32 +62,40 @@ public class SolarSystem {
         this.planet.addAll(planet);
     }
 
+    /**
+     * Gets the x-coordinate of the solar system
+     * @return x-coordinate
+     */
     public int getxCoor() {
         return xCoor;
     }
 
+    /**
+     * Gets the y-coordinate of the solar system
+     * @return y-coordinate
+     */
     public int getyCoor() {
         return yCoor;
     }
 
+    /**
+     * Gets the planet(s) in the solar system
+     * @return List of planet(s)
+     */
     public List<Planet> getPlanet() {
         return planet;
     }
 
-    public Resource getResourceType(){
-        return resourceType;
-    }
-
-    public TechLevel getTechLev() {
-        return techLev;
-    }
-
+    /**
+     * Gets the name of the solar system
+     * @return The name
+     */
     public String getName() {
         return name;
     }
 
     /**
-     * when you enter a planet this method calculates the goods that the solarsystem
+     * When you enter a planet this method calculates the goods that the solarsystem
      * can buy or sell
      * @param traderskill the amount of skill points the player has for "trader"
      */
@@ -108,56 +136,58 @@ public class SolarSystem {
         }
     }
 
-    public RandomSolarEvent getSolar() {
-        return solar;
-    }
-
-
-    /** use these to set market price*/
+    /**
+     * Sets market price of goods
+     * @param good The good
+     * @return The price
+     */
     public Integer getBuyGoodPrice(Good good) {
         return buyGood.getOrDefault(good, -1);
     }
 
-    public Integer getSellGoodPrice(Good good) {
-        return sellGood.getOrDefault(good, -1);
-    }
-
-    public Integer getSellGoodQuantity(Good good) {
-        return quantityBuy.getOrDefault(good, good.getQuantity());
-    }
-
+    /**
+     * Sets goods to be purchased in the market
+     * @return purchasable goods
+     */
     public Map<Good, Integer> getBuyGood() {
         return buyGood;
     }
 
+    /**
+     * Sets quantity of goods to be allowed for player to purchase in market
+     * @return quantity of purchasable goods
+     */
     public Map<Good, Integer> getQuantityBuy() {
         return quantityBuy;
     }
-
+    /**
+     * Sets quantity of goods to be allowed to sold in market
+     * @return goods for sale
+     */
     public Map<Good, Integer> getSellGood() {
         return sellGood;
     }
 
-    public int getStartcountdown() {
-        return startcountdown;
-    }
-
-    public ArrayList<Good> getGoodsForSale() {
-        return goodsForSale;
-    }
-
-    public void setQuantityBuy(Map<Good, Integer> quantityBuy) {
-        this.quantityBuy = quantityBuy;
-    }
-
+    /**
+     * Sets the random event
+     * @param solar random event
+     */
     public void setRandomEvent(RandomSolarEvent solar) {
         this.solar = solar;
     }
 
+    /**
+     * Gets the tech level of solar system
+     * @return tech level
+     */
     public String getTech() {
         return techLev.getTech();
     }
 
+    /**
+     * Gets the resource type of solar system
+     * @return resource type
+     */
     public String getResource() {
         return resourceType.getResource();
     }

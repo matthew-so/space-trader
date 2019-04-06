@@ -24,6 +24,9 @@ import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.util.List;
 
+/**
+ * This class represents the screen where the player can choose to do multiple things
+ */
 public class StartPlayActivity extends AppCompatActivity {
 
     public static final Game game = ConfigurationActivity.newGame;
@@ -82,14 +85,30 @@ public class StartPlayActivity extends AppCompatActivity {
         }
 
     }
+
+    /**
+     * Allows the player to go to the market screen
+     * @param view The current view
+     */
     public void goToMarketActivity(View view) {
         Intent intent = new Intent(this, MarketplaceActivity.class);
         startActivity(intent);
     }
+
+    /**
+     * Allows the player to go the travel screen
+     * @param view The current view
+     */
     public void goToTravelActivity(View view) {
         Intent intent = new Intent(this, TravelActivity.class);
         startActivity(intent);
     }
+
+    /**
+     * Allows the player to save the current state of the game for later use
+     * @param view The current view
+     * @return boolean
+     */
     public boolean saveGame(View view) {
         Universe universe = UniverseActivity.universe;
         try {

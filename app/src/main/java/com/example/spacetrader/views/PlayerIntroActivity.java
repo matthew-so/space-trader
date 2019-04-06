@@ -10,6 +10,9 @@ import com.example.spacetrader.R;
 import com.example.spacetrader.entity.Player;
 import com.example.spacetrader.model.Game;
 
+/**
+ * This represents the player introduction screen
+ */
 public class PlayerIntroActivity extends AppCompatActivity {
 
     public static Player player;
@@ -65,7 +68,7 @@ public class PlayerIntroActivity extends AppCompatActivity {
     /**
      * Going to the next page -> Player Intro Activity
      * This is where we will verify everything about the player has been saved and calculated correctly
-     * @param view
+     * @param view The current view
      */
     public void goToUniverseActivity(View view) {
         Intent intent = new Intent(this, UniverseActivity.class);

@@ -16,6 +16,9 @@ import com.example.spacetrader.entity.Universe;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class represents the travel screen
+ */
 public class TravelActivity extends AppCompatActivity {
 
     private Spinner solar_spinner;

@@ -16,6 +16,9 @@ import java.util.List;
 
 import static com.example.spacetrader.views.StartPlayActivity.player;
 
+/**
+ * This class represents the PlayerGoods Adapter
+ */
 public class PlayerGoodsAdapter extends
         RecyclerView.Adapter<PlayerGoodsAdapter.ViewHolder> {
 
@@ -42,6 +45,11 @@ public class PlayerGoodsAdapter extends
 
 
     // Pass in the contact array into the constructor
+
+    /**
+     * The constructor for the Player Goods Adaptor
+     * @param goods the contact array for the goods
+     */
     public PlayerGoodsAdapter(List<Good> goods) {
         playerGoods = goods;
     }

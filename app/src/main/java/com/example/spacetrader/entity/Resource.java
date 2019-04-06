@@ -1,5 +1,8 @@
 package com.example.spacetrader.entity;
 
+/**
+ * This class represents the planets's resource levels
+ */
 public enum Resource {
     ZERO("No special resources"),
     ONE("Mineral rich"),
@@ -19,6 +22,10 @@ public enum Resource {
 
     Resource(String resourceType) { resource = resourceType; }
 
+    /**
+     * Gets the resource level
+     * @return resource
+     */
     public String getResource(){
         return this.resource;
     }

@@ -17,6 +17,9 @@ package com.example.spacetrader.views;
         import java.io.FileReader;
         import java.io.IOException;
 
+/**
+ * This class represents the launch screen
+ */
 public class MainActivity extends AppCompatActivity {
 
 
@@ -25,10 +28,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
+    /**
+     * This method transitions the screen to the player creation screen
+     * @param view The current view
+     */
     public void goToConfigurationScreen(View view) {
         Intent intent = new Intent(this, ConfigurationActivity.class);
         startActivity(intent);
     }
+
+    /**
+     * This method allows the user to load a saved game state
+     * @param view The current view
+     */
     public void loadGame(View view) {
         File uf = new File(this.getFilesDir(), "ufile.json");
         File gf = new File(this.getFilesDir(), "gfile.json");

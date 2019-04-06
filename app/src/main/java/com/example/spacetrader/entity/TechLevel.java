@@ -1,4 +1,8 @@
 package com.example.spacetrader.entity;
+
+/**
+ * This enum class represents the tech level
+ */
 public enum TechLevel {
     ZERO("Pre-Agriculture"),
     ONE("Agriculture"),
@@ -13,6 +17,10 @@ public enum TechLevel {
 
     TechLevel(String tech) { this.tech = tech; }
 
+    /**
+     * Gets the tech level
+     * @return tech level
+     */
     public String getTech(){
         return this.tech;
     }
