@@ -9,25 +9,25 @@ import java.util.Map;
 
 public class Player implements Serializable {
 
-    private String name;
+    private final String name;
 
     private int credits;
 
-    private int trader;
+    private final int trader;
 
-    private int fighter;
+    private final int fighter;
 
-    private int pilot;
+    private final int pilot;
 
-    private int engineer;
+    private final int engineer;
 
     private int totalPoints;
 
-    private Ship ship;
+    private final Ship ship;
 
     private SolarSystem currentSolarSystem;
 
-    private ArrayList<Good> playerGoods;
+    private final ArrayList<Good> playerGoods;
 
     private int inventorySpace;
 
@@ -147,7 +147,7 @@ public class Player implements Serializable {
         return ship;
     }
 
-    public void setCredits(int credits) {
+    private void setCredits(int credits) {
         this.credits = credits;
     }
 

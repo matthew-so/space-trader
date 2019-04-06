@@ -14,17 +14,19 @@ import com.example.spacetrader.R;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.io.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.FileNotFoundException;
 
 public class StartPlayActivity extends AppCompatActivity {
 
     public static final Game game = ConfigurationActivity.newGame;
     public static Player player;
 
-    public static int count;
-    public TextView planet_textView;
-    public TextView universe_textView;
-    public TextView randomEventTextView;
+    private static int count;
+    private TextView planet_textView;
+    private TextView universe_textView;
+    private TextView randomEventTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

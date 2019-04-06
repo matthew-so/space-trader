@@ -15,7 +15,7 @@ public enum Resource {
     ELEVEN("Artistic"),
     TWELVE("Warlike");
 
-    private String resource;
+    private final String resource;
 
     Resource(String resourceType) { resource = resourceType; }
 

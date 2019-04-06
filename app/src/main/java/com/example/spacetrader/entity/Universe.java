@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Universe {
 
-    private String name;
-    private List<SolarSystem> solarSystems;
+    private final String name;
+    private final List<SolarSystem> solarSystems;
 
 
     public Universe(String name, List<SolarSystem> solars) {

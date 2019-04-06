@@ -22,12 +22,12 @@ public class TravelActivity extends AppCompatActivity {
     private Spinner solar_spinner;
 
     public static Player player;
-    public SolarSystem solarSystem;
-    public static TextView fuel_textview;
-    public static TextView solar_s_textview;
-    public static Universe universe;
-    public ArrayList<String> validSolarList;
-    public List<SolarSystem> allSolarList;
+    private SolarSystem solarSystem;
+    private static TextView fuel_textview;
+    private static TextView solar_s_textview;
+    private static Universe universe;
+    private ArrayList<String> validSolarList;
+    private List<SolarSystem> allSolarList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -4,9 +4,9 @@ public class Ship {
 
     public enum ShipType {
         GNAT("Gnat", 15, 75);
-        private String val;
-        private int cargoCapacity;
-        private int fuel;
+        private final String val;
+        private final int cargoCapacity;
+        private final int fuel;
 
         ShipType(String val, int cargoCapacity, int fuel) {
             this.val = val;
@@ -49,7 +49,7 @@ public class Ship {
             return true;
         }
     }*/
-    private ShipType shiptype;
+    private final ShipType shiptype;
     //private CargoHold cargoHold;
     private int fuel;
 

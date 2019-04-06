@@ -3,12 +3,12 @@ package com.example.spacetrader.entity;
 import java.util.*;
 
 public class SolarSystem {
-    private String name;
-    private TechLevel techLev;
-    private Resource resourceType;
-    private int xCoor;
-    private int yCoor;
-    private List<Planet> planet;
+    private final String name;
+    private final TechLevel techLev;
+    private final Resource resourceType;
+    private final int xCoor;
+    private final int yCoor;
+    private final List<Planet> planet;
     private RandomSolarEvent solar;
     private Map<Good, Integer> buyGood;
     private Map<Good, Integer> sellGood;

@@ -4,8 +4,8 @@ import com.example.spacetrader.entity.Difficulty;
 import com.example.spacetrader.entity.Player;
 
 public class Game{
-    private Difficulty difficulty;
-    public Player player;
+    private final Difficulty difficulty;
+    public final Player player;
 
     public Game(String name, int trader, int fighter, int pilot, int engineer, Difficulty difficulty) {
         this.difficulty = difficulty;

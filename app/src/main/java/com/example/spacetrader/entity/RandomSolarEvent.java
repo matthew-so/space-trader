@@ -6,7 +6,7 @@ public enum RandomSolarEvent {
     UNEVENTFUL("Uneventful"), DROUGHT("Drought"), COLD("Cold"), CROPFAIL("Crop fail"), WAR("War"), BOREDOM("Boredom"),
     PLAGUE("Plague"), LACKOFWORKERS("Lack of Workers");
 
-    private String val;
+    private final String val;
 
     RandomSolarEvent(String val) {
         this.val = val;

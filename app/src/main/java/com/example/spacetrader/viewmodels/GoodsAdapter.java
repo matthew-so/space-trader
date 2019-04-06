@@ -28,8 +28,8 @@ public class GoodsAdapter extends
 
         // Your holder should contain a member variable
         // for any view that will be set as you render a row
-        TextView planetGoodTextView;
-        Button buy_button;
+        final TextView planetGoodTextView;
+        final Button buy_button;
 
 
         // We also create a constructor that accepts the entire item row
@@ -51,7 +51,7 @@ public class GoodsAdapter extends
         }
 
     }
-    private List<Good> planetGoods;
+    private final List<Good> planetGoods;
     // Used to cache the views within the item layout for fast access
 
 
@@ -99,7 +99,7 @@ public class GoodsAdapter extends
                     /**
                      *Updates the Player's inventory when buying a good
                      */
-                    ArrayList<Good> myGoods = myPlayer.getPlayerGoods();
+                    List<Good> myGoods = myPlayer.getPlayerGoods();
                     MarketplaceActivity.playerAdapter
                             .notifyItemRangeInserted(myGoods.size(), 1);
                     MarketplaceActivity.playerAdapter.notifyItemChanged(myGoods.size());
