@@ -61,9 +61,9 @@ public class UniverseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_universe);
 
-        /**
-         * instantiate planets
-         */
+
+         // instantiate planets
+
         Saturn = new Planet("Saturn");
         Mars = new Planet("Mars");
         Earth = new Planet("Earth");
@@ -76,9 +76,9 @@ public class UniverseActivity extends AppCompatActivity {
         Gelo = new Planet("Gelo");
         Swirl = new Planet("Swirl");
 
-        /**
-         * finding text views in the activity and binding them to the textviews in the code
-         */
+
+         //finding text views in the activity and binding them to the textviews in the code
+
         SolarSystemView0 =  findViewById(R.id.SolarSystemView0);
         SolarSystemView1 =  findViewById(R.id.SolarSystemView1);
         SolarSystemView2 =  findViewById(R.id.SolarSystemView2);
@@ -91,16 +91,14 @@ public class UniverseActivity extends AppCompatActivity {
         SolarSystemView9 =  findViewById(R.id.SolarSystemView9);
 
 
-        /**
-         * Make ArrayList with two planets
-         */
+
+         // Make ArrayList with two planets
         ArrayList<Planet> twoPlanets = new ArrayList<>();
         twoPlanets.add(Gelo);
         twoPlanets.add(Swirl);
 
-        /**
-         * Instantiate solar Systems
-         */
+
+        // Instantiate solar Systems
 
         SolarSystem milkyWay = new SolarSystem("Milky Way", TechLevel.FIVE, Resource.ONE, 0, 0, Earth);
         SolarSystem rockyWay = new SolarSystem("Rocky Way", TechLevel.FOUR, Resource.THREE, Constants.TWENTY, 10, Mars);
@@ -114,9 +112,9 @@ public class UniverseActivity extends AppCompatActivity {
         SolarSystem datWay = new SolarSystem("Dat Way", TechLevel.FOUR, Resource.TEN, Constants.ONEFIFTY, Constants.FOURTYFOUR, Vulcan);
 
 
-        /**
-         * Instantiate universe here
-         */
+
+         // Instantiate universe here
+
         ArrayList<SolarSystem> solarSystemsList = new ArrayList<>();
         solarSystemsList.add(milkyWay);
         solarSystemsList.add(rockyWay);
@@ -131,9 +129,9 @@ public class UniverseActivity extends AppCompatActivity {
 
         universe = new Universe("Georgia", solarSystemsList);
 
-        /**
-         *Having each text view display a solar system and description
-         */
+
+        //Having each text view display a solar system and description
+
 
         SolarSystemView0.setText("Solar system: " + solarSystemsList.get(0).getName() + " Tech Level: " +
                 solarSystemsList.get(0).getTech()

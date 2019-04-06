@@ -96,10 +96,9 @@ public class GoodsAdapter extends
 
                 if (player.buy(planetGoods.get(position))) {
                     viewHolder.buy_button.setEnabled(true);
-                    /**
-                     *Updates the Player's inventory when buying a good
-                     */
-                    List<Good> myGoods = myPlayer.getPlayerGoods();
+
+                     //Updates the Player's inventory when buying a good
+                     List<Good> myGoods = myPlayer.getPlayerGoods();
                     MarketplaceActivity.playerAdapter
                             .notifyItemRangeInserted(myGoods.size(), 1);
                     MarketplaceActivity.playerAdapter.notifyItemChanged(myGoods.size());
@@ -107,10 +106,9 @@ public class GoodsAdapter extends
 
 
                 } else {
-                    /**
-                     * Buttons are disabled, not allowing the player to buy them anymore.
-                     */
-                    viewHolder.buy_button.setEnabled(false);
+
+                     // Buttons are disabled, not allowing the player to buy them anymore.
+                     viewHolder.buy_button.setEnabled(false);
 
                 }
 

@@ -1,5 +1,8 @@
 package com.example.spacetrader.entity;
 
+/**
+ * This class represents the constants we used in our implementation
+ */
 public class Constants {
     public static final int MAX_SKILL = 12;
     public static final int COUNTDOWN = 6;

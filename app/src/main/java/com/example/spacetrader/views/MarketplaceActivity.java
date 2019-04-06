@@ -41,10 +41,9 @@ public class MarketplaceActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        /**
-         * The maps contain the goods and they're respective prices
-         * But since maps cannot go into a recycler view, the keys will be put in ArrayLists
-         */
+         // The maps contain the goods and they're respective prices
+         //But since maps cannot go into a recycler view, the keys will be put in ArrayLists
+
 
         ArrayList<Good> planetGoods;
 
@@ -59,29 +58,28 @@ public class MarketplaceActivity extends AppCompatActivity {
         player = ConfigurationActivity.newGame.getPlayer();
         solarSystem = player.getCurrentSolarSystem();
         solarSystem.onEnter(player.getTrader());
-        /**
-         * These two recycler views are sideby side inside of MarketPlaceActivity
-         */
+
+         // These two recycler views are sideby side inside of MarketPlaceActivity
+
         RecyclerView rvContacts =  findViewById(R.id.rvContacts);
         RecyclerView playerGoodsRV =  findViewById(R.id.playerGoodsRV);
         credits_TextView=  findViewById(R.id.credits_TextView);
-        /**
-         * We will be updating the cargo capacity and credits in real time,
-         * showing them to the player as he or she buys/sells
-         */
+
+         // We will be updating the cargo capacity and credits in real time,
+         //showing them to the player as he or she buys/sells
+
         credits_TextView.setText("$"+player.getCredits() + "\n" + "Capacity: " + player.getInventorySpace());
 
 
-        /**
-         * The player's goods start off as empty in the very beginning
-         */
+
+        // The player's goods start off as empty in the very beginning
         planetGoods = new ArrayList<>();
         playerGoods = player.getPlayerGoods();
         assignPrices(planetGoods,playerGoods,solarSystem);
-        /**
-         * Assigning the price to each good.
-         * Note: price is an instance variable in the @code Good class
-         */
+
+         //Assigning the price to each good.
+         // Note: price is an instance variable in the @code Good class
+
 
         adapter = new GoodsAdapter(planetGoods);
         playerAdapter = new PlayerGoodsAdapter(playerGoods);

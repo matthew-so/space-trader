@@ -20,6 +20,9 @@ import com.example.spacetrader.entity.Difficulty;
 import com.example.spacetrader.entity.Player;
 import com.example.spacetrader.model.Game;
 
+/**
+ * This class represents the player creation screen
+ */
 public class ConfigurationActivity extends AppCompatActivity {
     private Button create_player;
     private SeekBar pilot_bar;
@@ -54,9 +57,7 @@ public class ConfigurationActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         level_spinner.setAdapter(adapter);
 
-        /**
-         * Getting name of Player
-         */
+        //Getting name of Player
 
         name_edit = findViewById(R.id.name_edit);
 
@@ -65,9 +66,7 @@ public class ConfigurationActivity extends AppCompatActivity {
 
 
 
-         /**
-         * Allocating skill points
-         */
+        //Allocating skill points
         pilotTextView = findViewById(R.id.pilotTextView);
         engineerTextView = findViewById(R.id.engineerTextView);
         traderTextView = findViewById(R.id.traderTextView);
@@ -84,10 +83,10 @@ public class ConfigurationActivity extends AppCompatActivity {
 
 
 
-        /**
-         * Each discreet bar progress will be checked and compared. A text view will activate if the sums
-         * of the progresses are more than 16 and the "Create Player" button will deactivate.
-         */
+
+          //Each discreet bar progress will be checked and compared. A text view will activate if the sums
+          //of the progresses are more than 16 and the "Create Player" button will deactivate.
+
         pilot_bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -197,7 +196,7 @@ public class ConfigurationActivity extends AppCompatActivity {
     /**
      * Going to the next page -> Player Intro Activity
      * This is where we will verify everything about the player has been saved and calculated correctly
-     * @param view
+     * @param view The current view
      */
     public void introPlayer(View view) {
         Editable name = name_edit.getText();

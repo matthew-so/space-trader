@@ -2,6 +2,9 @@ package com.example.spacetrader.entity;
 import com.example.spacetrader.entity.TechLevel;
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * This class represents the goods traded
+ */
 public enum Good {
     @SerializedName("Water") WATER("Water", TechLevel.ZERO, TechLevel.ZERO, TechLevel.TWO, 30, 3, 4, RandomSolarEvent.DROUGHT, Resource.FOUR, Resource.THREE, 30, 50),
     @SerializedName("Furs") FURS("Furs", TechLevel.ZERO, TechLevel.ZERO, TechLevel.ZERO, 250, 10, 10, RandomSolarEvent.COLD, Resource.SEVEN, Resource.EIGHT, 230, 280),
@@ -56,25 +59,37 @@ public enum Good {
         return name;
     }
 
+    /**
+     * Gets the name of the good
+     * @return The name
+     */
     public String getName() {
         return name;
     }
 
-
-    public int getBase() {
-        return base;
+    /**
+     * Gets the price of the good
+     * @param planetTech The tech level of the planet
+     * @return The price of the good
+     */
+    public int getBasePrice(Comparable<TechLevel> planetTech) {
+        return ((base) + ((ipl)*(planetTech.compareTo(TechLevel.ZERO))));
     }
 
-
-
-    public int getBasePrice(Comparable<TechLevel> planetech) {
-        return ((base) + ((ipl)*(planetech.compareTo(TechLevel.ZERO))));
-    }
-
+    /**
+     * Sets the price of the good
+     * @param price The desired price
+     */
     public void setPrice(int price) {
         this.price = price;
     }
 
+    /**
+     * The special resources
+     * @param resource The resource enum
+     * @param baseprice The price of the good
+     * @return The price of the good
+     */
     public int specialResources(Resource resource, int baseprice) {
         int num = baseprice;
         if (cr != null) {
@@ -93,6 +108,12 @@ public enum Good {
         return num;
     }
 
+    /**
+     * Changes the price of a good based on a random event
+     * @param randomev The random event
+     * @param baseprice The price of the good
+     * @return The new price of the good
+     */
     public int specialEvent(RandomSolarEvent randomev, int baseprice) {
         int num = baseprice;
         if (ie != null) {
@@ -104,6 +125,11 @@ public enum Good {
         return num;
     }
 
+    /**
+     * This method randomizes the price of a market good
+     * @param baseprice The price of the good
+     * @return The new price of the good
+     */
     public int randomizePrice(int baseprice) {
         int num = baseprice;
         num += (int) (Math.random() * var);
@@ -111,6 +137,12 @@ public enum Good {
         return num;
     }
 
+    /**
+     * This method calculates the price for a good to be sold at
+     * @param buyprice The price which you can buy a good for
+     * @param traderskill The player's trader skill points
+     * @return The price of the good to be sold
+     */
     public int sellPrice(int buyprice, int traderskill) {
         return ((buyprice) * (((Constants.ONEOTHREE) + (Constants.MAX_SKILL - traderskill)) / (100)));
     }
@@ -128,12 +160,20 @@ public enum Good {
     /**
      * Used for onEnter method in SolarSystem.java
      * @param soltech Tech level of the solar system
-     * @return
+     * @return boolean
      */
     public boolean canSell(Comparable soltech) {
         return soltech.compareTo(mtlp) >= 0;
     }
 
+    /**
+     * This method calculates the quantity of a good
+     * @param soltech The tech level of the solar system
+     * @param size The size
+     * @param resource The resource level
+     * @param solar A random event
+     * @return The quantity
+     */
     public int calculateQuantity(TechLevel soltech, int size, Resource resource, RandomSolarEvent solar) {
         int quantity = ((9) + ((int) (((5 * Math.random())) - (Math.abs(ttp.compareTo(soltech))) * (1 + (size)))));
         if ("Robots".equals(name) || "Narcotics".equals(name)) {
@@ -159,6 +199,12 @@ public enum Good {
         }
         return quantity;
     }
+
+    /**
+     * Calculates the money spent
+     * @param money The cost of a good
+     * @return Updated currency
+     */
     public int buyAndReturnMoney(int money) {
         int currency = money;
         currency -= this.price;
@@ -166,6 +212,11 @@ public enum Good {
         return currency;
     }
 
+    /**
+     * Calculates the money gained
+     * @param money The cost of a good
+     * @return Updated currency
+     */
     public int sellAndReturnMoney(int money) {
         int currency = money;
         currency += this.price;
@@ -173,14 +224,26 @@ public enum Good {
         return currency;
     }
 
+    /**
+     * Sets quantity
+     * @param quantity The amount of goods
+     */
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
+    /**
+     * Gets the quantity of goods
+     * @return Quantity
+     */
     public int getQuantity() {
         return quantity;
     }
 
+    /**
+     * Gets the price of the good
+     * @return price
+     */
     public int getPrice() {
         return price;
     }

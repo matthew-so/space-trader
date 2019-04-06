@@ -95,9 +95,9 @@ public class SolarSystem {
                 }
             }
         }
-        /**
-         * Sets up the quantity that can be bought for each good from a planet/SS
-         */
+
+         // Sets up the quantity that can be bought for each good from a planet/SS
+
         if (startcountdown == 0) {
             for (Good i: Good.values()) {
                 quantityBuy.put(i, i.calculateQuantity(techLev,planet.size(),resourceType,solar));
