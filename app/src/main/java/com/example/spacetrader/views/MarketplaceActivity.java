@@ -33,12 +33,7 @@ public class MarketplaceActivity extends AppCompatActivity {
 
     //public Player player;
 
-
     public static TextView credits_TextView;
-
-
-
-
 
 
     @Override

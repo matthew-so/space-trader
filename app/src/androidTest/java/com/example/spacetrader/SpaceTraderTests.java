@@ -49,13 +49,13 @@ public class SpaceTraderTests {
         Assert.assertTrue("Player should be able to sell goods that are in inventory and have quantity > 0", regularPlayer.sell(notRandomGood));
     }
 
-    /** Tests player's ability to sell goods they do not have*/
+    /** Tests player's ability to sell goods when inventory is empty*/
     @Test
     public void testSellNotContainsGoodPlayer() {
         Assert.assertFalse("Player should not be able to sell goods if he or she has none in inventory",regularPlayer.sell(notRandomGood));
     }
 
-    /**Tests players ability to sell goods they do not have*/
+    /**Tests players ability to sell goods they do not have in inventory*/
     @Test
     public void testSellFakeGoodPlayer() {
         differentGood.setQuantity(1);
@@ -72,6 +72,51 @@ public class SpaceTraderTests {
         Assert.assertFalse("Player should not be able to sell good with quantity of 0",regularPlayer.sell(notRandomGood));
     }
 
+    //Buying Tests made by Fanuel Abiy
+
+    /**Sets up player*/
+    @Before
+    public void setUpPurchase() {
+        SolarSystem currentSolarSystem;
+        this.regularPlayer = new Player("Player 1",0,0,8,8);
+        currentSolarSystem = new SolarSystem("Milky Way",TechLevel.SEVEN,Resource.SEVEN,Constants.ONEFIFTY,Constants.ONEFIFTY,new Planet("Earth"));
+        regularPlayer.setCurrentSolarSystem(currentSolarSystem);
+        notRandomGood = Good.GAMES;
+        differentGood = Good.NARCOTICS;
+
+    }
+    /**Tests player's ability to buy goods*/
+    @Test
+    public void testBuyContainsGoodPlayer() {
+        notRandomGood.setQuantity(1);
+        Collection<Good> goods = regularPlayer.getPlayerGoods();
+        goods.add(notRandomGood);
+        Assert.assertTrue("Player should be able to buy goods that are in inventory and have quantity > 0", regularPlayer.buy(notRandomGood));
+    }
+
+    /** Tests player's ability to buy goods when inventory is empty*/
+    @Test
+    public void testBuyNotContainsGoodPlayer() {
+        Assert.assertTrue("Player should be able to buy goods if he or she has none in inventory",regularPlayer.buy(notRandomGood));
+    }
+
+    /**Tests players ability to buy goods they do not already have*/
+    @Test
+    public void testBuyNewGoodPlayer() {
+        differentGood.setQuantity(1);
+        Collection<Good> goods = regularPlayer.getPlayerGoods();
+        goods.add(differentGood);
+        Assert.assertTrue("Player should be able to buy good that does not match any of the goods held in inventory",regularPlayer.sell(notRandomGood));
+    }
+
+    /** This tests the player's ability to buy while holding 15 items*/
+    @Test
+    public void testMaxPlayerInventory() {
+        notRandomGood.setQuantity(1);
+        regularPlayer.addToPlayerGoods(notRandomGood);
+        regularPlayer.buy(notRandomGood);
+        Assert.assertFalse("Player should not be able to buy good with max inventory",regularPlayer.getPlayerGoods().size() >= 15);
+    }
 
 
 }
