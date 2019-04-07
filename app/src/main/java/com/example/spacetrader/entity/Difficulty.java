@@ -1,5 +1,8 @@
 package com.example.spacetrader.entity;
 
+import android.support.annotation.NonNull;
+import org.jetbrains.annotations.Nullable;
+
 /**
  * This class represents the game difficulty
  */
@@ -12,7 +15,8 @@ public enum Difficulty {
         this.val = val;
     }
 
-    @Override
+
+    @Override@NonNull
     public String toString() {
         return val;
     }

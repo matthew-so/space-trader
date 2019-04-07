@@ -57,11 +57,11 @@ public class MainActivity extends AppCompatActivity {
             gson = new Gson();
             ConfigurationActivity.newGame = gson.fromJson(inString, Game.class);
 
-            ConfigurationActivity.player = ConfigurationActivity.newGame.player;
+            ConfigurationActivity.player = ConfigurationActivity.newGame.getPlayer();
 
-            PlayerIntroActivity.player = ConfigurationActivity.newGame.player;
+            PlayerIntroActivity.player = ConfigurationActivity.newGame.getPlayer();
 
-            TravelActivity.player = ConfigurationActivity.newGame.player;
+            TravelActivity.player = ConfigurationActivity.newGame.getPlayer();
 
             Intent intent = new Intent(this, StartPlayActivity.class);
             startActivity(intent);

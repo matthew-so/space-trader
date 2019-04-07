@@ -33,7 +33,7 @@ public class PlayerIntroActivity extends AppCompatActivity {
         toolbar.setTitle("Hi " + player.getName() + "!");
         setSupportActionBar(toolbar);
         Game newGame = ConfigurationActivity.newGame;
-        Player player = newGame.player;
+        Player player = newGame.getPlayer();
         credits_TextView =  findViewById(R.id.credits_TextView);
         credits_TextView.setText("Credits: " + player.getCredits());
 

@@ -21,7 +21,6 @@ public class SolarSystem {
     private Map<Good, Integer> buyGood;
     private Map<Good, Integer> sellGood;
     private Map<Good, Integer> quantityBuy;
-    private ArrayList<Good> goodsForSale;
     private int startCountdown;
 
     /**
@@ -105,7 +104,7 @@ public class SolarSystem {
         sellGood = new HashMap<>();
         quantityBuy = new HashMap<>();
         int price;
-        goodsForSale = new ArrayList<>();
+        Collection<Good> goodsForSale = new ArrayList<>();
         for (Good i: Good.values()) {
             price = i.getBasePrice(techLev);
             price *= (100 - planet.size()) / 100;

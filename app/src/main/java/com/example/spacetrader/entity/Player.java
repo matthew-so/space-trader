@@ -1,7 +1,5 @@
 package com.example.spacetrader.entity;
 
-import com.example.spacetrader.model.Game;
-import com.example.spacetrader.views.ConfigurationActivity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -34,7 +32,7 @@ public class Player implements Serializable {
 
     private int inventorySpace;
 
-    private Map<Good,Integer> howMuchPlayerCanBuy;
+
 
 
     /**
@@ -227,12 +225,6 @@ public class Player implements Serializable {
     }
 
     /**
-     * Gets the current game instance
-     * @return game
-     */
-    public Game getGame() {return ConfigurationActivity.newGame; }
-
-    /**
      * Gets the current solar system of the player
      * @return current solar system
      */
@@ -246,7 +238,6 @@ public class Player implements Serializable {
      */
     public void setCurrentSolarSystem(SolarSystem s) {
         currentSolarSystem = s;
-        howMuchPlayerCanBuy = currentSolarSystem.getQuantityBuy();
     }
 
     /**
@@ -255,7 +246,7 @@ public class Player implements Serializable {
      * @return an ArrayList of Goods
      */
     public ArrayList<Good> getPlayerGoods() {
-        return playerGoods;
+        return this.playerGoods;
 
     }
 
@@ -268,14 +259,6 @@ public class Player implements Serializable {
         playerGoods.add(good);
     }
 
-    /**This method is only called when the solar system is assigned to the Player**/
-    private void setHowMuchPlayerCanBuy() {
-        howMuchPlayerCanBuy = currentSolarSystem.getQuantityBuy();
-    }
-
-    private void setWhatPlayerCanSell() {
-        Map<Good, Integer> whatPlayerCanSell = currentSolarSystem.getBuyGood();
-    }
 
     /**
      * Gets the current inventory space

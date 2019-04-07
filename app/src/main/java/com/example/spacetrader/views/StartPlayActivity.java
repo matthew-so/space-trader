@@ -106,9 +106,11 @@ public class StartPlayActivity extends AppCompatActivity {
     public boolean saveGame(View view) {
         Universe universe = UniverseActivity.universe;
         try {
-            GsonBuilder gb = new GsonBuilder().serializeNulls();
+            GsonBuilder gb = new GsonBuilder();
+            gb.serializeNulls();
             Gson ug = gb.create();
-            GsonBuilder ub = new GsonBuilder().serializeNulls();
+            GsonBuilder ub = new GsonBuilder();
+            ub.serializeNulls();
             Gson gg = ub.create();
 
             FileOutputStream outputStream = openFileOutput("uFile.json", Context.MODE_PRIVATE);

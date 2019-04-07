@@ -41,7 +41,6 @@ public class TravelActivity extends AppCompatActivity {
         setContentView(R.layout.activity_travel);
         player = ConfigurationActivity.newGame.getPlayer();
         universe = UniverseActivity.universe;
-        solarSystem = player.getCurrentSolarSystem();
         fuel_textView = findViewById(R.id.fuel_textview);
         fuel_textView.setText("Fuel: "+ player.getShipFuel());
         solar_s_textView = findViewById(R.id.curr_solar_s_textview);
@@ -76,7 +75,8 @@ public class TravelActivity extends AppCompatActivity {
 
                 for (SolarSystem ss:allSolarList) {
                     //
-                    if (ss.getName().equals(newSS) ){
+                    String name = ss.getName();
+                    if (name.equals(newSS) ){
                         //calc
                         int x1 = ss.getXCoordinate();
                         int y1 = ss.getYCoordinate();

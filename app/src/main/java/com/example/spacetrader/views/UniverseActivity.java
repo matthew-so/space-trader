@@ -16,18 +16,18 @@ import com.example.spacetrader.entity.Universe;
 
 public class UniverseActivity extends AppCompatActivity {
 
-    public static Universe universe;
+    static Universe universe;
 
-    TextView SolarSystemView0;
-    TextView SolarSystemView1;
-    TextView SolarSystemView2;
-    TextView SolarSystemView3;
-    TextView SolarSystemView4;
-    TextView SolarSystemView5;
-    TextView SolarSystemView6;
-    TextView SolarSystemView7;
-    TextView SolarSystemView8;
-    TextView SolarSystemView9;
+    private TextView SolarSystemView0;
+    private TextView SolarSystemView1;
+    private TextView SolarSystemView2;
+    private TextView SolarSystemView3;
+    private TextView SolarSystemView4;
+    private TextView SolarSystemView5;
+    private TextView SolarSystemView6;
+    private TextView SolarSystemView7;
+    private TextView SolarSystemView8;
+    private TextView SolarSystemView9;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

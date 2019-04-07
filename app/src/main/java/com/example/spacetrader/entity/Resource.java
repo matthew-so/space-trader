@@ -4,7 +4,6 @@ package com.example.spacetrader.entity;
  * This class represents the planets's resource levels
  */
 public enum Resource {
-    ZERO("No special resources"),
     ONE("Mineral rich"),
     TWO("Mineral poor"),
     THREE("Desert"),

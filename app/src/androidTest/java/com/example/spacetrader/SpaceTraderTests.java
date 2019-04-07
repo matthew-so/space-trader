@@ -23,7 +23,7 @@ import java.util.Collection;
 public class SpaceTraderTests {
     //Selling Tests made by Kyser Montalvo
     @Rule
-    public Timeout globalTimeout = Timeout.seconds(2);
+    private final Timeout globalTimeout = Timeout.seconds(2);
 
     private Player regularPlayer;
     private Good notRandomGood;

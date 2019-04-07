@@ -41,9 +41,9 @@ public class ConfigurationActivity extends AppCompatActivity {
     private Spinner level_spinner;
 
 
-    public static Game newGame;
+    static Game newGame;
 
-    public static Player player;
+    static Player player;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
