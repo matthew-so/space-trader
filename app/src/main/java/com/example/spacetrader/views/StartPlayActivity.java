@@ -43,9 +43,6 @@ public class StartPlayActivity extends AppCompatActivity {
         TextView randomEventTextView;
         setContentView(R.layout.activity_start_play);
 
-        //player = PlayerIntroActivity.player;
-
-
         Universe universe = UniverseActivity.universe;
         SolarSystem currentSolarSystem;
 
@@ -53,7 +50,6 @@ public class StartPlayActivity extends AppCompatActivity {
         if(count == 0) {
             currentSolarSystem = universe.getSolarSystem(0);
             player = PlayerIntroActivity.player;
-            //player.setCurrentSolarSystem(currentSolarSystem);
             count++;
 
         } else {
@@ -66,7 +62,6 @@ public class StartPlayActivity extends AppCompatActivity {
         List<Planet> solarSystem = currentSolarSystem.getPlanet();
         Planet myPlanet = solarSystem.get(0);
         String planetName = myPlanet.getName();
-        //player.setCurrentSolarSystem(currentSolarSystem);
         planet_textView = findViewById(R.id.planet_textView);
         universe_textView = findViewById(R.id.universe_textView);
         RandomSolarEvent solarEvent;
@@ -74,7 +69,6 @@ public class StartPlayActivity extends AppCompatActivity {
 
 
         String solarSystemName = currentSolarSystem.getName();
-        //////////////
 
         planet_textView.setText("Planet: "+ planetName);
         universe_textView.setText("Solar System: " + solarSystemName);
@@ -120,13 +114,13 @@ public class StartPlayActivity extends AppCompatActivity {
             FileOutputStream outputStream = openFileOutput("uFile.json", Context.MODE_PRIVATE);
             String outString = ug.toJson(universe);
             outputStream.write(outString.getBytes());
-            Log.d("oijoij", outString);
+            Log.d("out", outString);
             outputStream.close();
 
             outputStream = openFileOutput("gFile.json", Context.MODE_PRIVATE);
             String goutString = gg.toJson(ConfigurationActivity.newGame);
             outputStream.write(goutString.getBytes());
-            Log.d("oijoij", goutString);
+            Log.d("out", goutString);
             outputStream.close();
         } catch (FileNotFoundException e){
             Log.e("StartPlayActivity", "false");
