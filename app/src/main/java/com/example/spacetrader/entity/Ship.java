@@ -1,5 +1,8 @@
 package com.example.spacetrader.entity;
 
+/**
+ * This class represents the ship
+ */
 public class Ship {
 
     public enum ShipType {
@@ -17,7 +20,6 @@ public class Ship {
         public String toString() {
             return val;
         }
-        int getFuel() { return fuel; }
     }
     /*private class CargoHold {
         private Map<Good, Integer> cargo;
@@ -53,44 +55,38 @@ public class Ship {
     //private CargoHold cargoHold;
     private int fuel;
 
-    public Ship(ShipType shiptype) {
-        this.shiptype = shiptype;
+    /**
+     * This constructor for ship
+     * @param shipType the ship
+     */
+    public Ship(ShipType shipType) {
+        this.shiptype = shipType;
         fuel = this.shiptype.fuel;
-        //cargoHold = new CargoHold(this.shiptype.cargoCapacity);
     }
     @Override
     public String toString() {
         return shiptype.toString();
     }
-    /*public boolean buyGood(Good good) {
-        return cargoHold.buyGood(good);
-    }
-    public boolean sellGood(Good good) {
-        return cargoHold.sellGood(good);
-    }*/
-    public int buyFuel(int fuel) {
-        if (fuel == shiptype.getFuel()) {
-            return -1; //error, fuel-tank full
-        }
-        if (((fuel) + this.fuel) > (shiptype.getFuel())) {
-            int ret = shiptype.getFuel() - fuel;
-            this.fuel = shiptype.getFuel();
-            return ret; //return unused fuel
-        }
-        this.fuel += fuel;
-        return 0; //all fuel used
-    }
 
+    /**
+     * Gets the fuel of the ship
+     * @return fuel
+     */
     public int getFuel() {return fuel;}
 
-    public boolean canTravel(int distance) {
-        return fuel >= distance;
-    }
-
-    public void travel(int travel) { //travel guaranteed to be possible
+    /**
+     * This method takes the difference between the desired destination
+     * and the current fuel supply
+     * @param travel The distance
+     */
+    public void travel(int travel) {
         fuel -= travel;
     }
 
+    /**
+     * Gets the ship capacity of the ship
+     * @return cargo capacity
+     */
     public int getCargoCapacity() {
         return shiptype.cargoCapacity;
     }

@@ -24,6 +24,9 @@ import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.util.List;
 
+/**
+ * This class represents the screen where the player can choose to do multiple things
+ */
 public class StartPlayActivity extends AppCompatActivity {
 
     public static final Game game = ConfigurationActivity.newGame;
@@ -40,9 +43,6 @@ public class StartPlayActivity extends AppCompatActivity {
         TextView randomEventTextView;
         setContentView(R.layout.activity_start_play);
 
-        //player = PlayerIntroActivity.player;
-
-
         Universe universe = UniverseActivity.universe;
         SolarSystem currentSolarSystem;
 
@@ -50,7 +50,6 @@ public class StartPlayActivity extends AppCompatActivity {
         if(count == 0) {
             currentSolarSystem = universe.getSolarSystem(0);
             player = PlayerIntroActivity.player;
-            //player.setCurrentSolarSystem(currentSolarSystem);
             count++;
 
         } else {
@@ -63,7 +62,6 @@ public class StartPlayActivity extends AppCompatActivity {
         List<Planet> solarSystem = currentSolarSystem.getPlanet();
         Planet myPlanet = solarSystem.get(0);
         String planetName = myPlanet.getName();
-        //player.setCurrentSolarSystem(currentSolarSystem);
         planet_textView = findViewById(R.id.planet_textView);
         universe_textView = findViewById(R.id.universe_textView);
         RandomSolarEvent solarEvent;
@@ -71,7 +69,6 @@ public class StartPlayActivity extends AppCompatActivity {
 
 
         String solarSystemName = currentSolarSystem.getName();
-        //////////////
 
         planet_textView.setText("Planet: "+ planetName);
         universe_textView.setText("Solar System: " + solarSystemName);
@@ -82,38 +79,56 @@ public class StartPlayActivity extends AppCompatActivity {
         }
 
     }
+
+    /**
+     * Allows the player to go to the market screen
+     * @param view The current view
+     */
     public void goToMarketActivity(View view) {
         Intent intent = new Intent(this, MarketplaceActivity.class);
         startActivity(intent);
     }
+
+    /**
+     * Allows the player to go the travel screen
+     * @param view The current view
+     */
     public void goToTravelActivity(View view) {
         Intent intent = new Intent(this, TravelActivity.class);
         startActivity(intent);
     }
+
+    /**
+     * Allows the player to save the current state of the game for later use
+     * @param view The current view
+     * @return boolean
+     */
     public boolean saveGame(View view) {
         Universe universe = UniverseActivity.universe;
         try {
-            GsonBuilder gb = new GsonBuilder().serializeNulls();
+            GsonBuilder gb = new GsonBuilder();
+            gb.serializeNulls();
             Gson ug = gb.create();
-            GsonBuilder ub = new GsonBuilder().serializeNulls();
+            GsonBuilder ub = new GsonBuilder();
+            ub.serializeNulls();
             Gson gg = ub.create();
 
-            FileOutputStream outputStream = openFileOutput("ufile.json", Context.MODE_PRIVATE);
+            FileOutputStream outputStream = openFileOutput("uFile.json", Context.MODE_PRIVATE);
             String outString = ug.toJson(universe);
             outputStream.write(outString.getBytes());
-            Log.d("oijoij", outString);
+            Log.d("out", outString);
             outputStream.close();
 
-            outputStream = openFileOutput("gfile.json", Context.MODE_PRIVATE);
+            outputStream = openFileOutput("gFile.json", Context.MODE_PRIVATE);
             String goutString = gg.toJson(ConfigurationActivity.newGame);
             outputStream.write(goutString.getBytes());
-            Log.d("oijoij", goutString);
+            Log.d("out", goutString);
             outputStream.close();
         } catch (FileNotFoundException e){
             Log.e("StartPlayActivity", "false");
             return false;
         } catch (IOException i) {
-            Log.e("StartPlayActivity", "notfalse");
+            Log.e("StartPlayActivity", "not false");
             return false;
         }
         

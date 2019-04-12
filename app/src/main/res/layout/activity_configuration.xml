@@ -80,16 +80,18 @@
             android:layout_marginEnd="8dp"
             android:layout_marginTop="20dp"
             app:layout_constraintTop_toBottomOf="@+id/title_text"
+            android:autofillHints="name"
             app:layout_constraintStart_toStartOf="@+id/name_edit" app:layout_constraintHorizontal_bias="0.0"/>
     <EditText
             android:layout_width="214dp"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
+
             android:ems="10"
-            android:id="@+id/name_edit" android:layout_marginStart="8dp"
+            android:id="@+id/name_edit"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="34dp"
             app:layout_constraintTop_toBottomOf="@+id/name_text" android:hint="(Insert Name)"
-            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"/>
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:autofillHints="Name"/>
     <TextView
             android:text="Fighter Points"
             android:layout_width="wrap_content"

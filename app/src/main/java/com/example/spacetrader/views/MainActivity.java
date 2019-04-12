@@ -17,6 +17,9 @@ package com.example.spacetrader.views;
         import java.io.FileReader;
         import java.io.IOException;
 
+/**
+ * This class represents the launch screen
+ */
 public class MainActivity extends AppCompatActivity {
 
 
@@ -25,13 +28,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
+    /**
+     * This method transitions the screen to the player creation screen
+     * @param view The current view
+     */
     public void goToConfigurationScreen(View view) {
         Intent intent = new Intent(this, ConfigurationActivity.class);
         startActivity(intent);
     }
+
+    /**
+     * This method allows the user to load a saved game state
+     * @param view The current view
+     */
     public void loadGame(View view) {
-        File uf = new File(this.getFilesDir(), "ufile.json");
-        File gf = new File(this.getFilesDir(), "gfile.json");
+        File uf = new File(this.getFilesDir(), "uFile.json");
+        File gf = new File(this.getFilesDir(), "gFile.json");
 
         try {
             BufferedReader input = new BufferedReader(new FileReader(uf));
@@ -44,11 +57,11 @@ public class MainActivity extends AppCompatActivity {
             gson = new Gson();
             ConfigurationActivity.newGame = gson.fromJson(inString, Game.class);
 
-            ConfigurationActivity.player = ConfigurationActivity.newGame.player;
+            ConfigurationActivity.player = ConfigurationActivity.newGame.getPlayer();
 
-            PlayerIntroActivity.player = ConfigurationActivity.newGame.player;
+            PlayerIntroActivity.player = ConfigurationActivity.newGame.getPlayer();
 
-            TravelActivity.player = ConfigurationActivity.newGame.player;
+            TravelActivity.player = ConfigurationActivity.newGame.getPlayer();
 
             Intent intent = new Intent(this, StartPlayActivity.class);
             startActivity(intent);

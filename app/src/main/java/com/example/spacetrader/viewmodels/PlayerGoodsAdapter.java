@@ -16,6 +16,9 @@ import java.util.List;
 
 import static com.example.spacetrader.views.StartPlayActivity.player;
 
+/**
+ * This class represents the PlayerGoods Adapter
+ */
 public class PlayerGoodsAdapter extends
         RecyclerView.Adapter<PlayerGoodsAdapter.ViewHolder> {
 
@@ -24,7 +27,7 @@ public class PlayerGoodsAdapter extends
     public class ViewHolder extends RecyclerView.ViewHolder {
         // Your holder should contain a member variable
         // for any view that will be set as you render a row
-        final TextView playerGoodTextview;
+        final TextView playerGoodTextView;
         final Button sell_Button;
 
         // We also create a constructor that accepts the entire item row
@@ -34,7 +37,7 @@ public class PlayerGoodsAdapter extends
             // to access the context from any ViewHolder instance.
             super(itemView);
 
-            playerGoodTextview =  itemView.findViewById(R.id.playerGoodTextview);
+            playerGoodTextView =  itemView.findViewById(R.id.playerGoodTextview);
             sell_Button = itemView.findViewById(R.id.sell_Button);
         }
     }
@@ -42,6 +45,11 @@ public class PlayerGoodsAdapter extends
 
 
     // Pass in the contact array into the constructor
+
+    /**
+     * The constructor for the Player Goods Adaptor
+     * @param goods the contact array for the goods
+     */
     public PlayerGoodsAdapter(List<Good> goods) {
         playerGoods = goods;
     }
@@ -64,7 +72,7 @@ public class PlayerGoodsAdapter extends
         final Good playerGood = playerGoods.get(position);
 
         // Set item views based on your views and data model
-        TextView textView = viewHolder.playerGoodTextview;
+        TextView textView = viewHolder.playerGoodTextView;
         textView.setText(playerGood.getName()+ " [$"+ playerGood.getPrice()+"]");
         final Button button = viewHolder.sell_Button;
         button.setText("Sell");
@@ -76,13 +84,13 @@ public class PlayerGoodsAdapter extends
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!playerGoods.isEmpty() && player.sell(playerGoods.get(position))) {
+                if (!playerGoods.isEmpty() && player.sell(playerGoods.get(viewHolder.getAdapterPosition()))) {
                     button.setEnabled(true);
                 } else {
                     button.setEnabled(false);
-                    playerGoods.remove(position);
-                    notifyItemRemoved(position);
-                    notifyItemChanged(position);
+                    playerGoods.remove(viewHolder.getAdapterPosition());
+                    notifyItemRemoved(viewHolder.getAdapterPosition());
+                    notifyItemChanged(viewHolder.getAdapterPosition());
                     notifyDataSetChanged();
                 }
                 MarketplaceActivity.credits_TextView.setText("$" + player.getCredits() + "\n" +

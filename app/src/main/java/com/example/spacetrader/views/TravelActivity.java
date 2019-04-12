@@ -16,6 +16,9 @@ import com.example.spacetrader.entity.Universe;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class represents the travel screen
+ */
 public class TravelActivity extends AppCompatActivity {
 
     private Spinner solar_spinner;
@@ -26,8 +29,8 @@ public class TravelActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         SolarSystem solarSystem;
-        TextView fuel_textview;
-        TextView solar_s_textview;
+        TextView fuel_textView;
+        TextView solar_s_textView;
         Universe universe;
         ArrayList<String> validSolarList;
         final List<SolarSystem> allSolarList;
@@ -38,19 +41,18 @@ public class TravelActivity extends AppCompatActivity {
         setContentView(R.layout.activity_travel);
         player = ConfigurationActivity.newGame.getPlayer();
         universe = UniverseActivity.universe;
-        solarSystem = player.getCurrentSolarSystem();
-        fuel_textview = findViewById(R.id.fuel_textview);
-        fuel_textview.setText("fuel "+ player.getShipFuel());
-        solar_s_textview = findViewById(R.id.curr_solar_s_textview);
-        solar_s_textview.setText("the current ss is " + player.getSolarSystemName());
+        fuel_textView = findViewById(R.id.fuel_textview);
+        fuel_textView.setText("Fuel: "+ player.getShipFuel());
+        solar_s_textView = findViewById(R.id.curr_solar_s_textview);
+        solar_s_textView.setText("Current Solar System: " + player.getSolarSystemName());
         int x2 = player.getXCoordinate();
         int y2 = player.getYCoordinate();
         allSolarList = universe.getSolarList();
         for (int i = 0; i < allSolarList.size(); i++) {
             SolarSystem ss = allSolarList.get(i);
-            int x1 = ss.getxCoor();
+            int x1 = ss.getXCoordinate();
             ss = universe.getSolarSystem(i);
-            int y1 = ss.getyCoor();
+            int y1 = ss.getYCoordinate();
             if ((player.getShipFuel() - Math.hypot(x2-x1, y2-y1)) >= 0){
                 validSolarList.add(universe.getSolarSystemName(i));
             }
@@ -73,10 +75,11 @@ public class TravelActivity extends AppCompatActivity {
 
                 for (SolarSystem ss:allSolarList) {
                     //
-                    if (ss.getName().equals(newSS) ){
+                    String name = ss.getName();
+                    if (name.equals(newSS) ){
                         //calc
-                        int x1 = ss.getxCoor();
-                        int y1 = ss.getyCoor();
+                        int x1 = ss.getXCoordinate();
+                        int y1 = ss.getYCoordinate();
                         double distance = Math.hypot(x2-x1, y2-y1);
                         player.travel((int)distance);
                         player.setCurrentSolarSystem(ss);

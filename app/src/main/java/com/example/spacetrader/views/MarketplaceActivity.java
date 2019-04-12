@@ -17,6 +17,9 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * This class represents the marketplace screen
+ */
 public class MarketplaceActivity extends AppCompatActivity {
 
 
@@ -31,11 +34,8 @@ public class MarketplaceActivity extends AppCompatActivity {
     //public Player player;
 
 
-    public static TextView credits_TextView;
 
-
-
-
+    public TextView credits_TextView;
 
 
     @Override
@@ -58,7 +58,7 @@ public class MarketplaceActivity extends AppCompatActivity {
         solarSystem = player.getCurrentSolarSystem();
         solarSystem.onEnter(player.getTrader());
 
-         // These two recycler views are sideby side inside of MarketPlaceActivity
+         // These two recycler views are side by side inside of MarketPlaceActivity
 
         RecyclerView rvContacts =  findViewById(R.id.rvContacts);
         RecyclerView playerGoodsRV =  findViewById(R.id.playerGoodsRV);
@@ -90,18 +90,18 @@ public class MarketplaceActivity extends AppCompatActivity {
 
     private void assignPrices(Collection<Good> planetGoods, Collection<Good> playerGoods, SolarSystem solarSystem) {
         Map<Good,Integer> mapOfPlanetGoods;
-        Map<Good,Integer> mapOfSellableGoods;
+        Map<Good,Integer> mapOfSellAbleGoods;
         mapOfPlanetGoods = solarSystem.getBuyGood();
-        mapOfSellableGoods = solarSystem.getSellGood();
+        mapOfSellAbleGoods = solarSystem.getSellGood();
         for(Good g:playerGoods) {
-            if ((mapOfSellableGoods!= null) && (!mapOfSellableGoods.isEmpty())
+            if ((mapOfSellAbleGoods.get(g) != null) && (!mapOfSellAbleGoods.isEmpty())
                     && (solarSystem.getBuyGoodPrice(g) > 0) && (!playerGoods.isEmpty())) {
-                g.setPrice(mapOfSellableGoods.get(g));
+                g.setPrice(mapOfSellAbleGoods.get(g));
             }
         }
         Set<Good> planetGoodsSet = mapOfPlanetGoods.keySet();
         for(Good g:planetGoodsSet) {
-            if ((mapOfPlanetGoods!= null) && (solarSystem.getBuyGoodPrice(g) > 0)) {
+            if ((mapOfPlanetGoods.get(g) != null) && (solarSystem.getBuyGoodPrice(g) > 0)) {
                 planetGoods.add(g);
                 g.setPrice(mapOfPlanetGoods.get(g));
             }

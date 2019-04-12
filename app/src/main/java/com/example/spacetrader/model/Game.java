@@ -8,7 +8,7 @@ import com.example.spacetrader.entity.Player;
  */
 public class Game{
     private final Difficulty difficulty;
-    public final Player player;
+    private final Player player;
 
     /**
      * This is the constructor for the game

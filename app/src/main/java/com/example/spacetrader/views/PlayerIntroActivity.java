@@ -10,14 +10,15 @@ import com.example.spacetrader.R;
 import com.example.spacetrader.entity.Player;
 import com.example.spacetrader.model.Game;
 
+/**
+ * This represents the player introduction screen
+ */
 public class PlayerIntroActivity extends AppCompatActivity {
 
     public static Player player;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
-       TextView credits_TextView;
+        TextView credits_TextView;
         TextView difficulty_TextView;
         TextView ship_TextView;
         TextView points_TextView;
@@ -31,12 +32,8 @@ public class PlayerIntroActivity extends AppCompatActivity {
         player = ConfigurationActivity.newGame.getPlayer();
         toolbar.setTitle("Hi " + player.getName() + "!");
         setSupportActionBar(toolbar);
-
         Game newGame = ConfigurationActivity.newGame;
-        Player player = newGame.player;
-
-
-
+        Player player = newGame.getPlayer();
         credits_TextView =  findViewById(R.id.credits_TextView);
         credits_TextView.setText("Credits: " + player.getCredits());
 
@@ -65,7 +62,7 @@ public class PlayerIntroActivity extends AppCompatActivity {
     /**
      * Going to the next page -> Player Intro Activity
      * This is where we will verify everything about the player has been saved and calculated correctly
-     * @param view
+     * @param view The current view
      */
     public void goToUniverseActivity(View view) {
         Intent intent = new Intent(this, UniverseActivity.class);

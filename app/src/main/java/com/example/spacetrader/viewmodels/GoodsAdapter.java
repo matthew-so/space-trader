@@ -1,6 +1,7 @@
 package com.example.spacetrader.viewmodels;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,9 @@ import java.util.List;
 
 import static com.example.spacetrader.views.StartPlayActivity.player;
 
+/**
+ * GoodsAdapter for Market
+ */
 public class GoodsAdapter extends
         RecyclerView.Adapter<GoodsAdapter.ViewHolder> {
 
@@ -54,13 +58,16 @@ public class GoodsAdapter extends
     // Used to cache the views within the item layout for fast access
 
 
-
-    // Pass in the contact array into the constructor
+    /**
+     * Assigns goods to list
+     * @param goods the list of goods
+     */
     public GoodsAdapter(List<Good> goods) {
-        planetGoods = goods;
+        this.planetGoods = goods;
     }
 
     @Override
+    @NonNull
     public GoodsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
@@ -93,7 +100,7 @@ public class GoodsAdapter extends
 
 
 
-                if (player.buy(planetGoods.get(position))) {
+                if (player.buy(planetGoods.get(viewHolder.getAdapterPosition()))) {
                     viewHolder.buy_button.setEnabled(true);
 
                      //Updates the Player's inventory when buying a good
