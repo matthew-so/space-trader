@@ -62,6 +62,13 @@ public class SpaceTraderTests {
         regularPlayer.addToPlayerGoods(notRandomGood);
         Assert.assertFalse("Player should not be able to sell good with quantity of 0",regularPlayer.sell(notRandomGood));
     }
+    @Test
+    public void testBuyFakeGoodPlayer() {
+        differentGood.setQuantity(1);
+        Collection<Good> goods = regularPlayer.getPlayerGoods();
+        goods.add(differentGood);
+        Assert.assertFalse("Player should not be able to buy good that does not match any of the goods held in inventory",regularPlayer.buy(notRandomGood));
+    }
 
 
 
