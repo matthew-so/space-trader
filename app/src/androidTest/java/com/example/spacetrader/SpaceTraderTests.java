@@ -53,13 +53,15 @@ public class SpaceTraderTests {
         notRandomGood.setQuantity(1);
         Collection<Good> goods = regularPlayer.getPlayerGoods();
         goods.add(notRandomGood);
-        Assert.assertTrue("Player should be able to sell goods that are in inventory and have quantity > 0", regularPlayer.sell(notRandomGood));
+        Assert.assertTrue("Player should be able to sell goods " +
+                "that are in inventory and have quantity > 0", regularPlayer.sell(notRandomGood));
     }
 
     /** Tests player's ability to sell goods when inventory is empty*/
     @Test
     public void testSellNotContainsGoodPlayer() {
-        Assert.assertFalse("Player should not be able to sell goods if he or she has none in inventory",regularPlayer.sell(notRandomGood));
+        Assert.assertFalse("Player should not be able " +
+                "to sell goods if he or she has none in inventory",regularPlayer.sell(notRandomGood));
     }
 
     /**Tests players ability to sell goods they do not have in inventory*/
@@ -68,7 +70,8 @@ public class SpaceTraderTests {
         differentGood.setQuantity(1);
         Collection<Good> goods = regularPlayer.getPlayerGoods();
         goods.add(differentGood);
-        Assert.assertFalse("Player should not be able to sell good that does not match any of the goods held in inventory",regularPlayer.sell(notRandomGood));
+        Assert.assertFalse("Player should not be able to sell " +
+                "good that does not match any of the goods held in inventory",regularPlayer.sell(notRandomGood));
     }
 
     /** This tests the player's ability to sell 0 items*/
@@ -76,7 +79,8 @@ public class SpaceTraderTests {
     public void testSellZeroQuantity() {
         notRandomGood.setQuantity(0);
         regularPlayer.addToPlayerGoods(notRandomGood);
-        Assert.assertFalse("Player should not be able to sell good with quantity of 0",regularPlayer.sell(notRandomGood));
+        Assert.assertFalse("Player should not be able to " +
+                "sell good with quantity of 0",regularPlayer.sell(notRandomGood));
     }
 
     //Buying Tests made by Fanuel Abiy
@@ -88,7 +92,9 @@ public class SpaceTraderTests {
         notRandomGood.setQuantity(1);
         Collection<Good> goods = regularPlayer.getPlayerGoods();
         goods.add(notRandomGood);
-        Assert.assertTrue("Player should be able to buy goods that are in inventory and have quantity > 0", regularPlayer.buy(notRandomGood));
+        Assert.assertTrue("Player should be able to buy goods " +
+                "that are in inventory " +
+                "and have quantity > 0", regularPlayer.buy(notRandomGood));
     }
 
     /** Tests player's ability to buy goods when inventory is empty*/
@@ -103,7 +109,9 @@ public class SpaceTraderTests {
         differentGood.setQuantity(1);
         Collection<Good> goods = regularPlayer.getPlayerGoods();
         goods.add(differentGood);
-        Assert.assertTrue("Player should be able to buy good that does not match any of the goods held in inventory",regularPlayer.buy(notRandomGood));
+        Assert.assertTrue("Player should be able to buy " +
+                "good that does not match " +
+                "any of the goods held in inventory",regularPlayer.buy(notRandomGood));
     }
 
     /** This tests the player's ability to buy while holding 15 items*/
@@ -112,7 +120,8 @@ public class SpaceTraderTests {
         notRandomGood.setQuantity(1);
         regularPlayer.addToPlayerGoods(notRandomGood);
         regularPlayer.buy(notRandomGood);
-        Assert.assertFalse("Player should not be able to buy good with max inventory",regularPlayer.getPlayerGoods().size() >= 15);
+        Assert.assertFalse("Player should not be able " +
+                "to buy good with max inventory",regularPlayer.getPlayerGoods().size() >= 15);
     }
 
 

@@ -14,13 +14,15 @@
             android:id="@+id/playerGoodTextview"
             android:layout_marginTop="12dp"
             app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="216dp"/>
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"/>
     <Button
             android:text="Sell"
             android:layout_width="63dp"
             android:layout_height="42dp"
             android:id="@+id/sell_Button"
-            tools:layout_editor_absoluteY="5dp" app:layout_constraintStart_toEndOf="@+id/playerGoodTextview"
+            app:layout_constraintStart_toEndOf="@+id/playerGoodTextview"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintHorizontal_bias="0.0"/>
+            app:layout_constraintHorizontal_bias="0.0" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent"/>
 </android.support.constraint.ConstraintLayout>

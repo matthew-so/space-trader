@@ -35,7 +35,7 @@ public class MarketplaceActivity extends AppCompatActivity {
 
 
 
-    public static TextView credits_TextView;
+    public TextView credits_TextView;
 
 
     @Override
