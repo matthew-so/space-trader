@@ -84,13 +84,13 @@ public class PlayerGoodsAdapter extends
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!playerGoods.isEmpty() && player.sell(playerGoods.get(position))) {
+                if (!playerGoods.isEmpty() && player.sell(playerGoods.get(viewHolder.getAdapterPosition()))) {
                     button.setEnabled(true);
                 } else {
                     button.setEnabled(false);
-                    playerGoods.remove(position);
-                    notifyItemRemoved(position);
-                    notifyItemChanged(position);
+                    playerGoods.remove(viewHolder.getAdapterPosition());
+                    notifyItemRemoved(viewHolder.getAdapterPosition());
+                    notifyItemChanged(viewHolder.getAdapterPosition());
                     notifyDataSetChanged();
                 }
                 MarketplaceActivity.credits_TextView.setText("$" + player.getCredits() + "\n" +

@@ -156,7 +156,8 @@ public enum Good {
      * @return The price of the good to be sold
      */
     public int sellPrice(int buyPrice, int traderSkill) {
-        return ((buyPrice) * (((Constants.ONEOTHREE) + (Constants.MAX_SKILL - traderSkill)) / (100)));
+        return ((buyPrice) * (((Constants.ONEOTHREE.getValue()) +
+                (Constants.MAX_SKILL.getValue() - traderSkill)) / (100)));
     }
 
 

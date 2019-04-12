@@ -100,7 +100,7 @@ public class GoodsAdapter extends
 
 
 
-                if (player.buy(planetGoods.get(position))) {
+                if (player.buy(planetGoods.get(viewHolder.getAdapterPosition()))) {
                     viewHolder.buy_button.setEnabled(true);
 
                      //Updates the Player's inventory when buying a good

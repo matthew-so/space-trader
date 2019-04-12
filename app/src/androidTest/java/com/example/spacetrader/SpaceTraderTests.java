@@ -7,6 +7,7 @@ import com.example.spacetrader.entity.Player;
 import com.example.spacetrader.entity.Resource;
 import com.example.spacetrader.entity.SolarSystem;
 import com.example.spacetrader.entity.TechLevel;
+import com.example.spacetrader.entity.Universe;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
@@ -14,6 +15,8 @@ import org.junit.Test;
 import org.junit.rules.Timeout;
 
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * This class is for testing methods in the application
@@ -21,9 +24,9 @@ import java.util.Collection;
 
 @SuppressWarnings("SpellCheckingInspection")
 public class SpaceTraderTests {
-    //Selling Tests made by Kyser Montalvo
+
     @Rule
-    private final Timeout globalTimeout = Timeout.seconds(2);
+    public final Timeout globalTimeout = Timeout.seconds(2);
 
     private Player regularPlayer;
     private Good notRandomGood;
@@ -34,12 +37,16 @@ public class SpaceTraderTests {
     public void setUp() {
         SolarSystem currentSolarSystem;
         this.regularPlayer = new Player("Regular Player",4,4,4,4);
-        currentSolarSystem = new SolarSystem("Dat Way",TechLevel.FIVE,Resource.EIGHT,Constants.TWENTY,Constants.TWENTY,new Planet("Uranus"));
-        regularPlayer.setCurrentSolarSystem(currentSolarSystem);
+        Universe myUniverse = new Universe();
+        regularPlayer.setCurrentSolarSystem(myUniverse.getSolarSystem(0));
         notRandomGood = Good.FIREARMS;
         differentGood = Good.FOOD;
+        Map<Good, Integer> myMap = new HashMap<>();
+        myMap.put(notRandomGood,4);
+        regularPlayer.getCurrentSolarSystem().setBuyGood(myMap);
 
     }
+    //Selling Tests made by Kyser Montalvo
     /**Tests player's ability to sell goods*/
     @Test
     public void testSellContainsGoodPlayer() {
@@ -74,20 +81,10 @@ public class SpaceTraderTests {
 
     //Buying Tests made by Fanuel Abiy
 
-    /**Sets up player*/
-    @Before
-    public void setUpPurchase() {
-        SolarSystem currentSolarSystem;
-        this.regularPlayer = new Player("Player 1",0,0,8,8);
-        currentSolarSystem = new SolarSystem("Milky Way",TechLevel.SEVEN,Resource.SEVEN,Constants.ONEFIFTY,Constants.ONEFIFTY,new Planet("Earth"));
-        regularPlayer.setCurrentSolarSystem(currentSolarSystem);
-        notRandomGood = Good.GAMES;
-        differentGood = Good.NARCOTICS;
-
-    }
     /**Tests player's ability to buy goods*/
     @Test
     public void testBuyContainsGoodPlayer() {
+
         notRandomGood.setQuantity(1);
         Collection<Good> goods = regularPlayer.getPlayerGoods();
         goods.add(notRandomGood);
@@ -106,7 +103,7 @@ public class SpaceTraderTests {
         differentGood.setQuantity(1);
         Collection<Good> goods = regularPlayer.getPlayerGoods();
         goods.add(differentGood);
-        Assert.assertTrue("Player should be able to buy good that does not match any of the goods held in inventory",regularPlayer.sell(notRandomGood));
+        Assert.assertTrue("Player should be able to buy good that does not match any of the goods held in inventory",regularPlayer.buy(notRandomGood));
     }
 
     /** This tests the player's ability to buy while holding 15 items*/

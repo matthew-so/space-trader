@@ -52,7 +52,7 @@ public class Player implements Serializable {
         credits = 1000;
         ship = new Ship(Ship.ShipType.GNAT);
         inventorySpace = ship.getCargoCapacity();
-        totalPoints = Constants.START_SKILL;
+        totalPoints = Constants.START_SKILL.getValue();
         playerGoods = new ArrayList<>();
 
     }

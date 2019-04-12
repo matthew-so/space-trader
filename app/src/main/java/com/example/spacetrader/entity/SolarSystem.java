@@ -128,7 +128,7 @@ public class SolarSystem {
             for (Good i: Good.values()) {
                 quantityBuy.put(i, i.calculateQuantity(techLev,planet.size(),resourceType,solar));
             }
-            startCountdown = Constants.COUNTDOWN;
+            startCountdown = Constants.COUNTDOWN.getValue();
         } else {
             startCountdown--;
         }
@@ -140,6 +140,9 @@ public class SolarSystem {
      * @return The price
      */
     public Integer getBuyGoodPrice(Good good) {
+        if(buyGood == null) {
+            throw new NullPointerException("buy Good is Null");
+        }
         return buyGood.getOrDefault(good, -1);
     }
 
@@ -188,5 +191,13 @@ public class SolarSystem {
      */
     public String getResource() {
         return resourceType.getResource();
+    }
+
+    /**
+     * this is a method
+     * @param buyGood the map it is setting
+     */
+    public void setBuyGood(Map<Good, Integer> buyGood) {
+        this.buyGood = buyGood;
     }
 }

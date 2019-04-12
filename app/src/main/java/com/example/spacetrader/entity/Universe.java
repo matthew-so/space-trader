@@ -110,22 +110,22 @@ public class Universe {
          milkyWay = new SolarSystem("Milky Way", TechLevel.FIVE,
                  Resource.ONE, 0, 0, Earth);
          rockyWay = new SolarSystem("Rocky Way", TechLevel.FOUR,
-                 Resource.THREE, Constants.TWENTY, 10, Mars);
+                 Resource.THREE, Constants.TWENTY.getValue(), 10, Mars);
          silkyWay = new SolarSystem("Silky Way", TechLevel.THREE,
-                 Resource.EIGHT, Constants.FOURTY, Constants.THIRTY, Saturn);
+                 Resource.EIGHT, Constants.FOURTY.getValue(), Constants.THIRTY.getValue(), Saturn);
          almondWay = new SolarSystem("Almond Way", TechLevel.TWO,
-                 Resource.SEVEN, Constants.SIXTY, Constants.FIFTY, Mercury);
+                 Resource.SEVEN, Constants.SIXTY.getValue(), Constants.FIFTY.getValue(), Mercury);
          crunchyWay = new SolarSystem("Crunchy Way", TechLevel.ONE,
-                 Resource.ELEVEN, Constants.EIGHTY, Constants.SEVENTY, Venus);
+                 Resource.ELEVEN, Constants.EIGHTY.getValue(), Constants.SEVENTY.getValue(), Venus);
          saucyWay = new SolarSystem("Saucy Way", TechLevel.SIX,
-                 Resource.FOUR, 100, Constants.NINETY, Uranus);
+                 Resource.FOUR, 100, Constants.NINETY.getValue(), Uranus);
          creamyWay = new SolarSystem("Creamy Way", TechLevel.SEVEN,
-                 Resource.NINE, Constants.ONETWENTY, 100, Pluto);
+                 Resource.NINE, Constants.ONETWENTY.getValue(), 100, Pluto);
          sourWay = new SolarSystem("Sour Way", TechLevel.ZERO,
-                 Resource.TWO, 100, Constants.EIGHTYFIVE, Ares);
+                 Resource.TWO, 100, Constants.EIGHTYFIVE.getValue(), Ares);
          saltyWay = new SolarSystem("Salty Way", TechLevel.FIVE,
-                 Resource.TWELVE, Constants.ONEFOURTY, Constants.SIXTYFIVE, twoPlanets);
+                 Resource.TWELVE, Constants.ONEFOURTY.getValue(), Constants.SIXTYFIVE.getValue(), twoPlanets);
          datWay = new SolarSystem("Dat Way", TechLevel.FOUR,
-                 Resource.TEN, Constants.ONEFIFTY, Constants.FOURTYFOUR, Vulcan);
+                 Resource.TEN, Constants.ONEFIFTY.getValue(), Constants.FOURTYFOUR.getValue(), Vulcan);
     }
 }

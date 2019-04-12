@@ -3,24 +3,24 @@ package com.example.spacetrader.entity;
 /**
  * This class represents the constants we used in our implementation
  */
-public class Constants {
-    public static final int MAX_SKILL = 12;
-    public static final int COUNTDOWN = 6;
-    public static final int START_SKILL = 16;
-    public static final int ONEOTHREE = 103;
-    public static final int TWENTY = 20;
-    public static final int FOURTY = 40;
-    public static final int THIRTY = 30;
-    public static final int SIXTY = 60;
-    public static final int FIFTY = 50;
-    public static final int EIGHTY = 80;
-    public static final int SEVENTY = 70;
-    public static final int NINETY = 90;
-    public static final int ONETWENTY = 120;
-    public static final int EIGHTYFIVE = 85;
-    public static final int ONEFOURTY = 140;
-    public static final int SIXTYFIVE = 65;
-    public static final int ONEFIFTY = 150;
-    public static final int FOURTYFOUR = 44;
+public enum Constants {
+    MAX_SKILL(12), COUNTDOWN(6),START_SKILL(16), ONEOTHREE(103), TWENTY(20), FOURTY(40),
+    THIRTY(30),SIXTY(60),FIFTY(50),EIGHTY(80),
+    SEVENTY(70),NINETY(90),ONETWENTY(120),EIGHTYFIVE(85),
+    ONEFOURTY(140),SIXTYFIVE(65),ONEFIFTY(150), FOURTYFOUR(44);
+
+    private final int num;
+   Constants(int num) {
+        this.num = num;
+    }
+
+
+    /**
+     * returns the value of the number
+     * @return the decimal value of the number listed
+     */
+    public int getValue() {
+        return this.num;
+    }
 
 }
