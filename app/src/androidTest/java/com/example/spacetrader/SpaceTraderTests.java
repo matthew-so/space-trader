@@ -101,13 +101,15 @@ public class SpaceTraderTests {
         differentGood.setQuantity(1);
         Collection<Good> goods = regularPlayer.getPlayerGoods();
         goods.add(differentGood);
-        Assert.assertFalse("Player should not be able to buy good that does not match any of the goods held in inventory",regularPlayer.buy(notRandomGood));
+        Assert.assertFalse("Player should not be able to buy good that does not match any of the goods held " +
+                "in inventory",regularPlayer.buy(notRandomGood));
     }
 
     /** Tests player's ability to buy goods when inventory is empty*/
     @Test
     public void testBuyNotContainsGoodPlayer() {
-        Assert.assertTrue("Player should be able to buy goods if he or she has none in inventory",regularPlayer.buy(notRandomGood));
+        Assert.assertTrue("Player should be able to buy goods if he or she has none " +
+                "in inventory",regularPlayer.buy(notRandomGood));
     }
 
     /**Tests players ability to buy goods they do not already have*/
