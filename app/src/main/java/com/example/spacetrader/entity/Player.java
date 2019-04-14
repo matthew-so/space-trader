@@ -3,7 +3,6 @@ package com.example.spacetrader.entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Map;
 
 /**
  * This class represents the player

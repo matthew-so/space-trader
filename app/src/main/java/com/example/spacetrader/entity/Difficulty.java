@@ -1,7 +1,6 @@
 package com.example.spacetrader.entity;
 
 import android.support.annotation.NonNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * This class represents the game difficulty
