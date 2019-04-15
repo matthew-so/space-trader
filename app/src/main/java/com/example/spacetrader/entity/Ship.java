@@ -81,6 +81,10 @@ public class Ship {
         return 0; //all fuel used
     }
 
+    public void setFuel(int newFuel) {
+        this.fuel = newFuel;
+    }
+
     public int getFuel() {return fuel;}
 
     public boolean canTravel(int distance) {
